@@ -1,0 +1,270 @@
+body{
+	background-color: #fff;
+	font-weight: 200;
+}
+
+
+.app-table>tbody>tr>td {
+    color: #3e474f !important;
+    font-size: 13px;
+    border-top: 1px solid #edeff0;
+}
+
+.magenta-line:before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #D4186F;
+    z-index: 14;
+}
+
+.company-name-h{
+	text-align: center; 
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-weight: 200 !important;
+	font-size: 48px !important;
+	color: #D4186F !important;
+}
+
+
+.menu-header{
+	text-align: center;
+	padding-bottom: 20px;
+	font-weight: 200;
+	font-size: 24px;
+	color: #3e474f;
+}
+
+
+.menu-header-2{
+	margin-top: -45px;
+	text-align: center;
+	padding-bottom: 10px;
+	font-weight: 200;
+	font-size: 24px;
+	color: #3e474f;
+}
+
+.menu-header-form{
+	margin-left: 40px;
+	margin-top: 10px;
+	text-align: center;
+	padding-bottom: 10px;
+	font-weight: 200;
+	font-size: 24px;
+	color: #3e474f;
+}
+
+.navbar{
+	border-radius: 0px;
+	margin-bottom: 0;
+	height: 70px;
+	line-height: 70px;
+}
+
+.navbar-asprin{
+	background-color: #ffffff;
+	height: 70px;
+	line-height: 70px;
+	border-bottom: 0px;
+}
+
+.brand-logo{
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.circular{
+	width: 45px;
+	height: 45px;
+	
+}
+
+.img-circle{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}
+
+.text-right{
+	border-top: 0px;
+}
+
+hr {
+	padding-bottom: 60px;
+}
+
+
+.asprin-input-center{
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}
+
+.input-height{
+	height: 50px;
+	border: 1px solid #edeff0;
+	width: auto;
+	border-bottom-right-radius: 10px;
+}
+
+.input-group-addon{
+	background-color: #FFFFFF;
+	color: #444444;
+	border: 1px solid #edeff0;
+	border-radius: 4px;
+}
+
+.btn-primary{
+	background-color: #D4186F;
+	border-color: #D4186F;
+	width: 150px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #9D206B;
+    border-color: #9D206B; 
+}
+
+.container-padding{
+	padding-bottom: 5px;
+}
+
+.table a{
+	color: #3e474f;
+}
+
+.table a:hover, a:focus, a:active{
+	color: #9D206B;
+	text-decoration: none;
+}
+
+.row-margin-left{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #3e474f;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #D4186F;
+    border-color: #D4186F;
+}
+
+.input-group-addon a{
+	color: #D4186F;
+}
+.table th{
+	font-weight: 400;
+}
+
+.form-horizontal label{
+	font-weight: 400;
+}
+
+.form-horizontal .control-label{
+text-align:left;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+	padding-top: 100px;
+}
+
+.col-centered img{
+	display:block;
+    margin:auto;
+}
+
+.header-signin{
+	font-weight: 200;
+	text-align: center;
+	font-size: 20px;
+	color: #666;
+	margin-top: 5px;
+	margin-bottom: 30px;
+}
+
+.input-lg{
+	height: 48px;
+	border-radius: 3px;
+	width:100%;
+}
+
+input:focus{
+	outline: none !important;
+	border-color: 1px solid #D4186F;
+	box-shadow: 0 0 10px #719ECE;
+}
+
+.footer-form{
+	position: absolute;
+	bottom: 0;
+	left: 0; 
+	right: 0;
+	background-color: #3e474f;
+	color: #edeff0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.footer h1 h2 h3{
+	text-align:justify; 
+	color:#edeff0;
+	font-weight: 600;
+	font-size: 18px;
+}
+
+.footer > p {
+	text-align:justify; 
+	color:#edeff0;
+	font-weight: 200;
+	font-size: 10px;
+}
+
+.list-st{
+	text-align:justify; 
+	color:#edeff0;
+	font-weight: 100;
+}
+
+.list-st a{
+	color: #edeff0;
+	font-size: 12px;
+}
+
+.forget-passw a{
+	color: #D4186F;
+	text-align: center;
+}
+
+.forget-passw a:hover{
+	text-decoration: none;
+}
+
+.conatiner-signin{
+	padding-bottom: 90px;
+}

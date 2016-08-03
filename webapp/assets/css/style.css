@@ -1,0 +1,303 @@
+body{
+	background-color: #edeff0;
+	font-weight: 200;
+}
+
+.navbar{
+	border-radius: 0px;
+	margin-bottom: 0;
+	height: 70px;
+	line-height: 70px;
+}
+
+.navbar-asprin{
+	background-color: #ffffff;
+	border-bottom-color: rgb(231, 231, 231);
+	height: 70px;
+	line-height: 70px;
+}
+
+.navbar-nav>li>a{
+	line-height: 35px;
+} 
+
+.navbar-toggle{
+	background-color: #edeff0;
+	color: #fff;
+}
+
+.asprin-bg-1{
+	background-color: #9D206B;
+	padding-top: 160px;
+	padding-bottom: 170px;
+	opacity: 0.9;
+}
+
+.asprin-bg-2{
+	background-color: #388FCD;
+	color: #edeff0;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+
+.aspin-bg-3{
+	background-color: #edeff0;
+	color: #333;
+	padding-top: 50px; 
+	padding-bottom: 140px;
+}  
+
+
+.asprin-bg-4{
+	background-color: #edeff0;
+	color: #333 !important;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.asprin-bg-5{
+	background-color: #F9AC18;
+	color: #333 !important;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	opacity: 0.8;
+}
+
+.asprin-bg-2 h2{
+	color: #edeff0;
+}
+
+.aspin-bg-3 h1{
+	color: #444 !important;
+	font-size: 48px;
+}
+
+.img-desc{
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto; 
+	padding-top: 100px;
+}
+
+.nav>li>a{
+	color: #888;
+}
+
+.asprin-input-center{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.input-height{
+	height: 50px;
+}
+
+.input-group-addon{
+	background-color: #FFFFFF;
+	color: #444444;
+	border: 1px solid #FFFFFF;
+	border-radius: 4px;
+}
+
+.brand-logo{
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.icon-bar{
+	color: #fff;
+}
+
+.container-fluid h1, h2, h3{
+	padding-bottom: 10px;
+	text-align:center; 
+	color:#fff;
+	font-weight: 100;
+}
+.input-group{
+	padding-bottom: 30px;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+	background-color: #fff;
+}
+.form-control[disabled], fieldset[disabled] .form-control{
+	cursor: pointer;
+}
+
+.container h1, h2, h3{
+	text-align:center; 
+	color:#333;
+	font-weight: 100;
+}
+
+.container h1 span{
+	font-weight: 400;
+	color: #9D206B;
+}
+
+.container .row{
+	padding-bottom: 30px;
+}
+
+.img-thumbnail{
+
+}
+
+footer{
+	background-color: #3e474f;
+	color: #edeff0;
+	
+}
+
+.footer{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.footer h1 h2 h3{
+	text-align:justify; 
+	color:#edeff0;
+	font-weight: 600;
+	font-size: 18px;
+}
+
+.list-st{
+	text-align:justify; 
+	color:#edeff0;
+	font-weight: 100;
+}
+
+.list-st a{
+	color: #edeff0;
+	font-size: 12px;
+}
+
+.asprin-number{
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+
+.footer > p {
+	text-align:justify; 
+	color:#edeff0;
+	font-weight: 200;
+	font-size: 10px;
+}
+
+.about-asprin{
+	text-align: center;
+	font-weight: 300;
+}
+
+.asprin-line{
+	height: 1.5px;
+	width: 30%;
+	background-color: #9D206B;
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.text-center{
+	font-size: 12px;
+	font-weight: 100;
+}
+
+.header-print{
+	margin-top: 70px;
+}
+
+.centered{
+	margin:0 auto;
+}
+
+.print-detail{
+	margin-bottom: 0;
+}
+
+.col-centered-h{
+    float: none;
+    margin: 0 auto;
+}
+
+.thumbnail {
+	z-index: 2;
+	border-radius: 4px;
+    background: white;
+	width: auto;
+	
+    -webkit-animation: plans-in 0.5s 1.5s ease-in-out forwards;
+    -moz-animation: plans-in 0.5s 1.5s ease-in-out forwards;
+    animation: plans-in 0.5s 1.5s ease-in-out forwards;
+}
+
+.thumbnail img{
+	width: 50%;
+}
+
+
+.table>tbody>tr>td {
+	color: #edeff0;
+	font-size: 13px;
+	border-top: 1px solid #edeff0;
+}
+
+.list-company >tbody>tr>td {
+	color: #3e474f;
+	font-size: 13px;
+	border-top: 1px solid #edeff0;
+}
+
+
+.btn-asprin{
+	background-color: #388FCD;
+	width: 100%;
+	color: #fff;
+	border-color: #388FCD;
+}
+
+.hr-rule{
+	width: auto;
+	height: 1px;
+	background-color: #3e474f;
+	margin-top: -20px;
+	padding-bottom: -20px;
+}
+
+.sign-in-order{
+	background-color: #3e474f;
+	padding-top: 15px;
+	padding-bottom: 40px;
+	padding-left: 40px;
+	padding-right: 40px;
+	width: auto;
+	height: auto;
+	border-radius: 4px;
+}
+
+.sign-in-order h1{
+	font-size: 25px;
+	padding-bottom: 15px;
+	color: #edeff0 !important;
+}
+
+.sign-in-order input{
+	background-color: transparent;
+	color: #edeff0 !important;
+}
+
+.sign-in-order p{
+	color: #edeff0 !important;
+}
+
+.btn-width{
+	width: 30% !important;
+}
+
+.order-details >tbody>tr> td:nth-child(-n+2) {
+	border-top: 1px solid #3e474f;
+	color: #3e474f !important;
+}
