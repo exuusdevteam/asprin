@@ -1,6 +1,7 @@
-from flask import jsonify
-from api import app
+from app import *
 from app.model.models import *
+from app.model.schema import *
+from app.controller.printer.getprinter import *
 from sqlalchemy.exc import IntegrityError
 
 
@@ -45,6 +46,11 @@ def get_printer(id):
     printer = Printer.query.get(id)
     result = printer_schema.dump(printer)
     return jsonify({"printer":result.data})
+
+@app.route("/api/printer/options")
+def get_printer_option():
+    list_printer = get_printer_list()
+    return jsonify(list_printer)
 
 @app.route("/api/tonners/<int:business_id>")
 def get_tonners(business_id):
