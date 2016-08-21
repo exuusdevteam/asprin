@@ -12,6 +12,7 @@ class UserSchema(Schema):
     phone = fields.Str()
     user_type = fields.Int()
     regDate = fields.Date()
+    password= fields.Str()
     business_id = fields.Int()
 
 
@@ -29,8 +30,9 @@ class BusinessSchema(Schema):
 
 
 class PrinterSchema(Schema):
-    print_id = fields.Int(dump_only = True)
+    printer_id = fields.Int(dump_only = True)
     name = fields.Str()
+    uri = fields.Str()
     regDate = fields.Date()
     business_id = fields.Int()
 
