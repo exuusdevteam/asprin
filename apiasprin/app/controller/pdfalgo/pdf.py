@@ -16,7 +16,8 @@ class Pdfalgo:
         filesize = os.path.getsize(self.pdffile)
         filepath = os.path.abspath(self.pdffile)
 
-        sumPdf = 0
+        sumPdf = 0.0
+        sumTonner = 0.0
         cPdf = 0
         mPdf = 0
         yPdf = 0
@@ -31,10 +32,11 @@ class Pdfalgo:
             # Asprin Class
             asprin = Asprin(tmp)
 
-            sum, cmyk = asprin.tonnerPrice()
+            sum_t, sum, cmyk = asprin.tonnerPrice()
 
             # PDF summation price
-            sumPdf = sumPdf + sum
+            sumPdf += sum
+            sumTonner += sum_t
             c,m,y,k = cmyk
 
             # CMYK Summation Price
@@ -43,7 +45,7 @@ class Pdfalgo:
             yPdf += y
             kPdf += k
 
-        return page_number, filesize, filepath, sumPdf, cPdf, mPdf, yPdf, kPdf, cmyk, sum, (time.time() - start_time)
+        return page_number, filesize, filepath, sumTonner, sumPdf, cPdf, mPdf, yPdf, kPdf, cmyk, sum, (time.time() - start_time)
 
 
 
