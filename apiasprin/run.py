@@ -1,5 +1,6 @@
 from app import app
 from app.api.get import *
+from app.api.post import *
 
 
 
