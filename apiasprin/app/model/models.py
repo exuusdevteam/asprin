@@ -25,32 +25,27 @@ class User(db.Model):
     names = db.Column(db.String(80))
     username = db.Column(db.String(40), unique = True)
     email = db.Column(db.String(80), unique = True)
-    phone = db.Column(db.String(20), unique = True)
+    phone = db.Column(db.String(25))
     user_type = db.Column(db.Integer)  # 0 (Printing Business User ),  1 (Customer)
     regDate =  db.Column(db.DateTime)
+    password = db.Column(db.String(80))
     business_id = db.Column(db.Integer, db.ForeignKey('business.business_id'))
 
     printjob = db.relationship('PrinterJob', backref='user', lazy='dynamic')
 
-    def __init__(self, names, username, email, phone, user_type, business_id, regDate = None):
+    def __init__(self, names, username, email, phone, user_type, business_id, password, regDate = None):
         self.names = names
         self.username = username
         self.email = email
         self.phone = phone
         self.user_type = user_type
+        self.password = password
 
         if regDate is None:
             self.regDate = datetime.utcnow()
         self.business_id = business_id
 
-    def add(self, resource):
-        db.session.add(resource)
-        return db.session.commit()
-    def update(self):
-        return db.session.commit()
-    def delete(self, resource):
-        db.session.delete(resource)
-        return db.session.commit()
+
 
 
 
@@ -60,7 +55,7 @@ class Business(db.Model):
     business_id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(80))
     email = db.Column(db.String(80), unique = True)
-    phone = db.Column(db.String, unique= True)
+    phone = db.Column(db.String)
     lat = db.Column(db.String(100))
     lon = db.Column(db.String(100))
     address = db.Column(db.String(80))
@@ -96,19 +91,20 @@ class Printer(db.Model):
 
     printer_id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(80))
+    uri = db.Column(db.String(220), unique = True)
     regDate = db.Column(db.DateTime)
     business_id = db.Column(db.Integer, db.ForeignKey('business.business_id'))
 
     printjob = db.relationship('PrinterJob', backref='printer', lazy='dynamic')
 
-    def __init__(self, name, business_id, regDate = None):
+
+    def __init__(self, printer_id, name, business_id, uri, regDate=None):
+        self.printer_id = printer_id
         self.name = name
         self.business_id = business_id
-
         if regDate is None:
             self.regDate = datetime.utcnow()
-
-
+        self.uri = uri
 
 
 class Tonner(db.Model):
