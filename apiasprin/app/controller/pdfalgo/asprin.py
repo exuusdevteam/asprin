@@ -65,5 +65,5 @@ class Asprin:
 
             sum = sum + ((c * c_toner) + (m * m_toner) + (y * y_toner) + (k * k_toner)) * by_color[data]
 
-        return Pdfprice(sum), cmyk
+        return Pdfprice(sum).price(), cmyk
 
