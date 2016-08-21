@@ -23,7 +23,11 @@ class Asprin:
         sum = 0
         for data in by_color:
             try:
-                r, g, b, a = data
+                if len(data) == 3:
+                    r, g, b = data
+                else:
+                    r, g, b, a = data
+
             except TypeError:
                 r, g, b = 0, 0, 0
 
