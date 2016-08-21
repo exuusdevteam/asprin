@@ -34,7 +34,7 @@ class Pdfalgo:
             sum, cmyk = asprin.tonnerPrice()
 
             # PDF summation price
-            sumPdf += sum
+            sumPdf = sumPdf + sum
             c,m,y,k = cmyk
 
             # CMYK Summation Price
