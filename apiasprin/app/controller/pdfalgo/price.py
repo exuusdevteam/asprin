@@ -4,18 +4,12 @@ class Pdfprice:
 
     def price(self):
         sum = self.sum
-        if sum >= 6:
+        if sum >= 3:
             total = 500
-        elif sum >= 5:
-            total = sum * 500 / 6
-        elif sum >= 4:
-            total = sum * 500 / 6
-        elif sum >= 3:
-            total = sum * 500 / 6
         elif sum >= 2:
-            total = sum * 500 / 6
+            total = sum * 500 / 3
         elif sum >= 1:
-            total = sum * 500 / 6
+            total = sum * 500 / 3
         elif sum >= 0.1:
             total = sum * 400
         elif sum >= 0.01:
