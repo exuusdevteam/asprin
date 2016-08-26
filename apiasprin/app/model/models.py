@@ -205,10 +205,11 @@ class PaperType(db.Model):
     __tablename__ = 'paper_type'
 
     type_id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(80))
+    type = db.Column(db.String(80))
     color = db.Column(db.String(40))
     weight = db.Column(db.Integer)
-    description = db.Column(db.Text)
+    characteristics = db.Column(db.Text)
+    uses = db.Column(db.String(120))
 
     printjob = db.relationship('PrinterJob', backref='paper_type', lazy='dynamic')
 
@@ -226,16 +227,16 @@ class PaperSize(db.Model):
 
     size_id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(80))
-    height = db.Column(db.Integer)
-    width = db.Column(db.Integer)
+    size = db.Column(db.String(30))
+    size_type = db.Column(db.String(30))
     description = db.Column(db.Text)
 
     printjob = db.relationship('PrinterJob', backref='paper_size', lazy='dynamic')
 
-    def __init__(self, name, height, width, description):
+    def __init__(self, name, size, size_type, description):
         self.name = name
-        self.height = height
-        self.width = width
+        self.size = size
+        self.size_type = size_type
         self.description = description
 
 

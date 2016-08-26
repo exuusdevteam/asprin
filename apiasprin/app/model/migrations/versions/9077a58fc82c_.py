@@ -1,13 +1,13 @@
 """empty message
 
-Revision ID: 370e5c8f280d
+Revision ID: 9077a58fc82c
 Revises: None
-Create Date: 2016-08-03 11:49:45.103793
+Create Date: 2016-08-25 10:43:50.715847
 
 """
 
 # revision identifiers, used by Alembic.
-revision = '370e5c8f280d'
+revision = '9077a58fc82c'
 down_revision = None
 
 from alembic import op
@@ -28,32 +28,34 @@ def upgrade():
     sa.Column('logo', sa.String(length=80), nullable=True),
     sa.Column('regDate', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('business_id'),
-    sa.UniqueConstraint('email'),
-    sa.UniqueConstraint('phone')
+    sa.UniqueConstraint('email')
     )
     op.create_table('paper_size',
     sa.Column('size_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=80), nullable=True),
-    sa.Column('height', sa.Integer(), nullable=True),
-    sa.Column('width', sa.Integer(), nullable=True),
+    sa.Column('size', sa.String(length=30), nullable=True),
+    sa.Column('size_type', sa.String(length=30), nullable=True),
     sa.Column('description', sa.Text(), nullable=True),
     sa.PrimaryKeyConstraint('size_id')
     )
     op.create_table('paper_type',
     sa.Column('type_id', sa.Integer(), nullable=False),
-    sa.Column('name', sa.String(length=80), nullable=True),
+    sa.Column('type', sa.String(length=80), nullable=True),
     sa.Column('color', sa.String(length=40), nullable=True),
     sa.Column('weight', sa.Integer(), nullable=True),
-    sa.Column('description', sa.Text(), nullable=True),
+    sa.Column('characteristics', sa.Text(), nullable=True),
+    sa.Column('uses', sa.String(length=120), nullable=True),
     sa.PrimaryKeyConstraint('type_id')
     )
     op.create_table('printer',
     sa.Column('printer_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=80), nullable=True),
+    sa.Column('uri', sa.String(length=220), nullable=True),
     sa.Column('regDate', sa.DateTime(), nullable=True),
     sa.Column('business_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['business_id'], ['business.business_id'], ),
-    sa.PrimaryKeyConstraint('printer_id')
+    sa.PrimaryKeyConstraint('printer_id'),
+    sa.UniqueConstraint('uri')
     )
     op.create_table('tonner',
     sa.Column('tonner_id', sa.Integer(), nullable=False),
@@ -67,14 +69,14 @@ def upgrade():
     sa.Column('names', sa.String(length=80), nullable=True),
     sa.Column('username', sa.String(length=40), nullable=True),
     sa.Column('email', sa.String(length=80), nullable=True),
-    sa.Column('phone', sa.String(length=20), nullable=True),
+    sa.Column('phone', sa.String(length=25), nullable=True),
     sa.Column('user_type', sa.Integer(), nullable=True),
     sa.Column('regDate', sa.DateTime(), nullable=True),
+    sa.Column('password', sa.String(length=80), nullable=True),
     sa.Column('business_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['business_id'], ['business.business_id'], ),
     sa.PrimaryKeyConstraint('user_id'),
     sa.UniqueConstraint('email'),
-    sa.UniqueConstraint('phone'),
     sa.UniqueConstraint('username')
     )
     op.create_table('printer_job',
