@@ -80,3 +80,36 @@ def post_user():
  ##########################################################################
 
 
+ ############################# POST BUSINESS ###################################
+@app.route("/api/post/business/", methods=["POST"])
+def post_business():
+    json_data = request.get_json()
+    if not json_data:
+        return jsonify({'message':'No input data provided'}), 400
+
+    data, errors = business_schema.load(json_data)
+
+    if errors:
+        return jsonify(errors), 422
+
+    try:
+        business = Business(
+            name = data['name'],
+            email = None,
+            phone = None,
+            lat = None,
+            lon = None,
+            address = None,
+            web = None,
+            logo = None,
+            regDate = None
+        )
+
+        db.session.add(business)
+        db.session.commit()
+
+        last_business = business_schema.dump(Business.query.get(business.business_id)).data
+        return jsonify({'business':last_business})
+    except IntegrityError:
+        return jsonify({'Message':'Already added'})
+
