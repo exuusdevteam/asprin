@@ -53,8 +53,8 @@ class Business(db.Model):
     __tablename__ = 'business'
 
     business_id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(80))
-    email = db.Column(db.String(80), unique = True)
+    name = db.Column(db.String(80), unique = True)
+    email = db.Column(db.String(80))
     phone = db.Column(db.String)
     lat = db.Column(db.String(100))
     lon = db.Column(db.String(100))
@@ -163,6 +163,7 @@ class PrinterJob(db.Model):
     black = db.Column(db.Float)
     status = db.Column(db.Integer)
     price = db.Column(db.Float)
+    paper_price = db.Column(db.Float)
     taxes = db.Column(db.Float)
     regDate = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
@@ -173,7 +174,7 @@ class PrinterJob(db.Model):
     printer_id = db.Column(db.Integer, db.ForeignKey('printer.printer_id'))
 
 
-    def __init__(self, tonner_cost, file, size, page_number, cyan, magenta, yellow, black, status, price, taxes, user_id, business_id, paper_type_id,  paper_size_id, tonner_id, printer_id, regDate = None):
+    def __init__(self, tonner_cost, file, size, page_number, cyan, magenta, yellow, black, status, price, paper_price, taxes, user_id, business_id, paper_type_id,  paper_size_id, tonner_id, printer_id, regDate = None):
         self.tonner_cost = tonner_cost
         self.file = file
         self.size = size
@@ -184,6 +185,7 @@ class PrinterJob(db.Model):
         self.black = black
         self.status = status
         self.price = price
+        self.paper_price = paper_price
         self.taxes = taxes
 
         if regDate is None:
