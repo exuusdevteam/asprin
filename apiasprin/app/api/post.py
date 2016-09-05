@@ -113,3 +113,30 @@ def post_business():
     except IntegrityError:
         return jsonify({'Message':'Already added'})
 
+
+############################# POST PAPER SIZE #####################################
+@app.route("/api/post/paper/size/", methods=["POST"])
+def post_paper_size():
+    json_data = request.get_json()
+    if not json_data:
+        return jsonify({'message':'No input data prodivded'})
+    data,errors = paper_size_schema.load(json_data)
+
+    if errors:
+        return jsonify(errors), 422
+    try:
+        paper_size = PaperSize(
+            name = data['name'],
+            size = data['size'],
+            size_type = data['size_type'],
+            description = None
+        )
+
+        db.session.add(paper_size)
+        db.session.commit()
+
+        last_paper = paper_size_schema.dump(PaperSize.query.get(paper_size.size_id)).data
+        return jsonify({'paper_size':last_paper})
+    except IntegrityError:
+        return jsonify({'message':'Already added'})
+
