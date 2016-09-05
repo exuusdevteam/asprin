@@ -63,3 +63,9 @@ def get_tonner(id):
     tonner =  Tonner.query.get(id)
     result = tonner_schema(tonner)
     return  jsonify({"tonner":result.data})
+
+@app.route("/api/get/paper/size")
+def get_size():
+    size = PaperSize.query.all()
+    result = papers_size_schema.dump(size)
+    return jsonify({"Paper_size":result.data})
