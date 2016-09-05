@@ -82,8 +82,8 @@ class PaperTypeSchema(Schema):
 class PaperSizeSchema(Schema):
     size_id = fields.Int(dump_only = True)
     name = fields.Str()
-    height = fields.Str()
-    width = fields.Str()
+    size = fields.Str()
+    size_type = fields.Str()
     description = fields.Str()
 
 
