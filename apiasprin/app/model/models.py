@@ -215,11 +215,12 @@ class PaperType(db.Model):
 
     printjob = db.relationship('PrinterJob', backref='paper_type', lazy='dynamic')
 
-    def __init__(self, name, color, weight, description):
-        self.name = name
+    def __init__(self, type, color, weight, characteristics, uses):
+        self.type = type
         self.color = color
         self.weight = weight
-        self.description = description
+        self.characteristics = characteristics
+        self.uses= uses
 
 
 
