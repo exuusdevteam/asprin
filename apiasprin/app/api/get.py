@@ -55,13 +55,13 @@ def get_printer_option():
 @app.route("/api/get/tonners/<int:business_id>")
 def get_tonners(business_id):
     tonners = Tonner.query.filter_by(business_id = business_id)
-    result = tonners_schema(tonners)
+    result = tonners_schema.dump(tonners)
     return jsonify({"tonners":result.data})
 
 @app.route("/api/get/tonner/<int:id>")
 def get_tonner(id):
     tonner =  Tonner.query.get(id)
-    result = tonner_schema(tonner)
+    result = tonner_schema.dump(tonner)
     return  jsonify({"tonner":result.data})
 
 @app.route("/api/get/paper/size")
@@ -69,3 +69,9 @@ def get_size():
     size = PaperSize.query.all()
     result = papers_size_schema.dump(size)
     return jsonify({"Paper_size":result.data})
+
+@app.route("/api/get/paper/type")
+def get_type():
+    type = PaperType.query.all()
+    result = papers_type_schema.dump(type)
+    return jsonify({'Paper_type':result.data})
