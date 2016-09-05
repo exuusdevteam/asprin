@@ -74,10 +74,11 @@ class PrinterJobSchema(Schema):
 
 class PaperTypeSchema(Schema):
     type_id = fields.Int(dump_only = True)
-    name = fields.Str()
+    type = fields.Str()
     color = fields.Str()
     weight = fields.Str()
-    description = fields.Str()
+    characteristics = fields.Str()
+    uses = fields.Str()
 
 class PaperSizeSchema(Schema):
     size_id = fields.Int(dump_only = True)
