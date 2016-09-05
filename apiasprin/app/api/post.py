@@ -140,3 +140,31 @@ def post_paper_size():
     except IntegrityError:
         return jsonify({'message':'Already added'})
 
+
+############################ POST PAPER TYPE #######################################
+@app.route("/api/post/paper/type/", methods=["POST"])
+def post_paper_type():
+    json_data = request.get_json()
+    if not json_data:
+        return jsonify({'message':'No input data provided'})
+    data, errors = paper_type_schema.load(json_data)
+
+    if errors:
+        return jsonify(errors), 422
+    try:
+        paper_type = PaperType(
+            type = data['type'],
+            color = data['color'],
+            weight = data['weight'],
+            characteristics = data['characteristics'],
+            uses = data['uses']
+        )
+
+        db.session.add(paper_type)
+        db.session.commit()
+
+        last_paper = paper_type_schema.dump(PaperType.query.get(paper_type.type_id)).data
+        return jsonify({'paper_type':last_paper})
+    except IntegrityError:
+        return jsonify({'message':'Already added'})
+
