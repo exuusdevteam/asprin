@@ -13,6 +13,7 @@ class UserSchema(Schema):
     user_type = fields.Int()
     regDate = fields.Date()
     password= fields.Str()
+    gender = fields.Str()
     business_id = fields.Int()
 
 
