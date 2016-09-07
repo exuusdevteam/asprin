@@ -6,7 +6,7 @@ asprinApp.config(['$routeProvider', function($routeProvider){
 		.when('/', {
 			templateUrl: 'views/home.html'
 		})
-		.when('/offers', {
+		.when('/offers/', {
 			templateUrl: 'views/offers.html'
 		})
 		.when('/signin-o', {
