@@ -26,13 +26,20 @@
    <div class="row">
       <h1>SCAN YOUR PDF WITH ASPRIN</h1>
       <div class="input-group col-md-4 col-lg-4 col-xs-10 asprin-input-center">
-         <span class="input-group-addon input-height"><a href="#" id="fire-file-btn"><i class="glyphicon glyphicon-file"></i></a></span>
-         <input type="text" class="form-control input-height" id="load-filename" aria-label="Amount (to the nearest dollar)" style="border:0px;">
-         <span class="input-group-addon input-height hide-upload-btn" ng-show="upload"><a href="#/offers" ng-click="showLoader" id="uplaod-asprin-file"><i class="glyphicon glyphicon-arrow-right" ></i></a></span>
-         <span class="input-group-addon input-height show-upload-btn" ng-show="loader"><img src="assets/img/loader.gif"></span>
-         <div class="file-asprin">
-            <input type="file" name="filename-asprin" id="filename-asprin" ng-show="false">
-         </div>
+         <form>
+            <span class="input-group-addon input-height">
+               <button id="fire-file-btn"><i class="glyphicon glyphicon-file"></i></button>
+            </span>
+            <input type="text" class="form-control input-height" id="load-filename" aria-label="Amount (to the nearest dollar)" style="border:0px;">
+            <span class="input-group-addon input-height hide-upload-btn" ng-show="upload">
+               <a href="#/offers" ng-click="showLoader" id="uplaod-asprin-file"><i class="glyphicon glyphicon-arrow-right"></i></a>
+            </span>
+            <span class="input-group-addon input-height show-upload-btn" ng-show="loader"><img src="assets/img/loader.gif"></span>
+            <div class="file-asprin">
+               <input type="file" name="filename-asprin" id="filename-asprin" ng-show="false">
+            </div>
+         </form>
+        
       </div>
    </div>
 </div>
