@@ -42,7 +42,7 @@ def delete_printjob(id):
         return jsonify({'Message':'1'})
     except:
         return jsonify({'Message':'0'})
-    
+
 
 
 
