@@ -98,6 +98,7 @@ body{
 	color: #444444;
 	border: 1px solid #FFFFFF;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
 .brand-logo{
