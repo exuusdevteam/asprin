@@ -47,7 +47,7 @@ asprinApp.config(['$routeProvider', function($routeProvider){
 asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
 	$scope.uploadPic = function(file) {
 	file.upload = Upload.upload({
-		url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+		url: 'http://0.0.0.0:5000/api/upload/pdf/',
 		data: {file: file},
 	});
 
