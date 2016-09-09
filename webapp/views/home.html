@@ -22,23 +22,37 @@
    </div>
 </nav>
 <div class="container-fluid asprin-bg-1">
-   <div class="row" >
+   <div class="row" ng-controller="pdfUploadCtrl">
       <h1>SCAN YOUR PDF WITH ASPRIN</h1>
-      <form>
-         <div class="input-group col-md-offset-4 col-md-4 col-lg-4 col-xs-10 asprin-input-center">
+      <form name="myForm">
+         <!--<div class="input-group col-md-offset-4 col-md-4 col-lg-4 col-xs-10 asprin-input-center">
             <span class="input-group-addon input-height">
             <a id="fire-file-btn" ><i class="glyphicon glyphicon-file"></i></a>
             </span>
             <input type="text" class="form-control input-height" id="load-filename" style="border:0px;">
             <span class="input-group-addon input-height hide-upload-btn" ng-show="upload">
-            <a ng-click="showLoader" id="uplaod-asprin-file"><i class="glyphicon glyphicon-arrow-right"></i></a>
+            <a ng-disabled="!myForm.$valid" 
+              ng-click="uploadPic(picFile)" id="uplaod-asprin-file"><i class="glyphicon glyphicon-arrow-right"></i></a>
             </span>
             <span class="input-group-addon input-height show-upload-btn" ng-show="loader"><img src="assets/img/loader.gif"></span>
             <div class="file-asprin">
-               <input type="file" name="filename-asprin" id="filename-asprin" type="file" ngf-select ng-model="picFile" name="file"    
+               <input type="file" name="filename-asprin"  type="file" ngf-select ng-model="picFile" name="file"    
              accept="" ng-drop ngf-max-size="30MB" required
-             ngf-model-invalid="errorFile" ng-show="false">
+             ngf-model-invalid="errorFile" ng-show="upload">
             </div>
+         </div> -->
+         <div class="col-md-offset-4 col-md-4 col-lg-4 col-xs-10">
+            <input type="file" name="filename-asprin"  type="file" ngf-select ng-model="picFile" name="file"    
+                accept="" ng-drop ngf-max-size="30MB" required
+                ngf-model-invalid="errorFile">
+                <button ng-disabled="!myForm.$valid" 
+              ng-click="uploadPic(picFile)">add</button>
+              <span class="progress" ng-show="picFile.progress >= 0">
+            <div style="width:{{picFile.progress}}%" 
+               ng-bind="picFile.progress + '%'"></div>
+           </span>
+           <span ng-show="picFile.result">Upload Successful</span>
+           <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
          </div>
       </form>
    </div>
