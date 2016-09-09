@@ -23,7 +23,7 @@ class Pdfalgo:
         yPdf = 0
         kPdf = 0
 
-        tmp = 'pdf/temp/tmp.jpg'
+        tmp = os.path.abspath('app/controller/pdfalgo/pdf/temp/tmp.jpg')
         for page in range(0, page_number):
             imageFile = self.pdffile + "[" + str(page) + "]"
             with Image(filename = imageFile) as img:
