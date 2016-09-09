@@ -3,6 +3,7 @@ from app.api.get import *
 from app.api.post import *
 from app.api.put import *
 from app.api.delete import *
+from app.api.upload import *
 
 @app.after_request
 def after_request(response):
