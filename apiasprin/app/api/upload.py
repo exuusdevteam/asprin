@@ -1,7 +1,8 @@
-from flask import jsonify, request, send_from_directory
+from flask import jsonify, request
 from app import *
 from werkzeug import secure_filename
 import os
+from app.controller.app.uniqid import uniqid
 
 app.config['UPLOAD_FOLDER'] = '/tmp'
 app.config['ALLOWED_EXTENSIONS'] = set(['pdf'])
@@ -18,5 +19,11 @@ def upload():
         filename = secure_filename(file.filename)
         tmp_filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(tmp_filename)
-        return jsonify({'message':tmp_filename})
+        
+        re_filename = uniqid()+".pdf"
+        destination = "/Users/muhireremy/asprin/apiasprin/pdf/"+re_filename
+        os.rename(tmp_filename, destination)
+
+
+        return jsonify({'message':destination})
 
