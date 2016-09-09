@@ -5,7 +5,14 @@ from app.model.schema import *
 from app.controller.printer.getprinter import *
 from app.controller.app.getusername import *
 from sqlalchemy.exc import IntegrityError
+from werkzeug import secure_filename
+import os
+from app.controller.app.uniqid import uniqid
+from app.controller.pdfalgo.pdf import Pdfalgo
 
+
+app.config['UPLOAD_FOLDER'] = '/tmp'
+app.config['ALLOWED_EXTENSIONS'] = set(['pdf'])
 
 
 #################### POST PRINTER ##########################################
@@ -168,4 +175,29 @@ def post_paper_type():
         return jsonify({'paper_type':last_paper})
     except IntegrityError:
         return jsonify({'message':'Already added'})
+
+
+######################### POST IMAGE ############################################
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
+
+
+@app.route('/api/upload/pdf/', methods=['POST','GET'])
+def upload():
+    file = request.files['file']
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        tmp_filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(tmp_filename)
+
+        re_filename = uniqid()+".pdf"
+        destination = "/Users/muhireremy/asprin/apiasprin/pdf/"+re_filename
+        os.rename(tmp_filename, destination)
+
+        pdf_scan = Pdfalgo(destination).loadPdf()
+
+        return jsonify({'message':destination, 'scan':pdf_scan})
+
 
