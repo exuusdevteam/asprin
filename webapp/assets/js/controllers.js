@@ -54,6 +54,7 @@ asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout', function 
 	file.upload.then(function (response) {
 		$timeout(function () {
 			file.result = response.data;
+			console.log(response.data);
 		});
 	}, function (response) {
 	if (response.status > 0)
