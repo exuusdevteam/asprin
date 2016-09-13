@@ -51,6 +51,7 @@
             <div style="width:{{picFile.progress}}%" 
                ng-bind="picFile.progress + '%'"></div>
            </span>
+           <span ng-show="load_spin">ASPRIN SCANNING FILE PIXELS WAIT A MOMENT...</span>
            <span ng-show="picFile.result">Upload Successful</span>
            <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
          </div>
