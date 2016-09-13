@@ -35,13 +35,14 @@ class User(db.Model):
 
     printjob = db.relationship('PrinterJob', backref='user', lazy='dynamic')
 
-    def __init__(self, names, username, email, phone, user_type, business_id, password, regDate = None):
+    def __init__(self, names, username, email, phone, user_type, business_id, password, gender, regDate = None):
         self.names = names
         self.username = username
         self.email = email
         self.phone = phone
         self.user_type = user_type
         self.password = password
+        self.gender = gender
 
         if regDate is None:
             self.regDate = datetime.utcnow()
@@ -156,7 +157,8 @@ class PrinterJob(db.Model):
 
     printer_job_id = db.Column(db.Integer, primary_key = True)
     tonner_cost = db.Column(db.Float)
-    file = db.Column(db.String(50))
+    file = db.Column(db.String(80))
+    filename = db.Column(db.String(80))
     size = db.Column(db.Integer)
     page_number = db.Column(db.Integer)
     cyan = db.Column(db.Float)
