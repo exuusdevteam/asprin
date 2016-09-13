@@ -44,7 +44,9 @@ asprinApp.config(['$routeProvider', function($routeProvider){
 
 
 
+
 asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
+	$scope.load_spin = false;
 	$scope.uploadPic = function(file) {
 	file.upload = Upload.upload({
 		url: 'http://0.0.0.0:5000/api/upload/pdf/',
@@ -54,6 +56,7 @@ asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout', function 
 	file.upload.then(function (response) {
 		$timeout(function () {
 			file.result = response.data;
+			$scope.load_spin = false;
 			console.log(response.data);
 		});
 	}, function (response) {
@@ -62,6 +65,9 @@ asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout', function 
 	}, function (evt) {
 			// Math.min is to fix IE which reports 200% sometimes
 		file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+		if(file.progress == 100){
+			$scope.load_spin = true;
+		}
 	});
 	}
 }]);
