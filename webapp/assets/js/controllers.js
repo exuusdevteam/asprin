@@ -45,7 +45,7 @@ asprinApp.config(['$routeProvider', function($routeProvider){
 
 
 
-asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
+asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout','$window', function ($scope, Upload, $timeout, $window) {
 	$scope.load_spin = false;
 	$scope.uploadPic = function(file) {
 	file.upload = Upload.upload({
@@ -58,6 +58,8 @@ asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout', function 
 			file.result = response.data;
 			$scope.load_spin = false;
 			console.log(response.data);
+			$window.location.href = '/#/offers/';
+			
 		});
 	}, function (response) {
 	if (response.status > 0)
