@@ -10,7 +10,8 @@ app = Flask(__name__)
 
 db = SQLAlchemy(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///asprin.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///asprin.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://muhireremy:8@localhost/asprindb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 
