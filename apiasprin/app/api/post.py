@@ -198,6 +198,6 @@ def upload():
 
         pdf_scan = Pdfalgo(destination).loadPdf()
 
-        return jsonify({'message':destination, 'scan':pdf_scan})
+        return jsonify({'message':destination, 'scan':pdf_scan,'filenme':filename})
 
 
