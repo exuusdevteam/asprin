@@ -73,7 +73,7 @@ def post_user():
             user_type = None,
             regDate = None,
             password = data['password'],
-            gender = data['gender'],
+            gender = None,
             business_id = None
         )
 
