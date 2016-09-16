@@ -85,6 +85,12 @@ asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout','$window',
 }]);
 
 
+asprinApp.controller('printPriceCtrl',['$scope', function($scope){
+	var asprinPrice = restoreAsprin();
+	console.log(asprinPrice);
+	$scope.filename = asprinPrice.filename;
+}]);
+
 function storeAsprin(Asprin){
 	localStorage.setItem('asprin', JSON.stringify(Asprin));
 	return 1;
@@ -100,8 +106,7 @@ function restoreAsprin(){
 	}
 }
 
-var data = restoreAsprin();
-console.log(data);
+
 
 
 
