@@ -48,36 +48,36 @@ asprinApp.config(['$routeProvider', function($routeProvider){
 asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout','$window', function ($scope, Upload, $timeout, $window) {
 	$scope.load_spin = false;
 	$scope.uploadPic = function(file) {
-	file.upload = Upload.upload({
-		url: 'http://0.0.0.0:5000/api/upload/pdf/',
-		data: {file: file},
-	});
+		file.upload = Upload.upload({
+			url: 'http://0.0.0.0:5000/api/upload/pdf/',
+			data: {file: file},
+		});
 
-	file.upload.then(function (response) {
-		$timeout(function () {
-			var Asprin = response.data;
-			file.result = Asprin;
-			var saveAsrpin = storeAsprin(Asprin.asprin);
-			
-			if(saveAsrpin){
-				$scope.load_spin = false;
-				$window.location.href = '/#/offers/';
-			}
-			
-			
-			
-		});
-	}, function (response) {
-		if (response.status > 0)
-			$scope.errorMsg = response.status + ': ' + response.data;
-	}, function (evt) {
-			// Math.min is to fix IE which reports 200% sometimes
-			file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-			if(file.progress == 100){
-				$scope.load_spin = true;
-			}
-		});
-	}
+		file.upload.then(function (response) {
+			$timeout(function () {
+				var Asprin = response.data;
+				file.result = Asprin;
+				var saveAsrpin = storeAsprin(Asprin.asprin);
+
+				if(saveAsrpin){
+					$scope.load_spin = false;
+					$window.location.href = '/#/offers/';
+				}
+
+
+
+			});
+		}, function (response) {
+			if (response.status > 0)
+				$scope.errorMsg = response.status + ': ' + response.data;
+		}, function (evt) {
+				// Math.min is to fix IE which reports 200% sometimes
+				file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+				if(file.progress == 100){
+					$scope.load_spin = true;
+				}
+			});
+		}
 }]);
 
 
@@ -90,6 +90,22 @@ asprinApp.controller('printPriceCtrl',['$scope', function($scope){
 	$scope.size = asprinPrice.size;
 	$scope.time = asprinPrice.time;
 }]);
+
+
+
+asprinApp.controller('singinOCtrl',['$scope','$http', function($scope){
+	var asprinPrice = restoreAsprin();
+	$scope.filename = asprinPrice.filename;
+	$scope.page = asprinPrice.page;
+	$scope.price = asprinPrice.sumPDF;
+	$scope.tprice = asprinPrice.sumPDF;
+	
+	$scope.login = function(username, password){
+		alert(username+password);
+	}
+	
+}]);
+
 
 function storeAsprin(Asprin){
 	localStorage.setItem('asprin', JSON.stringify(Asprin));
