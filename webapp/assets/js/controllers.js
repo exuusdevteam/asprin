@@ -64,10 +64,6 @@ asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout','$window',
 				$window.location.href = '/#/offers/';
 			}
 			
-			var storeData = Array();
-			
-			storeData = localStorage.getItem('asprin');
-			console.log(storeData);
 			
 			
 		});
@@ -89,6 +85,10 @@ asprinApp.controller('printPriceCtrl',['$scope', function($scope){
 	var asprinPrice = restoreAsprin();
 	console.log(asprinPrice);
 	$scope.filename = asprinPrice.filename;
+	$scope.page = asprinPrice.page;
+	$scope.price = asprinPrice.sumPDF;
+	$scope.size = asprinPrice.size;
+	$scope.time = asprinPrice.time;
 }]);
 
 function storeAsprin(Asprin){
