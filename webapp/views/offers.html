@@ -22,13 +22,13 @@
    </div>
 </nav>
  
-<div class="container-fluid asprin-bg-5">
+<div class="container-fluid asprin-bg-5" ng-controller="printPriceCtrl">
    <div class="row">
       <div class="col-md-12">
-         <h1 class="header-of">Print details</h1>
+		  <h1 class="header-of"><span ng-bind="filename"></span> Print details</h1>
       </div>
    </div>
-   <div class="row ">
+   <div class="row" >
       <div class="col-md-5 col-centered-h">
          <div class="col-md-4 col-sm-6 col-xs-12 hidden-xs">
             <img src="assets/img/pdf_2.png" alt="" class="img-thumbnail" >
@@ -37,20 +37,25 @@
             <table class="table">
                <tr>
                   <td>Number Of Pages</td>
-                  <td>370</td>
+                  <td ng-bind="page">370</td>
                </tr>
                <tr>
                   <td>Number of copies</td>
-                  <td>4</td>
+                  <td>1</td>
                </tr>
                <tr>
                   <td>Paper size</td>
                   <td>A4</td>
                </tr>
+               
                <tr>
+                  <td>Print Price</td>
+                  <td ng-bind="price"></td>
+               </tr>
+               <!--<tr>
                   <td>Paper type</td>
                   <td>Hard</td>
-               </tr>
+               </tr>-->
             </table>
             <p><a href="#" class="btn btn-asprin" role="button">Get a quotation</a></p>
          </div>
