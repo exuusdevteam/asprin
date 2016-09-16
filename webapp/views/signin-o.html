@@ -33,7 +33,7 @@
          <div class="col-md-8 col-sm-7 col-xs-12 hidden-xs">
             <div class="sign-in-order">
                <h1>Sign in</h1>
-               <form data-toggle="validator">
+               <form name="singin_o">
                   <div class="form-group">
                      <input type="text" class="form-control" placeholder="Username" name="username" ng-model="username" required>
                   </div>
@@ -42,7 +42,7 @@
                   </div>
                   <div class="from-group">
                      <p>
-                        <button type="submit" ng-click="login(username, password)" class="btn btn-primary btn-width">Sign in</button>
+                        <button  type="submit" ng-click="login(username, password)" ng-disabled="!singin_o.$valid" class="btn btn-primary btn-width">Sign in</button>
                         Don’t have an account? <a href="#/signup-o">Sign up</a>
                      </p>
                   </div>
