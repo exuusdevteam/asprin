@@ -75,3 +75,7 @@ def get_type():
     type = PaperType.query.all()
     result = papers_type_schema.dump(type)
     return jsonify({'Paper_type':result.data})
+
+@app.route("/api/login/")
+def login():
+    pass
