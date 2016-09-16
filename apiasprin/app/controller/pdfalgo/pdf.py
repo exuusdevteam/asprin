@@ -6,8 +6,9 @@ import time
 
 class Pdfalgo:
 
-    def __init__(self, pdffile):
+    def __init__(self, pdffile, filename):
         self.pdffile = pdffile
+        self.filename = filename
 
     def loadPdf(self):
         start_time = time.time()
@@ -45,7 +46,21 @@ class Pdfalgo:
             yPdf += y
             kPdf += k
 
-        return page_number, filesize, filepath, sumTonner, sumPdf, cPdf, mPdf, yPdf, kPdf, cmyk, sum, (time.time() - start_time)
+        data = {
+            'pagenumber':page_number,
+            'filesize': filesize,
+            'filename':self.filename,
+            'filepath': filepath,
+            'sumtonner':sumTonner,
+            'sumPDF':sumPdf,
+            'cPDF':cPdf,
+            'mPDF':mPdf,
+            'yPDF':yPdf,
+            'kPDF':kPdf,
+            'time': (time.time() - start_time)
+        }
+
+        return data
 
 
 
