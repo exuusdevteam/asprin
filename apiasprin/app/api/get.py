@@ -76,6 +76,3 @@ def get_type():
     result = papers_type_schema.dump(type)
     return jsonify({'Paper_type':result.data})
 
-@app.route("/api/login/")
-def login():
-    pass
