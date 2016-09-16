@@ -63,6 +63,7 @@ def post_user():
 
 
     username = get_username(data['email'])
+    pw_hash = bcrypt.generate_password_hash(data['password'])
 
     try:
         user = User(
@@ -72,7 +73,7 @@ def post_user():
             phone = None,
             user_type = None,
             regDate = None,
-            password = data['password'],
+            password = pw_hash,
             gender = None,
             business_id = None
         )
@@ -199,5 +200,28 @@ def upload():
         pdf_scan = Pdfalgo(destination, filename).loadPdf()
 
         return jsonify({'asprin':pdf_scan})
+
+
+@app.route("/api/login/", methods=['POST'])
+def login():
+    json_data = request.get_json()
+    if not json_data:
+        return jsonify({'message':'no valid input provided'}), 400
+    data, errors = user_schema.load(json_data)
+
+    if errors:
+        return jsonify(errors), 422
+
+    username, password = data['username'], data['password']
+
+    user = User.query.filter_by(username=username).first()
+    pw_hash = bcrypt.check_password_hash(user.password, password)
+
+    if pw_hash:
+        result = user_schema.dump(User.query.get(user.user_id))
+        return jsonify({'auth': 1, 'user': result.data})
+    else:
+        return jsonify({'auth': 0})
+
 
 
