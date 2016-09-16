@@ -196,8 +196,8 @@ def upload():
         destination = "/Users/muhireremy/asprin/apiasprin/pdf/"+re_filename
         os.rename(tmp_filename, destination)
 
-        pdf_scan = Pdfalgo(destination).loadPdf()
+        pdf_scan = Pdfalgo(destination, filename).loadPdf()
 
-        return jsonify({'message':destination, 'scan':pdf_scan,'filename':filename})
+        return jsonify({'scan':pdf_scan})
 
 
