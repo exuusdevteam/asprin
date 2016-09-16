@@ -3,6 +3,9 @@ from wand.image import Image
 from asprin import Asprin
 import os
 import time
+import locale
+
+locale.setlocale(locale.LC_ALL, 'en_US')
 
 class Pdfalgo:
 
@@ -48,16 +51,16 @@ class Pdfalgo:
 
         data = {
             'page':page_number,
-            'size': filesize,
+            'size': locale.format("%d",filesize, grouping=True),
             'filename':self.filename,
             'path': filepath,
             'sumtonner':sumTonner,
-            'sumPDF':sumPdf,
+            'sumPDF':locale.format("%d",round(sumPdf,0), grouping=True),
             'cyan':cPdf,
             'magenta':mPdf,
             'yellow':yPdf,
             'black':kPdf,
-            'time': (time.time() - start_time)
+            'time': round(time.time() - start_time, 2)
         }
 
         return data
