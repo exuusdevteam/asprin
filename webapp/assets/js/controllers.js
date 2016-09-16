@@ -1,5 +1,5 @@
 var asprinApp = angular.module('asprinApp', ['ngRoute','ngFileUpload']);
-
+ 
 asprinApp.config(['$routeProvider', function($routeProvider){
 	
 	$routeProvider
@@ -55,24 +55,46 @@ asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout','$window',
 
 	file.upload.then(function (response) {
 		$timeout(function () {
-			file.result = response.data;
+			var Asprin = response.data;
+			file.result = Asprin;
+			var saveAsrpin = storeAsprin(Asprin.asprin);
+			
 			$scope.load_spin = false;
-			console.log(response.data);
+			
+		
+			console.log(Asprin.asprin);
 			$window.location.href = '/#/offers/';
 			
 		});
 	}, function (response) {
-	if (response.status > 0)
-		$scope.errorMsg = response.status + ': ' + response.data;
+		if (response.status > 0)
+			$scope.errorMsg = response.status + ': ' + response.data;
 	}, function (evt) {
-			// Math.min is to fix IE which reports 200% sometimes
-		file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-		if(file.progress == 100){
-			$scope.load_spin = true;
-		}
-	});
+				// Math.min is to fix IE which reports 200% sometimes
+			file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+			if(file.progress == 100){
+				$scope.load_spin = true;
+			}
+		});
 	}
 }]);
+
+
+function storeAsprin(Asprin){
+	localStorage.setItem('asprin', JSON.stringify(Asprin));
+	return 1;
+}
+
+function restoreAsprin(){
+	var storeData = localStorage.getItem('asrpin');
+	if(storedData){
+		return JSON.parse(storeData);
+	}else{
+		return 0;
+	}
+}
+
+
 
 
 
