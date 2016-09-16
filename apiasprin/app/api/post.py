@@ -198,6 +198,6 @@ def upload():
 
         pdf_scan = Pdfalgo(destination, filename).loadPdf()
 
-        return jsonify({'scan':pdf_scan})
+        return jsonify({'asprin':pdf_scan})
 
 
