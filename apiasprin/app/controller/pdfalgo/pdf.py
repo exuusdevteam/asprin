@@ -47,16 +47,16 @@ class Pdfalgo:
             kPdf += k
 
         data = {
-            'pagenumber':page_number,
-            'filesize': filesize,
+            'page':page_number,
+            'size': filesize,
             'filename':self.filename,
-            'filepath': filepath,
+            'path': filepath,
             'sumtonner':sumTonner,
             'sumPDF':sumPdf,
-            'cPDF':cPdf,
-            'mPDF':mPdf,
-            'yPDF':yPdf,
-            'kPDF':kPdf,
+            'cyan':cPdf,
+            'magenta':mPdf,
+            'yellow':yPdf,
+            'black':kPdf,
             'time': (time.time() - start_time)
         }
 
