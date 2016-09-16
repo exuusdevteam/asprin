@@ -59,18 +59,23 @@ asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout','$window',
 			file.result = Asprin;
 			var saveAsrpin = storeAsprin(Asprin.asprin);
 			
-			$scope.load_spin = false;
+			if(saveAsrpin){
+				$scope.load_spin = false;
+				$window.location.href = '/#/offers/';
+			}
 			
-		
-			console.log(Asprin.asprin);
-			$window.location.href = '/#/offers/';
+			var storeData = Array();
+			
+			storeData = localStorage.getItem('asprin');
+			console.log(storeData);
+			
 			
 		});
 	}, function (response) {
 		if (response.status > 0)
 			$scope.errorMsg = response.status + ': ' + response.data;
 	}, function (evt) {
-				// Math.min is to fix IE which reports 200% sometimes
+			// Math.min is to fix IE which reports 200% sometimes
 			file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
 			if(file.progress == 100){
 				$scope.load_spin = true;
@@ -86,15 +91,17 @@ function storeAsprin(Asprin){
 }
 
 function restoreAsprin(){
-	var storeData = localStorage.getItem('asrpin');
-	if(storedData){
+	var storeData = Array();
+	storeData = localStorage.getItem('asprin');
+	if(storeData){
 		return JSON.parse(storeData);
 	}else{
 		return 0;
 	}
 }
 
-
+var data = restoreAsprin();
+console.log(data);
 
 
 
