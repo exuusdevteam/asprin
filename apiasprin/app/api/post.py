@@ -107,6 +107,7 @@ def post_business():
             name = data['name'],
             email = None,
             phone = None,
+            category = None,
             lat = None,
             lon = None,
             address = None,
