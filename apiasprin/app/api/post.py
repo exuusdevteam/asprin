@@ -238,7 +238,7 @@ def printjob():
         return jsonify(errors), 422
 
     commision = round(int(data['price']) * 0.05,0)
-    taxes = (int(data['price'])+commision) * 0.18
+    taxes = round((int(data['price'])+commision) * 0.18,0)
 
     print_job =  PrinterJob(
         tonner_cost = data['tonner_cost'],
