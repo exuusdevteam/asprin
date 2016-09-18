@@ -157,8 +157,8 @@ class PrinterJob(db.Model):
 
     printer_job_id = db.Column(db.Integer, primary_key = True)
     tonner_cost = db.Column(db.Float)
-    file = db.Column(db.String(80))
-    filename = db.Column(db.String(80))
+    file = db.Column(db.String(255))
+    filename = db.Column(db.String(255))
     size = db.Column(db.Integer)
     exec_time = db.Column(db.Float)
     page = db.Column(db.Integer)
@@ -180,11 +180,13 @@ class PrinterJob(db.Model):
     printer_id = db.Column(db.Integer, db.ForeignKey('printer.printer_id'))
 
 
-    def __init__(self, tonner_cost, file, size, page_number, cyan, magenta, yellow, black, status, price, paper_price, taxes, user_id, business_id, paper_type_id,  paper_size_id, tonner_id, printer_id, regDate = None):
+    def __init__(self, tonner_cost, file, filename, size, exec_time, page, cyan, magenta, yellow, black, status, price, paper_price, commission, taxes, user_id, business_id, paper_type_id,  paper_size_id, tonner_id, printer_id, regDate = None):
         self.tonner_cost = tonner_cost
         self.file = file
+        self.filename = filename
         self.size = size
-        self.page_number = page_number
+        self.exec_time = exec_time
+        self.page = page
         self.cyan = cyan
         self.magenta = magenta
         self.yellow = yellow
@@ -192,6 +194,7 @@ class PrinterJob(db.Model):
         self.status = status
         self.price = price
         self.paper_price = paper_price
+        self.commission = commission
         self.taxes = taxes
 
         if regDate is None:
