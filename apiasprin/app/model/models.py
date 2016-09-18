@@ -28,6 +28,7 @@ class User(db.Model):
     email = db.Column(db.String(80), unique = True)
     phone = db.Column(db.String(25))
     user_type = db.Column(db.Integer)  # 0 (Printing Business User ),  1 (Customer)
+    user_role = db.Column(db.Integer)
     regDate =  db.Column(db.DateTime)
     password = db.Column(db.String(80))
     gender = db.Column(db.String(10))
@@ -35,12 +36,13 @@ class User(db.Model):
 
     printjob = db.relationship('PrinterJob', backref='user', lazy='dynamic')
 
-    def __init__(self, names, username, email, phone, user_type, business_id, password, gender, regDate = None):
+    def __init__(self, names, username, email, phone, user_type, user_role, business_id, password, gender, regDate = None):
         self.names = names
         self.username = username
         self.email = email
         self.phone = phone
         self.user_type = user_type
+        self.user_role = user_role
         self.password = password
         self.gender = gender
 
