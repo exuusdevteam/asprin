@@ -99,6 +99,7 @@ asprinApp.controller('singinOCtrl',['$scope','$http', function($scope, $http){
 	$scope.page = asprinPrice.page;
 	$scope.price = asprinPrice.sumPDF;
 	$scope.tprice = asprinPrice.sumPDF;
+	$scope.loginResponse = false;
 	
 	$scope.login = function(username, password){
 		var data = '{"username": "'+username+'", "password": "'+password+'"}';
