@@ -186,6 +186,7 @@ asprinApp.controller('signupoCrtl',['$scope','$http','$location', function($scop
 
 
 asprinApp.controller('sgininCtrl',['$scope','$http','$location', function($scope,$http,$location){
+	$scope.loginResponse = false;
 	$scope.login = function(username,password){
 		var data = '{"username": "'+username+'", "password": "'+password+'"}';
 		
@@ -200,7 +201,7 @@ asprinApp.controller('sgininCtrl',['$scope','$http','$location', function($scope
 			if (data.auth == 0 || data.auth==2){
 				$scope.loginResponse = true;
 			}else{
-				$location.path('/app/');
+				$location.path('/app/asprin-doc');
 			}
 		})
 		.error(function(data, status, header, config){
