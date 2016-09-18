@@ -185,6 +185,31 @@ asprinApp.controller('signupoCrtl',['$scope','$http','$location', function($scop
 }]);
 
 
+asprinApp.controller('sgininCtrl',['$scope','$http','$location', function($scope,$http,$location){
+	$scope.login = function(username,password){
+		var data = '{"username": "'+username+'", "password": "'+password+'"}';
+		
+		var config = {
+			headers:{
+				'Content-Type':'application/json'
+			}
+		}
+		
+		$http.post('http://0.0.0.0:5000/api/v1/login/', data, config)
+		.success(function(data, status, header, config){
+			if (data.auth == 0 || data.auth==2){
+				$scope.loginResponse = true;
+			}else{
+				$location.path('/app/');
+			}
+		})
+		.error(function(data, status, header, config){
+			console.log(status + " "+header);
+		});
+	}
+}]);
+
+
 function storeAsprin(Asprin){
 	localStorage.setItem('asprin', JSON.stringify(Asprin));
 	return 1;
