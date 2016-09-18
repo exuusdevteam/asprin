@@ -161,7 +161,7 @@ class PrinterJob(db.Model):
     filename = db.Column(db.String(80))
     size = db.Column(db.Integer)
     exec_time = db.Column(db.Float)
-    page_number = db.Column(db.Integer)
+    page = db.Column(db.Integer)
     cyan = db.Column(db.Float)
     magenta = db.Column(db.Float)
     yellow = db.Column(db.Float)
