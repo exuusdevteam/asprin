@@ -112,7 +112,9 @@ asprinApp.controller('singinOCtrl',['$scope','$http', function($scope, $http){
 		
 		$http.post('http://0.0.0.0:5000/api/v1/login/', data, config)
 		.success(function(data, status, header, config){
-			console.log(data);
+			if (data.auth == 0 || data.auth==2){
+				$scope.loginResponse = true;
+			}
 		})
 		.error(function(data, status, header, config){
 			console.log(status + " "+header);
