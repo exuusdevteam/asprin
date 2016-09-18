@@ -18,6 +18,7 @@ def put_user(id):
     email = json_data['email']
     phone = json_data['phone']
     user_type = json_data['user_type']
+    user_role = json_data['user_role']
     password = json_data['password']
     business_id = json_data['business_id']
 
@@ -31,6 +32,7 @@ def put_user(id):
         user.email = email
         user.phone = phone
         user.user_type  = user_type
+        user.user_role = user_role
         user.password = password
         user.business_id = business_id
 
@@ -51,6 +53,7 @@ def put_business(id):
     name =  json_data['name']
     email = json_data['email']
     phone = json_data['phone']
+    category = json_data['category']
     lat = json_data['lat']
     lon = json_data['lon']
     address = json_data['address']
@@ -63,6 +66,7 @@ def put_business(id):
         business.name = name
         business.email = email
         business.phone = phone
+        business.category = category
         business.lat = lat
         business.lon = lon
         business.address = address
