@@ -9,9 +9,10 @@ locale.setlocale(locale.LC_ALL, 'en_US')
 
 class Pdfalgo:
 
-    def __init__(self, pdffile, filename):
+    def __init__(self, pdffile, filename, re_filename):
         self.pdffile = pdffile
         self.filename = filename
+        self.re_filename = re_filename
 
     def loadPdf(self):
         start_time = time.time()
@@ -53,13 +54,13 @@ class Pdfalgo:
             'page':page_number,
             'size': filesize,
             'filename':self.filename,
-            'path': filepath,
-            'sumtonner':sumTonner,
+            'path': self.re_filename,
+            'sumtonner':round(sumTonner,3),
             'sumPDF':round(sumPdf,0),
-            'cyan':cPdf,
-            'magenta':mPdf,
-            'yellow':yPdf,
-            'black':kPdf,
+            'cyan':round(cPdf,3),
+            'magenta':round(mPdf,3),
+            'yellow':round(yPdf,3),
+            'black':round(kPdf,3),
             'time': round(time.time() - start_time, 2)
         }
 
