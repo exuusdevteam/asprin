@@ -19,13 +19,13 @@
          </ul>
       </div>
       <!-- /.navbar-collapse -->
-   </div>
+   </div> 
 </nav>
 
-<div class="container-fluid aspin-bg-3">
+<div class="container-fluid aspin-bg-3" ng-controller="signupoCrtl">
    <div class="row">
       <div class="col-md-12">
-         <h1>Order from Select Kalaos</h1>
+          <h1>Order <span ng-bind="filename"></span></h1>
       </div>
    </div>
    <div class="row ">
@@ -33,19 +33,19 @@
          <div class="col-md-8 col-sm-7 col-xs-12 hidden-xs">
             <div class="sign-in-order">
                <h1>Sign up</h1>
-               <form>
+               <form name="singup_o">
                   <div class="form-group">
-                     <input type="text" class="form-control" placeholder="Full name" name="fullname">
+                     <input type="text" class="form-control" placeholder="Full name" name="fullname" ng-model="fullname" required>
                   </div>
                   <div class="form-group">
-                     <input type="text" class="form-control" placeholder="Email" name="email">
+                     <input type="text" class="form-control" placeholder="Email" name="email" ng-model="email" required>
                   </div>
                   <div class="form-group">
-                     <input type="password" class="form-control" placeholder="Password" name="password">
+                     <input type="password" class="form-control" placeholder="Password" name="password" ng-model="password" required>
                   </div>
                   <div class="from-group">
                      <p>
-                        <button class="btn btn-primary btn-width">Sign in</button>
+                        <button type="submit" class="btn btn-primary btn-width" ng-click="singup(fullname, email, password)" ng-disabled="!singup_o.$valid">Sign in</button>
                         have an account? <a href="#/signin-o">Sign in</a>
                      </p>
                   </div>
@@ -56,31 +56,31 @@
             <table class="table order-details">
                <tr>
                   <td>Pages</td>
-                  <td>370</td>
+                  <td ng-bind="page"></td>
                </tr>
                <tr>
                   <td>Copies</td>
-                  <td>4</td>
+                  <td>1</td>
                </tr>
-               <tr>
+               <!--<tr>
                   <td>Paper size</td>
                   <td>A4</td>
                </tr>
                <tr>
                   <td>Paper type</td>
                   <td>Hard</td>
-               </tr>
+               </tr> -->
                <tr>
                   <td>Print price</td>
-                  <td>350 rwf</td>
+                  <td ng-bind="price"></td>
                </tr>
-               <tr>
+               <!--<tr>
                   <td>Paper price</td>
                   <td>100 rwf</td>
-               </tr>
+               </tr>-->
                <tr>
                   <td>Total price</td>
-                  <td>450 rwf</td>
+                  <td ng-bind="tprice"></td>
                </tr>
             </table>
          </div>
