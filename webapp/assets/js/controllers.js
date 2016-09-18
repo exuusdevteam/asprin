@@ -245,6 +245,53 @@ asprinApp.controller('appMenuCtrl', ['$scope','$http', function($scope, $http){
 }]);
 
 
+
+asprinApp.controller('asprinDocCtrl', ['$scope','$http', function($scope,$http){
+	var data = restoreUserAsprin();
+	var user_id = data[0];
+	var user_type = data[1];
+	
+	if(user_type == 1){
+		asprinDocUser();
+	}else{
+		
+	}
+	
+	
+	
+	function asprinDocUser(){
+		$scope.thCustomer = false;
+		$scope.trCustomer = false;
+		var url ="http://0.0.0.0:5000/api/v1/printjobs/user/"+user_id;
+		$http.get(url).success(function(data, status, header, config){
+			console.log(data);
+			$scope.asprins = data.PrintJob;
+		})
+		.error(function(data, status, header, config){
+			console.log(data);
+		});
+	}
+	
+	function asprinDocBusiness(){
+		$scope.thCustomer = true;
+		$scope.trCustomer = true;
+		
+		var url ="http://0.0.0.0:5000/api/v1/printjobs/user/"+user_id;
+	}
+	
+	
+	
+	
+	$scope.moreAsprin = function(printer_job_id){
+		alert(printer_job_id);
+	}
+	
+	
+	$scope.loadPdf = function(file){
+		alert(file);
+	}
+}]);
+
 function storeAsprin(Asprin){
 	localStorage.setItem('asprin', JSON.stringify(Asprin));
 	return 1;
