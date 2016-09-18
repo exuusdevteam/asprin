@@ -93,7 +93,7 @@ asprinApp.controller('printPriceCtrl',['$scope', function($scope){
 
 
 
-asprinApp.controller('singinOCtrl',['$scope','$http', function($scope, $http){
+asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scope, $http, $location){
 	var asprinPrice = restoreAsprin();
 	$scope.filename = asprinPrice.filename;
 	$scope.page = asprinPrice.page;
@@ -115,7 +115,10 @@ asprinApp.controller('singinOCtrl',['$scope','$http', function($scope, $http){
 			if (data.auth == 0 || data.auth==2){
 				$scope.loginResponse = true;
 			}else{
-				console.log(data);
+				var storeUser = storeUserAsprin(data.user.user_id);
+				if(storeUser == 1){
+					$location.path('/app/');
+				}
 			}
 		})
 		.error(function(data, status, header, config){
@@ -141,6 +144,11 @@ function restoreAsprin(){
 	}
 }
 
+
+function storeUserAsprin(User){
+	localStorage.setItem('asprin_u__', User);
+	return 1;
+}
 
 
 
