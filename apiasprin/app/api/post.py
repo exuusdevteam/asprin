@@ -215,8 +215,10 @@ def login():
     username, password = data['username'], data['password']
 
     user = User.query.filter_by(username=username).first()
-    pw_hash = bcrypt.check_password_hash(user.password, password)
-
+    try:
+        pw_hash = bcrypt.check_password_hash(user.password, password)
+    except AttributeError:
+        return jsonify({'auth':2})
     if pw_hash:
         result = user_schema.dump(User.query.get(user.user_id))
         return jsonify({'auth': 1, 'user': result.data})
