@@ -1,31 +1,9 @@
 <nav class="navbar navbar-asprin">
-   <div class="magenta-line"></div>
-   <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-         <span class="sr-only">Toggle navigation</span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         </button>
-         <a class="navbar-brand" href="#/app/"><img src="assets/img/asprin_logo.png" class="brand-logo"></a>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-         <ul class="nav navbar-nav navbar-right">
-            <li class="circular">
-               <img src="assets/img/remy.jpg" class="img-circle">
-            </li>
-         </ul>
-      </div>
-   </div>
+  <div ng-include src="'views/app/ng-include/nav.htm'"></div>
    <!-- /.container-fluid -->
 </nav>
 <div class="container container-padding">
-   <div class="row">
-      <h1 class="company-name-h">SELECT KALAOS</h1>
-   </div>
+   <div ng-include src="'views/app/ng-include/header.htm'"></div>
    <div class="row">
       <div class="col-md-offset-2 col-md-8">
          <div class="row">
@@ -33,28 +11,7 @@
          </div>
          <div class="row">
             <div class="col-md-3">
-               <table class="table">
-                  <tr>
-                     <td><a href="#/app/">New Order</a></td>
-                     <td class="text-right"><a href="#/app/"><i class="glyphicon glyphicon-paperclip"></i></a></td>
-                  </tr>
-                  <tr>
-                     <td><a href="#/app/asprin-doc">Asprin Doc</a></td>
-                     <td class="text-right"><a href="#/app/asprin-doc"><i class="glyphicon glyphicon-file"></i></a></td>
-                  </tr>
-                  <tr>
-                     <td><a href="#/app/printers">Printers</a></td>
-                     <td class="text-right"><a href="#/app/printers"><i class="glyphicon glyphicon-print"></i></a></td>
-                  </tr>
-                  <tr>
-                     <td><a href="#/app/">Book Keeping</a></td>
-                     <td class="text-right"><a href="#/app/"><i class="glyphicon glyphicon-book"></i></a></td>
-                  </tr>
-                  <tr>
-                     <td><a href="#/app/settings">Settings</a></td>
-                     <td class="text-right"><a href="#/app/settings"><i class="glyphicon glyphicon-cog"></i></a></td>
-                  </tr>
-               </table>
+             	<div ng-include src="'views/app/ng-include/menu.htm'"></div>
             </div>
             <div class="col-md-9">
                <div class="row row-margin-left">
