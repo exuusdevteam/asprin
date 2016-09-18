@@ -161,9 +161,25 @@ asprinApp.controller('signupoCrtl',['$scope','$http','$location', function($scop
 	$scope.page = asprinPrice.page;
 	$scope.price = asprinPrice.sumPDF;
 	$scope.tprice = asprinPrice.sumPDF;
+	$scope.singupResponse = "";
 	
 	$scope.singup =  function(fullname, email, password){
-		alert(fullname, email, password);
+		var data = '{"names":"'+fullname+'", "email":"'+email+'", "password":"'+password+'"}';
+		
+		var config = {
+			headers:{
+				'Content-Type':'application/json'
+			}
+		}
+		
+		$http.post('http://0.0.0.0:5000/api/v1/user/', data, config)
+		.success(function(data, status, header, config){
+			if(data.auth){
+				$location.path('/signin-o');
+			}else{
+				$scope.singupResponse = data.message;
+			}
+		})
 	}
 	
 }]);
