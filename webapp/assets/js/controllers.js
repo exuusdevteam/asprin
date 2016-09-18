@@ -114,6 +114,8 @@ asprinApp.controller('singinOCtrl',['$scope','$http', function($scope, $http){
 		.success(function(data, status, header, config){
 			if (data.auth == 0 || data.auth==2){
 				$scope.loginResponse = true;
+			}else{
+				console.log(data);
 			}
 		})
 		.error(function(data, status, header, config){
