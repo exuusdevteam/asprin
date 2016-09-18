@@ -236,3 +236,5 @@ def printjob():
 
     if errors:
         return jsonify(errors), 422
+
+    return data['file']
