@@ -83,3 +83,10 @@ def printjobs():
     return jsonify({'PrintJob':result})
 
 
+
+@app.route("/api/v1/printjobs/user/<int:id>")
+def printjobs_user(id):
+    print_jobs = PrinterJob.query.filter_by(user_id=id)
+    result = printers_job_schema.dump(print_jobs).data
+
+    return jsonify({'PrintJob':result})
