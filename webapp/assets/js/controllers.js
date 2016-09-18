@@ -115,7 +115,7 @@ asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scop
 			if (data.auth == 0 || data.auth==2){
 				$scope.loginResponse = true;
 			}else{
-				var storeUser = storeUserAsprin(data.user.user_id);
+				var storeUser = storeUserAsprin(data.user.user_id, data.user.user_type);
 				if(storeUser == 1){
 					postApsinData(data.user.user_id);
 				}
@@ -201,7 +201,11 @@ asprinApp.controller('sgininCtrl',['$scope','$http','$location', function($scope
 			if (data.auth == 0 || data.auth==2){
 				$scope.loginResponse = true;
 			}else{
-				$location.path('/app/asprin-doc');
+				var storeUser = storeUserAsprin(data.user.user_id, data.user.user_type);
+				if (storeUser == 1){
+					$location.path('/app/asprin-doc');
+				}
+				
 			}
 		})
 		.error(function(data, status, header, config){
@@ -232,8 +236,9 @@ function destroyAsprin(){
 }
 
 
-function storeUserAsprin(User){
+function storeUserAsprin(User,UserType){
 	localStorage.setItem('asprin_u__', User);
+	localStorage.setItem('asprin_t__', UserType);
 	return 1;
 }
 
