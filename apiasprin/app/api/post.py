@@ -50,7 +50,7 @@ def post_printer():
 
 ############################# POST USER ###################################
 
-@app.route("/api/post/user/", methods=["POST"])
+@app.route("/api/v1/user/", methods=["POST"])
 def post_user():
     json_data = request.get_json()
     if not json_data:
@@ -71,7 +71,8 @@ def post_user():
             username = username,
             email = data['email'],
             phone = None,
-            user_type = None,
+            user_type = 1,
+            user_role = None,
             regDate = None,
             password = pw_hash,
             gender = None,
@@ -82,10 +83,10 @@ def post_user():
         db.session.commit()
 
         last_user = user_schema.dump(User.query.get(user.user_id)).data
-        return jsonify({'user':last_user})
+        return jsonify({'auth':1,'user':last_user})
 
     except IntegrityError:
-        return  jsonify({'Message':'Already added'})
+        return  jsonify({'auth':0,'message':'User already exist!'})
  ##########################################################################
 
 
