@@ -22,7 +22,7 @@ def get_user(id):
     result = user_schema.dump(user)
     return jsonify({"user":result.data})
 
-@app.route("/api/get/business")
+@app.route("/api/v1/business")
 def get_businesses():
     businesses = Business.query.all()
     result = businesses_schema.dump(businesses)
