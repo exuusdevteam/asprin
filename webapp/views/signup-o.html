@@ -43,6 +43,9 @@
                   <div class="form-group">
                      <input type="password" class="form-control" placeholder="Password" name="password" ng-model="password" required>
                   </div>
+                   <div class="form-group">
+					  <p class="text-center error-msg" ng-model="singupTextResponse"> {{ singupResponse }}</p>
+				  </div>
                   <div class="from-group">
                      <p>
                         <button type="submit" class="btn btn-primary btn-width" ng-click="singup(fullname, email, password)" ng-disabled="!singup_o.$valid">Sign in</button>
