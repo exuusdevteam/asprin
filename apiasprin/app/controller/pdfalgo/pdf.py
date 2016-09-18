@@ -51,11 +51,11 @@ class Pdfalgo:
 
         data = {
             'page':page_number,
-            'size': locale.format("%d",filesize, grouping=True),
+            'size': filesize,
             'filename':self.filename,
             'path': filepath,
             'sumtonner':sumTonner,
-            'sumPDF':locale.format("%d",round(sumPdf,0), grouping=True),
+            'sumPDF':round(sumPdf,0),
             'cyan':cPdf,
             'magenta':mPdf,
             'yellow':yPdf,
