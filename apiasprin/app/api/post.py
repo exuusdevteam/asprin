@@ -90,7 +90,7 @@ def post_user():
 
 
  ############################# POST BUSINESS ###################################
-@app.route("/api/post/business/", methods=["POST"])
+@app.route("/api/v1/business/", methods=["POST"])
 def post_business():
     json_data = request.get_json()
     if not json_data:
@@ -227,3 +227,12 @@ def login():
 
 
 
+@app.route("/api/v1/printjob/", methods=['POST'])
+def printjob():
+    json_data = request.get_json()
+    if not json_data:
+        return jsonify({'message':'no valid input provided'}), 400
+    data, errors = printer_job_schema.load(json_data)
+
+    if errors:
+        return jsonify(errors), 422
