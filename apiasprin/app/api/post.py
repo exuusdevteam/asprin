@@ -197,7 +197,7 @@ def upload():
         destination = "/Users/muhireremy/asprin/apiasprin/pdf/"+re_filename
         os.rename(tmp_filename, destination)
 
-        pdf_scan = Pdfalgo(destination, filename).loadPdf()
+        pdf_scan = Pdfalgo(destination, filename, re_filename).loadPdf()
 
         return jsonify({'asprin':pdf_scan})
 
@@ -237,4 +237,37 @@ def printjob():
     if errors:
         return jsonify(errors), 422
 
-    return data['file']
+    commision = round(int(data['price']) * 0.05,0)
+    taxes = (int(data['price'])+commision) * 0.18
+
+    print_job =  PrinterJob(
+        tonner_cost = data['tonner_cost'],
+        file = data['file'],
+        filename = data['filename'],
+        size = data['size'],
+        exec_time = data['exec_time'],
+        page = data['page'],
+        cyan = data['cyan'],
+        magenta = data['magenta'],
+        yellow = data['yellow'],
+        black = data['black'],
+        status = 3,
+        price = data['price'],
+        paper_price = None,
+        commission = commision,
+        taxes = taxes,
+        regDate = None,
+        user_id = data['user_id'],
+        business_id = data['business_id'],
+        paper_type_id = None,
+        paper_size_id = None,
+        tonner_id = None,
+        printer_id = None
+    )
+
+    db.session.add(print_job)
+    db.session.commit()
+
+    last_job =  printer_job_schema.dump(PrinterJob.query.get(print_job.printer_job_id)).data
+
+    return jsonify({'job':last_job})
