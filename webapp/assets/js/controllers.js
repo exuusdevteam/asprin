@@ -93,7 +93,7 @@ asprinApp.controller('printPriceCtrl',['$scope', function($scope){
 
 
 
-asprinApp.controller('singinOCtrl',['$scope','$http', function($scope){
+asprinApp.controller('singinOCtrl',['$scope','$http', function($scope, $http){
 	var asprinPrice = restoreAsprin();
 	$scope.filename = asprinPrice.filename;
 	$scope.page = asprinPrice.page;
@@ -101,16 +101,21 @@ asprinApp.controller('singinOCtrl',['$scope','$http', function($scope){
 	$scope.tprice = asprinPrice.sumPDF;
 	
 	$scope.login = function(username, password){
-		var data =  $.param({
-			username: username,
-			password: password
-		});
+		var data = '{"username": "'+username+'", "password": "'+password+'"}';
 		
 		var config = {
 			headers:{
-				'Content-Type':''
+				'Content-Type':'application/json'
 			}
 		}
+		
+		$http.post('http://0.0.0.0:5000/api/v1/login/', data, config)
+		.success(function(data, status, header, config){
+			console.log(data);
+		})
+		.error(function(data, status, header, config){
+			console.log(status + " "+header);
+		});
 	}
 	
 }]);
