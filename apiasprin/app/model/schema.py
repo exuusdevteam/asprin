@@ -11,6 +11,7 @@ class UserSchema(Schema):
     email = fields.Str()
     phone = fields.Str()
     user_type = fields.Int()
+    user_role = fields.Int()
     regDate = fields.Date()
     password= fields.Str()
     gender = fields.Str()
