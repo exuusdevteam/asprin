@@ -101,7 +101,16 @@ asprinApp.controller('singinOCtrl',['$scope','$http', function($scope){
 	$scope.tprice = asprinPrice.sumPDF;
 	
 	$scope.login = function(username, password){
-		alert(username+password);
+		var data =  $.param({
+			username: username,
+			password: password
+		});
+		
+		var config = {
+			headers:{
+				'Content-Type':''
+			}
+		}
 	}
 	
 }]);
