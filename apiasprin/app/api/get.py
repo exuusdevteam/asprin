@@ -76,3 +76,10 @@ def get_type():
     result = papers_type_schema.dump(type)
     return jsonify({'Paper_type':result.data})
 
+@app.route("/api/v1/printjobs")
+def printjobs():
+    print_jobs = PrinterJob.query.all()
+    result = printers_job_schema.dump(print_jobs).data
+    return jsonify({'PrintJob':result})
+
+
