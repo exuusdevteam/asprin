@@ -65,6 +65,7 @@ class PrinterJobSchema(Schema):
     status = fields.Str()
     price = fields.Str()
     paper_price = fields.Float()
+    commission = fields.Float()
     taxes = fields.Float()
     regDate = fields.Str()
     user_id = fields.Int()
