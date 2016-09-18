@@ -118,7 +118,7 @@ asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scop
 				var storeUser = storeUserAsprin(data.user.user_id);
 				if(storeUser == 1){
 					//$location.path('/app/');
-					postApsinData();
+					postApsinData(data.user.user_id);
 				}
 			}
 		})
@@ -128,9 +128,9 @@ asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scop
 	}
 	
 	
-	function postApsinData(){
+	function postApsinData(user_id){
 		var data = restoreAsprin();
-		var json = '{"file":"'+data.path+'", "filename":"'+data.filename+'","size":"'+data.size+'","exec_time":"'+data.time+'","cyan":"'+data.cyan+'", "magenta":"'+data.magenta+'","yellow":"'+data.yellow+'","black":"'+data.black+'","price":"'+data.sumPDF+'","tonner_cost":"'+data.sumtonner+'","page":"'+data.page+'"}';
+		var json = '{"file":"'+data.path+'", "filename":"'+data.filename+'","size":"'+data.size+'","exec_time":"'+data.time+'","cyan":"'+data.cyan+'", "magenta":"'+data.magenta+'","yellow":"'+data.yellow+'","black":"'+data.black+'","price":"'+data.sumPDF+'","tonner_cost":"'+data.sumtonner+'","page":"'+data.page+'","user_id":"'+user_id+'","business_id":"1"}';
 		
 		var config = {
 			headers:{
@@ -148,10 +148,15 @@ asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scop
 	}
 	
 	
-	function storeAsprin(Asprin){
-		localStorage.setItem('asprin', JSON.stringify(Asprin));
-		return 1;
-	}
+	
+	
+}]);
+
+
+function storeAsprin(Asprin){
+	localStorage.setItem('asprin', JSON.stringify(Asprin));
+	return 1;
+}
 
 	function restoreAsprin(){
 		var storeData = Array();
@@ -168,11 +173,6 @@ asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scop
 		localStorage.setItem('asprin_u__', User);
 		return 1;
 	}
-	
-}]);
-
-
-
 
 
 
