@@ -202,7 +202,7 @@ def upload():
         return jsonify({'asprin':pdf_scan})
 
 
-@app.route("/api/login/", methods=['POST'])
+@app.route("/api/v1/login/", methods=['POST'])
 def login():
     json_data = request.get_json()
     if not json_data:
