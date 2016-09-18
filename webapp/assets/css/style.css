@@ -291,7 +291,7 @@ footer{
 }
 
 .sign-in-order p{
-	color: #edeff0 !important;
+	color: #edeff0;
 }
 
 .btn-width{
@@ -301,4 +301,10 @@ footer{
 .order-details >tbody>tr> td:nth-child(-n+2) {
 	border-top: 1px solid #3e474f;
 	color: #3e474f !important;
+}
+
+.error-msg{
+	color: #dd4b39 !important;
+	font-size: 13px;
+	font-weight: 400;
 }
