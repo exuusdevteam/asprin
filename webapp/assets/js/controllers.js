@@ -254,7 +254,7 @@ asprinApp.controller('asprinDocCtrl', ['$scope','$http', function($scope,$http){
 	if(user_type == 1){
 		asprinDocUser();
 	}else{
-		
+		asprinDocBusiness();
 	}
 	
 	
@@ -276,7 +276,14 @@ asprinApp.controller('asprinDocCtrl', ['$scope','$http', function($scope,$http){
 		$scope.thCustomer = true;
 		$scope.trCustomer = true;
 		
-		var url ="http://0.0.0.0:5000/api/v1/printjobs/user/"+user_id;
+		var url ="http://0.0.0.0:5000/api/v1/printjobs/business/1";
+		$http.get(url).success(function(data, status, header, config){
+			$scope.asprins = data.PrintJob;
+			console.log(data);
+		})
+		.error(function(data, status, header, config){
+			console.log(data);
+		});
 	}
 	
 	
