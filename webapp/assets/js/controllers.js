@@ -214,6 +214,22 @@ asprinApp.controller('sgininCtrl',['$scope','$http','$location', function($scope
 	}
 }]);
 
+asprinApp.controller('headerNameCtrl', ['$scope','$http', function($scope, $http){
+	var data = restoreUserAsprin();
+	var user_id = data[0];
+	var user_type = data[1];
+	
+	var url ="http://0.0.0.0:5000/api/v1/user/"+user_id;
+	
+	$http.get(url).success(function(data,status, header, config){
+		$scope.fullname = data.user.names.toUpperCase();
+	})
+	.error(function(data, status, header, config){
+		
+	});
+	
+}]);
+
 
 function storeAsprin(Asprin){
 	localStorage.setItem('asprin', JSON.stringify(Asprin));
@@ -235,6 +251,12 @@ function destroyAsprin(){
 	return 1;
 }
 
+function restoreUserAsprin(){
+	var user_id = localStorage.getItem('asprin_u__');
+	var user_type = localStorage.getItem('asprin_t__');
+	var data = new Array(user_id,user_type); 
+	return data;
+}
 
 function storeUserAsprin(User,UserType){
 	localStorage.setItem('asprin_u__', User);
