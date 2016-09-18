@@ -90,3 +90,10 @@ def printjobs_user(id):
     result = printers_job_schema.dump(print_jobs).data
 
     return jsonify({'PrintJob':result})
+
+@app.route("/api/v1/printjobs/business/<int:id>")
+def printjobs_business(id):
+    print_jobs = PrinterJob.query.filter_by(business_id = id)
+    result = printers_job_schema.dump(print_jobs).data
+
+    return jsonify({'PrintJob':result})
