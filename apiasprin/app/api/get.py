@@ -87,14 +87,16 @@ def printjobs():
 
 @app.route("/api/v1/printjobs/user/<int:id>")
 def printjobs_user(id):
-    print_jobs = PrinterJob.query.filter_by(user_id=id)
+    print_jobs = PrinterJob.query.filter_by(user_id=id).order_by(PrinterJob.regDate.desc())
     result = printers_job_schema.dump(print_jobs).data
 
-    return jsonify({'PrintJob':result})
+    json = printJobBusiness(result)
+
+    return jsonify(json)
 
 @app.route("/api/v1/printjobs/business/<int:id>")
 def printjobs_business(id):
-    print_jobs = PrinterJob.query.filter_by(business_id = id)
+    print_jobs = PrinterJob.query.filter_by(business_id = id).order_by(PrinterJob.regDate.desc())
     result = printers_job_schema.dump(print_jobs).data
 
     json = printJobBusiness(result)
