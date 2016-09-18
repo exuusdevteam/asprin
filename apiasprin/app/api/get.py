@@ -2,6 +2,7 @@ from app import *
 from app.model.models import *
 from app.model.schema import *
 from app.controller.printer.getprinter import *
+from ..controller.app.printjob import printJobBusiness
 from sqlalchemy.exc import IntegrityError
 
 
@@ -96,4 +97,6 @@ def printjobs_business(id):
     print_jobs = PrinterJob.query.filter_by(business_id = id)
     result = printers_job_schema.dump(print_jobs).data
 
-    return jsonify({'PrintJob':result})
+    json = printJobBusiness(result)
+
+    return jsonify(json)
