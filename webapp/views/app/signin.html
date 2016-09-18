@@ -19,6 +19,9 @@
                   </div>
                </div>
                <div class="form-group">
+					  <p class="text-center error-msg" ng-show="loginResponse">Wrong password or username. Try again.</p>
+				  </div>
+               <div class="form-group">
                   <div class="col-sm-12">
 					  <button type="submit" class="btn btn-primary input-lg" ng-click="login(username, password)" ng-disabled="!signin_.$valid">Sign in</button>
                   </div>
