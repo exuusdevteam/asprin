@@ -57,7 +57,7 @@ class PrinterJobSchema(Schema):
     filename = fields.Str()
     size = fields.Str()
     exec_time = fields.Float()
-    page_number =fields.Str()
+    page =fields.Str()
     cyan = fields.Float()
     magenta = fields.Float()
     yellow = fields.Float()
