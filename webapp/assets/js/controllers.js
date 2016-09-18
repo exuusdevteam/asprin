@@ -117,7 +117,6 @@ asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scop
 			}else{
 				var storeUser = storeUserAsprin(data.user.user_id);
 				if(storeUser == 1){
-					//$location.path('/app/');
 					postApsinData(data.user.user_id);
 				}
 			}
@@ -140,7 +139,10 @@ asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scop
 		//console.log(json);
 		$http.post('http://0.0.0.0:5000/api/v1/printjob/', json, config)
 		.success(function(data, status, header, config){
-			console.log(data);
+			if(status == 200){
+				var removeAsprin = destroyAsprin();
+				$location.path('/app/');
+			}
 		})
 		.error(function(data, status, header, config){
 			console.log(status);
@@ -153,26 +155,45 @@ asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scop
 }]);
 
 
+asprinApp.controller('signupoCrtl',['$scope','$http','$location', function($scope,$http,$location){
+	var asprinPrice = restoreAsprin();
+	$scope.filename = asprinPrice.filename;
+	$scope.page = asprinPrice.page;
+	$scope.price = asprinPrice.sumPDF;
+	$scope.tprice = asprinPrice.sumPDF;
+	
+	$scope.singup =  function(fullname, email, password){
+		alert(fullname, email, password);
+	}
+	
+}]);
+
+
 function storeAsprin(Asprin){
 	localStorage.setItem('asprin', JSON.stringify(Asprin));
 	return 1;
 }
 
-	function restoreAsprin(){
-		var storeData = Array();
-		storeData = localStorage.getItem('asprin');
-		if(storeData){
-			return JSON.parse(storeData);
-		}else{
-			return 0;
-		}
+function restoreAsprin(){
+	var storeData = Array();
+	storeData = localStorage.getItem('asprin');
+	if(storeData){
+		return JSON.parse(storeData);
+	}else{
+		return 0;
 	}
+}
+
+function destroyAsprin(){
+	localStorage.removeItem('asprin');
+	return 1;
+}
 
 
-	function storeUserAsprin(User){
-		localStorage.setItem('asprin_u__', User);
-		return 1;
-	}
+function storeUserAsprin(User){
+	localStorage.setItem('asprin_u__', User);
+	return 1;
+}
 
 
 
