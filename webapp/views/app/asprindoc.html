@@ -15,91 +15,31 @@
             <div class="col-md-3">
                <div ng-include src="'views/app/ng-include/menu.htm'"></div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9" ng-controller="asprinDocCtrl">
                <div class="row row-margin-left">
                   <h1 class="menu-header-2">ASRPRIN DOC</h1>
                   <table class="table app-table">
                      <tr>
-                        <th>ID</th>
-                        <th>Customer</th>
+                        <th ng-show="thCustomer">Customer</th>
                         <th>File</th>
                         <th>Size</th>
                         <th>Creation Date</th>
                         <th>Status</th>
                         <th>Details</th>
                      </tr>
-                     <tr>
-                        <td>1</td>
-                        <td>Remy Muhire</td>
-                        <td>C:\fakepath\af_sg.sql</td>
-                        <td>3mb</td>
-                        <td>03/06/2016</td>
-                        <td><span class="label label-success">printed</span></td>
-                        <td>more</td>
+                     <tr ng-repeat="asprin in asprins">
+                        <td ng-show="trCustomer">Remy Muhire</td>
+						 <td><a href="" ng-click="loadPdf(asprin.file)">{{ asprin.filename}}</a></td>
+                        <td>{{ asprin.size}} bytes</td>
+                        <td>{{ asprin.regDate }}</td>
+                        <td>
+                        	<span ng-if="asprin.status == 1" class="label label-success">printed</span>
+                        	<span ng-if="asprin.status == 3" class="label label-warning">pending</span>
+                        	<span ng-if="asprin.status == 0" class="label label-danger">Failed</span>
+                        </td>
+						 <td><a class="moreAsprin" ng-click="moreAsprin(asprin.printer_job_id)">more</a></td>
                      </tr>
-                     <tr>
-                        <td>1</td>
-                        <td>Remy Muhire</td>
-                        <td>C:\fakepath\af_sg.sql</td>
-                        <td>3mb</td>
-                        <td>03/06/2016</td>
-                        <td><span class="label label-warning">pending</span></td>
-                        <td>more</td>
-                     </tr>
-                     <tr>
-                        <td>1</td>
-                        <td>Remy Muhire</td>
-                        <td>C:\fakepath\af_sg.sql</td>
-                        <td>3mb</td>
-                        <td>03/06/2016</td>
-                        <td><span class="label label-success">printed</span></td>
-                        <td>more</td>
-                     </tr>
-                     <tr>
-                        <td>1</td>
-                        <td>Remy Muhire</td>
-                        <td>C:\fakepath\af_sg.sql</td>
-                        <td>3mb</td>
-                        <td>03/06/2016</td>
-                        <td><span class="label label-success">printed</span></td>
-                        <td>more</td>
-                     </tr>
-                     <tr>
-                        <td>1</td>
-                        <td>Remy Muhire</td>
-                        <td>C:\fakepath\af_sg.sql</td>
-                        <td>3mb</td>
-                        <td>03/06/2016</td>
-                        <td><span class="label label-success">printed</span></td>
-                        <td>more</td>
-                     </tr>
-                     <tr>
-                        <td>1</td>
-                        <td>Remy Muhire</td>
-                        <td>C:\fakepath\af_sg.sql</td>
-                        <td>3mb</td>
-                        <td>03/06/2016</td>
-                        <td><span class="label label-danger">Failed</span></td>
-                        <td>more</td>
-                     </tr>
-                     <tr>
-                        <td>1</td>
-                        <td>Remy Muhire</td>
-                        <td>C:\fakepath\af_sg.sql</td>
-                        <td>3mb</td>
-                        <td>03/06/2016</td>
-                        <td><span class="label label-success">printed</span></td>
-                        <td>more</td>
-                     </tr>
-                     <tr>
-                        <td>1</td>
-                        <td>Remy Muhire</td>
-                        <td>C:\fakepath\af_sg.sql</td>
-                        <td>3mb</td>
-                        <td>03/06/2016</td>
-                        <td><span class="label label-success">printed</span></td>
-                        <td>more</td>
-                     </tr>
+                    
                   </table>
                   <div class="text-center">
                      <ul class="pagination">
