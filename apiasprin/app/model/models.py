@@ -169,6 +169,7 @@ class PrinterJob(db.Model):
     status = db.Column(db.Integer)
     price = db.Column(db.Float)
     paper_price = db.Column(db.Float)
+    commission = db.Column(db.Float)
     taxes = db.Column(db.Float)
     regDate = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
