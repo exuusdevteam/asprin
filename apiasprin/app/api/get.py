@@ -6,13 +6,13 @@ from sqlalchemy.exc import IntegrityError
 
 
 
-@app.route("/api/get/users")
+@app.route("/api/v1/users")
 def get_users():
     users = User.query.all()
     result = users_schema.dump(users)
     return jsonify({"users":result.data})
 
-@app.route("/api/get/users/<int:id>")
+@app.route("/api/v1/user/<int:id>")
 def get_user(id):
     try:
         user = User.query.get(id)
