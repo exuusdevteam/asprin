@@ -1,26 +1,26 @@
 <nav class="navbar navbar-asprin">
    <div class="magenta-line"></div>
 </nav>
-<div class="container conatiner-signin" >
+<div class="container conatiner-signin" ng-controller="sgininCtrl">
    <div class="col-md-4 col-sm-6 col-md-xs-10 col-centered">
       <div class="">
 		 <a href="#/"><img src="assets/img/asprin_logo.png"></a>
          <h1 class="header-signin">Hello. Sign in.</h1>
          <div class="form">
-            <form class="form-horizontal" role="form" action="#/app/">
+            <form class="form-horizontal" name="signin_">
                <div class="form-group">
                   <div class="col-sm-12">
-                     <input type="email" class="form-control input-lg" id="email" placeholder="Enter email">
+                     <input type="text" class="form-control input-lg" ng-model="username" placeholder="Username" required>
                   </div>
                </div>
                <div class="form-group">
                   <div class="col-sm-12">
-                     <input type="password" class="form-control input-lg" id="pwd" placeholder="Enter password">
+                     <input type="password" class="form-control input-lg" ng-model="password" placeholder="Password" required>
                   </div>
                </div>
                <div class="form-group">
                   <div class="col-sm-12">
-                     <input type="submit" class="btn btn-primary input-lg" value="Submit">
+					  <button type="submit" class="btn btn-primary input-lg" ng-click="login(username, password)" ng-disabled="!signin_.$valid">Sign in</button>
                   </div>
                </div>
                <div class="text-center">
