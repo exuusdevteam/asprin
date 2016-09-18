@@ -61,6 +61,7 @@ class Business(db.Model):
     name = db.Column(db.String(80), unique = True)
     email = db.Column(db.String(80))
     phone = db.Column(db.String)
+    category = db.Column(db.String)
     lat = db.Column(db.String(100))
     lon = db.Column(db.String(100))
     address = db.Column(db.String(80))
