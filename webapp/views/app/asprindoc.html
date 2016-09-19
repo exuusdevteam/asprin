@@ -5,7 +5,7 @@
 <div class="container container-padding">
    <div ng-include src="'views/app/ng-include/header.htm'"></div>
    <div class="row">
-      <div class="col-md-offset-1 col-md-10">
+      <div class="col-md-12">
          <div class="row">
 			 <h1 class="menu-header-2">ASRPRIN DOC</h1>
 		 </div>
@@ -22,7 +22,8 @@
                         <th>File</th>
                         <th>Page</th>
                         <th>Size</th>
-                        <th>Creation Date</th>
+						<th>Price</th>
+                        <th>Created</th>
                         <th>Status</th>
                         <th>Details</th>
                      </tr>
@@ -31,13 +32,14 @@
 						 <td><a href="" ng-click="loadPdf(asprin.printer_job_id)">{{ asprin.filename}}</a></td>
                        	<td>{{ asprin.page}}</td>
                         <td>{{ asprin.size}}</td>
+                        <td>{{ asprin.tot_price}}</td>
                         <td>{{ asprin.regDate }}</td>
                         <td>
                         	<span ng-if="asprin.status == 1" class="label label-success">printed</span>
                         	<span ng-if="asprin.status == 3" class="label label-warning">pending</span>
                         	<span ng-if="asprin.status == 0" class="label label-danger">Failed</span>
                         </td>
-						 <td><a class="moreAsprin" ng-click="moreAsprin(asprin.printer_job_id)">more</a></td>
+						 <td><a class="moreAsprin" ng-click="moreAsprin(asprin.printer_job_id)">More</a></td>
                      </tr>
                     
                   </table>
