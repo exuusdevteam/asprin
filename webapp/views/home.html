@@ -44,8 +44,8 @@
          <div class="col-md-offset-4 col-md-4 col-lg-4 col-xs-10">
             <input type="file" name="filename-asprin"  type="file" ngf-select ng-model="picFile" name="file"    
                 accept="" ng-drop ngf-max-size="30MB" required
-                ngf-model-invalid="errorFile">
-                <button ng-disabled="!myForm.$valid" 
+                ngf-model-invalid="errorFile"><br>
+                <button class="btn" ng-disabled="!myForm.$valid" 
               ng-click="uploadPic(picFile)">add</button>
               <span class="progress" ng-show="picFile.progress >= 0">
             <div style="width:{{picFile.progress}}%" 
