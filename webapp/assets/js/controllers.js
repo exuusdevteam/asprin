@@ -179,7 +179,7 @@ asprinApp.controller('signupoCrtl',['$scope','$http','$location', function($scop
 			}else{
 				$scope.singupResponse = data.message;
 			}
-		})
+		});
 	}
 	
 }]);
@@ -210,6 +210,28 @@ asprinApp.controller('sgininCtrl',['$scope','$http','$location', function($scope
 		})
 		.error(function(data, status, header, config){
 			console.log(status + " "+header);
+		});
+	}
+}]);
+
+
+asprinApp.controller('singnup', ['$scope','$http','$location', function($scope, $http, $location){
+	$scope.signupFunc = function(fullname,email,password){
+		var data = '{"names":"'+fullname+'", "email":"'+email+'", "password":"'+password+'"}';
+		
+		var config = {
+			headers:{
+				'Content-Type':'application/json'
+			}
+		}
+		
+		$http.post('http://0.0.0.0:5000/api/v1/user/', data, config)
+		.success(function(data, status, header, config){
+			if(data.auth){
+				$location.path('/signin');
+			}else{
+				$scope.singupResponse = data.message;
+			}
 		});
 	}
 }]);
