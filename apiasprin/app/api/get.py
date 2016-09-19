@@ -4,6 +4,7 @@ from app.model.schema import *
 from app.controller.printer.getprinter import *
 from ..controller.app.printjob import printJobBusiness
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy import func
 
 
 
@@ -102,3 +103,4 @@ def printjobs_business(id):
     json = printJobBusiness(result)
 
     return jsonify(json)
+
