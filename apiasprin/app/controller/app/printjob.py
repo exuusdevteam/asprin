@@ -14,9 +14,11 @@ def printJobBusiness(json_jobs):
         date = arrow.get(item['regDate'])
         item['regDate'] = date.to('Africa/Kigali').humanize()
         data['PrintJob'].append(item)
+        item['price'] = int(float(item['price']))
+        item['tot_price'] = item['price'] + int(round(item['taxes'],0)) + int(round(item['commission'],0))
 
 
 
     data['storage']= humansize(round(storage))
-    data['percentage'] = round(((float(data['storage'].split(" ")[0]) * 100)/5000),2)
+    data['percentage'] = round(((float(data['storage'].split(" ")[0]) * 100)/1000),2)
     return data
