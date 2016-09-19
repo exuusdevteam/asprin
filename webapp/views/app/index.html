@@ -14,7 +14,7 @@
 				<div ng-include src="'views/app/ng-include/menu.htm'"></div>
             </div>
             <div class="col-md-9">
-               <div class="row">
+               <!--<div class="row">
                   
                   <div class="input-group col-md-9 col-lg-9 col-xs-10 asprin-input-center">
                      <span class="input-group-addon input-height"><a href="#" id="fire-file-btn"><i class="glyphicon glyphicon-file"></i></a></span>
@@ -27,7 +27,22 @@
                   <div class="text-center">
                      <button class="btn btn-primary">SCAN</button>
                   </div>
-               </div>
+               </div>-->
+                <div class="col-md-offset-4 col-md-4 col-lg-4 col-xs-10">
+            <input type="file" name="filename-asprin"  type="file" ngf-select ng-model="picFile" name="file"    
+                accept="" ng-drop ngf-max-size="30MB" required
+                ngf-model-invalid="errorFile"><br>
+                <button class="btn btn-primary" ng-disabled="!myForm.$valid" 
+              ng-click="uploadPic(picFile)">Scan</button>
+              <span class="progress" ng-show="picFile.progress >= 0">
+            <div style="width:{{picFile.progress}}%" 
+               ng-bind="picFile.progress + '%'"></div>
+           </span>
+           <span ng-show="load_spin">ASPRIN SCANNING FILE PIXELS WAIT A MOMENT...</span>
+           <span ng-show="picFile.result">Upload Successful</span>
+           <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+         </div>
+      </form>
             </div>
          </div>
       </div>
