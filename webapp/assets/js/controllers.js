@@ -141,7 +141,7 @@ asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scop
 		.success(function(data, status, header, config){
 			if(status == 200){
 				var removeAsprin = destroyAsprin();
-				$location.path('/app/');
+				$location.path('/app/asprin-doc');
 			}
 		})
 		.error(function(data, status, header, config){
