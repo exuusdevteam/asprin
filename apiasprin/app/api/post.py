@@ -196,7 +196,8 @@ def upload():
         file.save(tmp_filename)
 
         re_filename = uniqid()+".pdf"
-        destination = "/Users/muhireremy/asprin/apiasprin/pdf/"+re_filename
+        #destination = "/Users/muhireremy/asprin/apiasprin/pdf/"+re_filename
+        destination = "/var/www/html/apiasprin/pdf/"+re_filename
         os.rename(tmp_filename, destination)
 
         pdf_scan = Pdfalgo(destination, filename, re_filename).loadPdf()
