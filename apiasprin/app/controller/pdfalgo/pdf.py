@@ -28,7 +28,9 @@ class Pdfalgo:
         yPdf = 0
         kPdf = 0
 
-        tmp = os.path.abspath('app/controller/pdfalgo/pdf/temp/tmp.jpg')
+        uniqtmp = "app/controller/pdfalgo/pdf/temp/"+self.re_filename+".jpg"
+
+        tmp = os.path.abspath(uniqtmp)
         for page in range(0, page_number):
             imageFile = self.pdffile + "[" + str(page) + "]"
             with Image(filename = imageFile) as img:
