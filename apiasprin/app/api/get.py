@@ -49,7 +49,7 @@ def get_printer(id):
     result = printer_schema.dump(printer)
     return jsonify({"printer":result.data})
 
-@app.route("/api/get/printer/options")
+@app.route("/api/v1/printer/options")
 def get_printer_option():
     list_printer = get_printer_list()
     return jsonify(list_printer)
