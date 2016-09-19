@@ -288,7 +288,7 @@ asprinApp.controller('asprinDocCtrl', ['$scope','$http', function($scope,$http){
 		$http.get(url).success(function(data, status, header, config){
 			console.log(data);
 			$scope.asprins = data.PrintJob;
-			$scope.storage = data.storage + "("+data.percentage+"%) of 5GB used";
+			
 		})
 		.error(function(data, status, header, config){
 			console.log(data);
@@ -302,7 +302,7 @@ asprinApp.controller('asprinDocCtrl', ['$scope','$http', function($scope,$http){
 		var url ="http://0.0.0.0:5000/api/v1/printjobs/business/1";
 		$http.get(url).success(function(data, status, header, config){
 			$scope.asprins = data.PrintJob;
-			$scope.storage = data.storage + "("+data.percentage+"%) of 5GB used";
+			
 			console.log(data);
 		})
 		.error(function(data, status, header, config){
@@ -343,7 +343,7 @@ asprinApp.controller('storageCtrl', ['$scope', '$http', function($scope, $http){
 		var url ="http://0.0.0.0:5000/api/v1/printjobs/user/"+user_id;
 		$http.get(url).success(function(data, status, header, config){
 			console.log(data);
-			$scope.storage = data.storage + " ("+data.percentage+"%) of 5 GB used.";
+			$scope.storage = data.storage + " ("+data.percentage+"%) of 1 GB used.";
 		})
 		.error(function(data, status, header, config){
 			console.log(data);
@@ -356,7 +356,7 @@ asprinApp.controller('storageCtrl', ['$scope', '$http', function($scope, $http){
 		
 		var url ="http://0.0.0.0:5000/api/v1/printjobs/business/1";
 		$http.get(url).success(function(data, status, header, config){
-			$scope.storage = data.storage + " ("+data.percentage+"%) of 5 GB used.";
+			$scope.storage = data.storage + " ("+data.percentage+"%) of 1 GB used.";
 			console.log(data);
 		})
 		.error(function(data, status, header, config){
