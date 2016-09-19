@@ -14,7 +14,7 @@
                <div ng-include src="'views/app/ng-include/menu.htm'"></div>
             </div>
             <div class="col-md-9" ng-controller="asprinDocCtrl">
-               <div class="row row-margin-left">
+               <div class="row row-margin-left table-responsive" >
                  
                   <table class="table app-table">
                      <tr>
@@ -28,7 +28,7 @@
                      <tr ng-repeat="asprin in asprins">
                         <td ng-show="trCustomer">{{ asprin.names }}</td>
 						 <td><a href="" ng-click="loadPdf(asprin.printer_job_id)">{{ asprin.filename}}</a></td>
-                        <td>{{ asprin.size}} bytes</td>
+                        <td>{{ asprin.size}}</td>
                         <td>{{ asprin.regDate }}</td>
                         <td>
                         	<span ng-if="asprin.status == 1" class="label label-success">printed</span>
