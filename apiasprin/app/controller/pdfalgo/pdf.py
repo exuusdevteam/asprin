@@ -51,6 +51,7 @@ class Pdfalgo:
             mPdf += m
             yPdf += y
             kPdf += k
+            os.remove(uniqtmp)
 
         data = {
             'page':page_number,
