@@ -266,6 +266,7 @@ asprinApp.controller('asprinDocCtrl', ['$scope','$http', function($scope,$http){
 		$http.get(url).success(function(data, status, header, config){
 			console.log(data);
 			$scope.asprins = data.PrintJob;
+			$scope.storage = data.storage + "("+data.percentage+"%) of 5GB used";
 		})
 		.error(function(data, status, header, config){
 			console.log(data);
@@ -279,6 +280,7 @@ asprinApp.controller('asprinDocCtrl', ['$scope','$http', function($scope,$http){
 		var url ="http://0.0.0.0:5000/api/v1/printjobs/business/1";
 		$http.get(url).success(function(data, status, header, config){
 			$scope.asprins = data.PrintJob;
+			$scope.storage = data.storage + "("+data.percentage+"%) of 5GB used";
 			console.log(data);
 		})
 		.error(function(data, status, header, config){
@@ -298,6 +300,49 @@ asprinApp.controller('asprinDocCtrl', ['$scope','$http', function($scope,$http){
 		alert(file);
 	}
 }]);
+
+
+asprinApp.controller('storageCtrl', ['$scope', '$http', function($scope, $http){
+	var data = restoreUserAsprin();
+	var user_id = data[0];
+	var user_type = data[1];
+	
+	if(user_type == 1){
+		asprinDocUser();
+	}else{
+		asprinDocBusiness();
+	}
+	
+	
+	
+	function asprinDocUser(){
+		$scope.thCustomer = false;
+		$scope.trCustomer = false;
+		var url ="http://0.0.0.0:5000/api/v1/printjobs/user/"+user_id;
+		$http.get(url).success(function(data, status, header, config){
+			console.log(data);
+			$scope.storage = data.storage + " ("+data.percentage+"%) of 5 GB used.";
+		})
+		.error(function(data, status, header, config){
+			console.log(data);
+		});
+	}
+	
+	function asprinDocBusiness(){
+		$scope.thCustomer = true;
+		$scope.trCustomer = true;
+		
+		var url ="http://0.0.0.0:5000/api/v1/printjobs/business/1";
+		$http.get(url).success(function(data, status, header, config){
+			$scope.storage = data.storage + " ("+data.percentage+"%) of 5 GB used.";
+			console.log(data);
+		})
+		.error(function(data, status, header, config){
+			console.log(data);
+		});
+	}
+}]);
+
 
 function storeAsprin(Asprin){
 	localStorage.setItem('asprin', JSON.stringify(Asprin));
