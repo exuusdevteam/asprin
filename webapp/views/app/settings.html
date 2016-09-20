@@ -16,42 +16,41 @@
             <div class="col-md-9">
                <div class="row row-margin-left">
                  
-                  <form class="form-horizontal" role="form">
+                  <form class="form-horizontal" role="form" name="userinfo" ng-controller="userInfoCtrl">
                      <div class="form-group">
                         <label class="control-label col-sm-4 col-md-4" for="fullname">Full name:</label>
                         <div class="col-sm-8 col-md-8">
-                           <input type="text" class="form-control input-sm" id="fullname" placeholder="Full name">
+                           <input type="text" class="form-control input-sm"  placeholder="Full name" ng-model="names">
                         </div>
                      </div>
                      <div class="form-group">
                         <label class="control-label col-sm-4 col-md-4" for="email">Email:</label>
                         <div class="col-sm-8 col-md-8">
-                           <input type="text" class="form-control input-sm" id="email" placeholder="Email">
+                           <input type="email" class="form-control input-sm" id="email" placeholder="Email" ng-model="email">
                         </div>
                      </div>
                      <div class="form-group">
                         <label class="control-label col-sm-4 col-md-4" for="gender">Gender:</label>
                         <div class="col-sm-2 col-md-2">
-                           <select class="form-control input-sm">
-                              <option value="m">M</option>
-                              <option value="f">F</option>
+                           <select class="form-control input-sm" ng-model="gender">
+							   <option>{{ gender }}</option>
+                               <option value="m">M</option>
+                               <option value="f">F</option>
                            </select>
                         </div>
                      </div>
                      <div class="form-group">
                         <label class="control-label col-sm-4 col-md-4" for="gender">Birthday:</label>
                         <div class="col-sm-2 col-md-2">
-                           <select class="form-control input-sm">
-                              <option value="m">Day</option>
+                           <input type="number" min="1" max="31" class="form-control input-sm" ng-model="day">
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+                           <select ng-options="month for month in months" class="form-control input-sm" ng-model="month">
+        
                            </select>
                         </div>
                         <div class="col-sm-3 col-md-3">
-                           <select class="form-control input-sm">
-                              <option value="m">Month</option>
-                           </select>
-                        </div>
-                        <div class="col-sm-3 col-md-3">
-                           <input type="text" class="form-control input-sm" placeholder="Year">
+                           <input type="number" min="1900" class="form-control input-sm" placeholder="Year" ng-model="year">
                         </div>
                      </div>
                      <div class="form-group">
