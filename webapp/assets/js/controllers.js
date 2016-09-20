@@ -397,7 +397,12 @@ asprinApp.controller('userInfoCtrl', ['$scope','$http','$location', function($sc
 			$scope.gender = data.user.gender;
 		}
 		if(data.user.dob != null){
-			
+			$scope.day = data.user.dob;
+			$scope.month = data.user.dob;
+			$scope.year = data.user.dob;
+		}
+		if(data.user.job_title !=null){
+			$scope.job_title = data.user.job_title;
 		}
 	});
 	
