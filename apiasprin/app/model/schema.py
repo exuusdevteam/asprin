@@ -16,6 +16,7 @@ class UserSchema(Schema):
     regDate = fields.Date()
     password= fields.Str()
     gender = fields.Str()
+    job_title = fields.Str()
     business_id = fields.Int()
 
 
