@@ -1,10 +1,10 @@
 from app import *
 from ..model.models import *
 from ..model.schema import *
-from ..controller.printer.getprinter import *
+from ..controller.printer.unix.getprinter import *
 from ..controller.app.printjob import printJobBusiness
 from ..controller.app.userdate import userdate, usersdate
-from sqlalchemy.exc import IntegrityError
+#from sqlalchemy.exc import IntegrityError
 
 
 
@@ -56,7 +56,7 @@ def get_printer(id):
 @app.route("/api/v1/printer/options")
 def get_printer_option():
     list_printer = get_printer_list()
-    return jsonify(list_printer)
+    return jsonify({"printers":list_printer})
 
 @app.route("/api/get/tonners/<int:business_id>")
 def get_tonners(business_id):
