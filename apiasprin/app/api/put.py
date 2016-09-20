@@ -1,9 +1,7 @@
 from flask import jsonify, request
 from app import *
-from app.model.models import *
-from app.model.schema import *
-from app.controller.printer.getprinter import *
-from app.controller.app.getusername import *
+from ..model.models import *
+
 
 
 @app.route("/api/put/user/<int:id>/", methods=["PUT"])
@@ -11,8 +9,6 @@ def put_user(id):
     json_data = request.get_json()
     if not json_data:
         return jsonify({'message':'No input data provided'})
-
-
     names = json_data['names']
     username = json_data['username']
     email = json_data['email']
@@ -31,7 +27,7 @@ def put_user(id):
         user.username = username
         user.email = email
         user.phone = phone
-        user.user_type  = user_type
+        user.user_type = user_type
         user.user_role = user_role
         user.password = password
         user.business_id = business_id
@@ -50,7 +46,7 @@ def put_business(id):
     if not  json_data:
         return jsonify({'message':'no input data provided'})
 
-    name =  json_data['name']
+    name = json_data['name']
     email = json_data['email']
     phone = json_data['phone']
     category = json_data['category']
