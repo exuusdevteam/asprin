@@ -366,6 +366,33 @@ asprinApp.controller('storageCtrl', ['$scope', '$http', function($scope, $http){
 }]);
 
 
+asprinApp.controller('userInfoCtrl', ['$scope','$http','$location', function($scope, $http, $location){
+	
+	var data = restoreUserAsprin();
+	var user_id = data[0];
+	var user_type = data[1];
+	
+	var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+	$scope.months = months;
+	$scope.gender = 'Gender';
+	$scope.year = 1900; 
+	$scope.day = 1;
+	$scope.month = 'Jan'
+	
+	var url = "http://0.0.0.0:5000/api/v1/user/"+user_id;
+	
+	$http.get(url).success(function(data, status, header, config){
+		console.log(data);
+		$scope.names = data.user.names;
+		$scope.email = data.user.email;
+		if(data.user.gender != null){
+			$scope.gender = data.user.gender;
+		}
+		
+	});
+	
+}]);
+
 function storeAsprin(Asprin){
 	localStorage.setItem('asprin', JSON.stringify(Asprin));
 	return 1;
