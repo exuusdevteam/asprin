@@ -335,6 +335,14 @@ asprinApp.controller('storageCtrl', ['$scope', '$http', function($scope, $http){
 		asprinDocBusiness();
 	}
 	
+	var url ="http://0.0.0.0:5000/api/v1/user/"+user_id;
+	
+	$http.get(url).success(function(data,status, header, config){
+		$scope.joined = "Joined Asprin "+data.user.regDate;
+	})
+	.error(function(data, status, header, config){
+		
+	});
 	
 	
 	function asprinDocUser(){
@@ -342,7 +350,6 @@ asprinApp.controller('storageCtrl', ['$scope', '$http', function($scope, $http){
 		$scope.trCustomer = false;
 		var url ="http://0.0.0.0:5000/api/v1/printjobs/user/"+user_id;
 		$http.get(url).success(function(data, status, header, config){
-			console.log(data);
 			$scope.storage = data.storage + " ("+data.percentage+"%) of 1 GB used.";
 		})
 		.error(function(data, status, header, config){
@@ -357,13 +364,14 @@ asprinApp.controller('storageCtrl', ['$scope', '$http', function($scope, $http){
 		var url ="http://0.0.0.0:5000/api/v1/printjobs/business/1";
 		$http.get(url).success(function(data, status, header, config){
 			$scope.storage = data.storage + " ("+data.percentage+"%) of 1 GB used.";
-			console.log(data);
+			
 		})
 		.error(function(data, status, header, config){
 			console.log(data);
 		});
 	}
 }]);
+
 
 
 asprinApp.controller('userInfoCtrl', ['$scope','$http','$location', function($scope, $http, $location){
@@ -388,7 +396,9 @@ asprinApp.controller('userInfoCtrl', ['$scope','$http','$location', function($sc
 		if(data.user.gender != null){
 			$scope.gender = data.user.gender;
 		}
-		
+		if(data.user.dob != null){
+			
+		}
 	});
 	
 }]);
