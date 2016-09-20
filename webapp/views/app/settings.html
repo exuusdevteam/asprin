@@ -46,7 +46,6 @@
                         </div>
                         <div class="col-sm-3 col-md-3">
                            <select ng-options="month for month in months" class="form-control input-sm" ng-model="month">
-        
                            </select>
                         </div>
                         <div class="col-sm-3 col-md-3">
@@ -56,7 +55,7 @@
                      <div class="form-group">
                         <label class="control-label col-sm-4 col-md-4" for="occupation">Occupation:</label>
                         <div class="col-sm-8 col-md-8">
-                           <input type="text" class="form-control input-sm" id="occupation" placeholder="Occupation">
+                           <input type="text" class="form-control input-sm" id="occupation" ng-model="job_title" placeholder="Occupation">
                         </div>
                      </div>
                      <div class="form-group">
