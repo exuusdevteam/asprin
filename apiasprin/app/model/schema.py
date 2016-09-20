@@ -23,6 +23,7 @@ class BusinessSchema(Schema):
     name = fields.Str()
     email = fields.Str()
     phone = fields.Str()
+    dob = fields.Str()
     category = fields.Str()
     lat = fields.Str()
     lon = fields.Str()
