@@ -28,6 +28,7 @@ class User(db.Model):
     username = db.Column(db.String(40), unique = True)
     email = db.Column(db.String(80), unique = True)
     phone = db.Column(db.String(25))
+    dob = db.Column(db.DateTime)
     user_type = db.Column(db.Integer)  # 0 (Printing Business User ),  1 (Customer)
     user_role = db.Column(db.Integer)
     regDate =  db.Column(db.DateTime)
