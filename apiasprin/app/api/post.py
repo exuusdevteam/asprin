@@ -1,14 +1,13 @@
 from flask import jsonify, request
 from app import *
-from app.model.models import *
-from app.model.schema import *
-from app.controller.printer.getprinter import *
-from app.controller.app.getusername import *
+from ..model.models import *
+from ..model.schema import *
+from ..controller.app.getusername import *
 from sqlalchemy.exc import IntegrityError
 from werkzeug import secure_filename
 import os
-from app.controller.app.uniqid import uniqid
-from app.controller.pdfalgo.pdf import Pdfalgo
+from ..controller.app.uniqid import uniqid
+from ..controller.pdfalgo.pdf import Pdfalgo
 
 
 app.config['UPLOAD_FOLDER'] = '/tmp'
