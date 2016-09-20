@@ -34,6 +34,7 @@ class User(db.Model):
     regDate =  db.Column(db.DateTime)
     password = db.Column(db.String(80))
     gender = db.Column(db.String(10))
+    job_title = db.Column(db.String(80))
     business_id = db.Column(db.Integer, db.ForeignKey('business.business_id'))
 
     printjob = db.relationship('PrinterJob', backref='user', lazy='dynamic')
