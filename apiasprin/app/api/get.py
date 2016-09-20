@@ -1,28 +1,32 @@
 from app import *
-from app.model.models import *
-from app.model.schema import *
-from app.controller.printer.getprinter import *
+from ..model.models import *
+from ..model.schema import *
+from ..controller.printer.getprinter import *
 from ..controller.app.printjob import printJobBusiness
+from ..controller.app.userdate import userdate, usersdate
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy import func
+
 
 
 
 @app.route("/api/v1/users")
 def get_users():
     users = User.query.all()
-    result = users_schema.dump(users)
-    return jsonify({"users":result.data})
+    result = users_schema.dump(users).data
+    json = usersdate(result)
+    return jsonify({'users':json})
 
 @app.route("/api/v1/user/<int:id>")
 def get_user(id):
-    try:
-        user = User.query.get(id)
-    except IntegrityError:
+    user = User.query.get(id)
+    if user is None:
         return jsonify({"message": "User could not be found"}), 400
 
-    result = user_schema.dump(user)
-    return jsonify({"user":result.data})
+    else:
+        result = user_schema.dump(user).data
+        json = userdate(result)
+        return jsonify({"user": json})
+
 
 @app.route("/api/v1/business")
 def get_businesses():
