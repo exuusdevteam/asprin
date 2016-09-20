@@ -1,9 +1,7 @@
-from flask import jsonify, request
+from flask import jsonify
 from app import *
-from app.model.models import *
-from app.model.schema import *
-from app.controller.printer.getprinter import *
-from app.controller.app.getusername import *
+from ..model.models import *
+
 
 
 @app.route("/api/delete/user/<int:id>/", methods=["DELETE"])
