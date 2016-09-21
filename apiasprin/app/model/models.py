@@ -11,11 +11,11 @@ app = Flask(__name__)
 db = SQLAlchemy(app)
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///asprin.db'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://muhireremy:8@http://139.59.163.254:5000/asprindb'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123456@localhost:5432/asprin'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://muhireremy:8@localhost/asprindb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
-
+#import pdb; pdb.set_trace()
 
 ########### Model #########
 
@@ -78,10 +78,11 @@ class Business(db.Model):
     tonner = db.relationship('Tonner', backref = 'business', lazy = 'dynamic')
     printjob = db.relationship('PrinterJob', backref='business', lazy='dynamic')
 
-    def __init__(self, name, email, phone, lat, lon, address, web, logo, regDate = None):
+    def __init__(self, name, email, phone, category, lat, lon, address, web, logo, regDate = None):
         self.name = name
         self.email = email
         self.phone = phone
+        self.category = category
         self.lat = lat
         self.lon = lon
         self.address = address
