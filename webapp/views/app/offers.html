@@ -1,0 +1,45 @@
+<nav class="navbar navbar-asprin">
+   <div ng-include src="'views/app/ng-include/nav.htm'"></div>
+   <!-- /.container-fluid -->
+</nav>
+<div class="container container-padding">
+   <div ng-include src="'views/app/ng-include/header.htm'"></div>
+   <div class="row" ng-controller="appPriceCtrl">
+      <div class="col-md-12">
+         <div class="row">
+            <h1 class="menu-header" ng-bind='filename'>SCAN PDF WITH ASPRIN</h1>
+            <p class="text-center">About <span ng-bind='size'></span> bytes scaned in <span ng-bind="time"></span> secs</p>
+         </div>
+         <div class="row">
+            <div class="col-md-3">
+               <div ng-include src="'views/app/ng-include/menu.htm'"></div>
+            </div>
+            <div class="col-md-offset-1 col-md-7">
+               <table class="table app-table">
+                  <tr>
+                     <td>Number Of Pages</td>
+                     <td ng-bind="page">370</td>
+                  </tr>
+                  <tr>
+                     <td>Number of copies</td>
+                     <td>1</td>
+                  </tr>
+                  <tr>
+                     <td>Paper size</td>
+                     <td>A4</td>
+                  </tr>
+                  <tr>
+                     <td>Print Price</td>
+                     <td ng-bind="price"></td>
+                  </tr>
+                  <!--<tr>
+                     <td>Paper type</td>
+                     <td>Hard</td>
+                     </tr>-->
+               </table>
+               <p><button class="btn btn-primary" ng-click="appOrder()">Order</button></p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
