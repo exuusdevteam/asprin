@@ -4,33 +4,25 @@ from ..model.models import *
 
 
 
-@app.route("/api/put/user/<int:id>/", methods=["PUT"])
+@app.route("/api/v1/user/<int:id>/", methods=["PUT"])
 def put_user(id):
     json_data = request.get_json()
     if not json_data:
         return jsonify({'message':'No input data provided'})
     names = json_data['names']
     username = json_data['username']
-    email = json_data['email']
-    phone = json_data['phone']
-    user_type = json_data['user_type']
-    user_role = json_data['user_role']
-    password = json_data['password']
-    business_id = json_data['business_id']
-
-
+    gender = json_data['gender']
+    dob = json_data['dob']
+    job_title = json_data['job_title']
 
     try:
         user = User.query.filter_by(user_id = id).first()
 
         user.names = names
         user.username = username
-        user.email = email
-        user.phone = phone
-        user.user_type = user_type
-        user.user_role = user_role
-        user.password = password
-        user.business_id = business_id
+        user.gender = gender
+        user.dob = dob
+        user.job_title = job_title
 
         db.session.commit()
 
