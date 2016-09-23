@@ -36,6 +36,9 @@ asprinApp.config(['$routeProvider', function($routeProvider){
 		.when('/app/settings', {
 			templateUrl: 'views/app/settings.html'
 		})
+		.when('/app/offers/',{
+			templateUrl:'views/app/offers.html'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
@@ -81,7 +84,43 @@ asprinApp.controller('pdfUploadCtrl', ['$scope', 'Upload', '$timeout','$window',
 }]);
 
 
-asprinApp.controller('printPriceCtrl',['$scope', function($scope){
+asprinApp.controller('pdfUploadAppCtrl',['$scope', 'Upload','$timeout', '$location', function($scope, Upload, $timeout, $location){
+	$scope.load_spin = false;
+	$scope.uploadPic = function(file) {
+		file.upload = Upload.upload({
+			url: 'http://0.0.0.0:5000/api/upload/pdf/',
+			data: {file: file},
+		});
+
+		file.upload.then(function (response) {
+			$timeout(function () {
+				var Asprin = response.data;
+				file.result = Asprin;
+				var saveAsrpin = storeAsprin(Asprin.asprin);
+
+				if(saveAsrpin){
+					$scope.load_spin = false;
+					$location.path('/app/offers');
+				}
+
+
+
+			});
+		}, function (response) {
+			if (response.status > 0)
+				$scope.errorMsg = response.status + ': ' + response.data;
+		}, function (evt) {
+				// Math.min is to fix IE which reports 200% sometimes
+				file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+				if(file.progress == 100){
+					$scope.load_spin = true;
+				}
+			});
+		}
+}]);
+
+
+asprinApp.controller('printPriceCtrl',['$scope','$http','$location', function($scope){
 	var asprinPrice = restoreAsprin();
 	console.log(asprinPrice);
 	$scope.filename = asprinPrice.filename;
@@ -89,6 +128,24 @@ asprinApp.controller('printPriceCtrl',['$scope', function($scope){
 	$scope.price = asprinPrice.sumPDF;
 	$scope.size = asprinPrice.size;
 	$scope.time = asprinPrice.time;
+}]);
+
+
+asprinApp.controller('appPriceCtrl', ['$scope','$http','$location', function($scope,$http,$location){
+	var asprinPrice = restoreAsprin();
+	var data = restoreUserAsprin();
+	var user_id = data[0];
+	var user_type = data[1];
+	$scope.filename = asprinPrice.filename;
+	$scope.page = asprinPrice.page;
+	$scope.price = asprinPrice.sumPDF;
+	$scope.size = asprinPrice.size;
+	$scope.time = asprinPrice.time;
+	
+	$scope.appOrder = function(){
+		postApsinData(user_id, $http, $location);
+	}
+	
 }]);
 
 
@@ -126,31 +183,7 @@ asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scop
 		});
 	}
 	
-	
-	function postApsinData(user_id){
-		var data = restoreAsprin();
-		var json = '{"file":"'+data.path+'", "filename":"'+data.filename+'","size":"'+data.size+'","exec_time":"'+data.time+'","cyan":"'+data.cyan+'", "magenta":"'+data.magenta+'","yellow":"'+data.yellow+'","black":"'+data.black+'","price":"'+data.sumPDF+'","tonner_cost":"'+data.sumtonner+'","page":"'+data.page+'","user_id":"'+user_id+'","business_id":"1"}';
-		
-		var config = {
-			headers:{
-				'Content-Type':'application/json'
-			}
-		}
-		//console.log(json);
-		$http.post('http://0.0.0.0:5000/api/v1/printjob/', json, config)
-		.success(function(data, status, header, config){
-			if(status == 200){
-				var removeAsprin = destroyAsprin();
-				$location.path('/app/asprin-doc');
-			}
-		})
-		.error(function(data, status, header, config){
-			console.log(status);
-		});
-	}
-	
-	
-	
+
 	
 }]);
 
@@ -461,6 +494,9 @@ asprinApp.controller('userInfoCtrl', ['$scope','$http','$location', function($sc
 	
 }]);
 
+
+// Helper function
+
 function storeAsprin(Asprin){
 	localStorage.setItem('asprin', JSON.stringify(Asprin));
 	return 1;
@@ -495,6 +531,31 @@ function storeUserAsprin(User,UserType){
 }
 
 
+
+
+
+
+function postApsinData(user_id, $http, $location){
+		var data = restoreAsprin();
+		var json = '{"file":"'+data.path+'", "filename":"'+data.filename+'","size":"'+data.size+'","exec_time":"'+data.time+'","cyan":"'+data.cyan+'", "magenta":"'+data.magenta+'","yellow":"'+data.yellow+'","black":"'+data.black+'","price":"'+data.sumPDF+'","tonner_cost":"'+data.sumtonner+'","page":"'+data.page+'","user_id":"'+user_id+'","business_id":"1"}';
+		
+		var config = {
+			headers:{
+				'Content-Type':'application/json'
+			}
+		}
+		//console.log(json);
+		$http.post('http://0.0.0.0:5000/api/v1/printjob/', json, config)
+		.success(function(data, status, header, config){
+			if(status == 200){
+				var removeAsprin = destroyAsprin();
+				$location.path('/app/asprin-doc');
+			}
+		})
+		.error(function(data, status, header, config){
+			console.log(status);
+		});
+	}
 
 
 
