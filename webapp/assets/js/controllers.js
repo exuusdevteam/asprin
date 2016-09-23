@@ -387,24 +387,49 @@ asprinApp.controller('userInfoCtrl', ['$scope','$http','$location', function($sc
 	$scope.day = 1;
 	$scope.month = 'Jan'
 	
+	
+	
 	var url = "http://0.0.0.0:5000/api/v1/user/"+user_id;
 	
 	$http.get(url).success(function(data, status, header, config){
 		console.log(data);
 		$scope.names = data.user.names;
-		$scope.email = data.user.email;
-		if(data.user.gender != null){
+		$scope.username = data.user.username;
+		if(data.user.gender != 'null' || data.user.gender != null){
 			$scope.gender = data.user.gender;
 		}
 		if(data.user.dob != null){
-			$scope.day = data.user.dob;
-			$scope.month = data.user.dob;
-			$scope.year = data.user.dob;
+			$scope.day = parseInt(data.user.dob[0].day);
+			$scope.month = data.user.dob[0].month;
+			$scope.year = parseInt(data.user.dob[0].year);
 		}
-		if(data.user.job_title !=null){
+		if(data.user.job_title !=null || data.user.job_title != 'undefined'){
 			$scope.job_title = data.user.job_title;
 		}
 	});
+	
+	
+	$scope.updateInfo = function(){
+		var gender = $scope.gender == 'Gender'? null:$scope.gender;
+		var dob = $scope.year+'-'+$scope.month+'-'+$scope.day;
+		
+		console.log($scope.job_title);
+		
+		var data = '{"names":"'+$scope.names+'","username":"'+$scope.username+'","gender":"'+gender+'","dob":"'+dob+'","job_title":"'+$scope.job_title+'"}';
+		
+		var config = {
+			headers:{
+				'Content-Type':'application/json'
+			}
+		}
+		
+		var url = "http://0.0.0.0:5000/api/v1/user/"+user_id+"/";
+		
+		$http.put(url, data, config).success(function(data,status,header,config){
+			console.log(data);
+		});
+		
+	}
 	
 }]);
 
