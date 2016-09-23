@@ -14,9 +14,9 @@
                <div ng-include src="'views/app/ng-include/menu.htm'"></div>
             </div>
             <div class="col-md-9">
-               <div class="row row-margin-left">
+               <div class="row row-margin-left" ng-controller="userInfoCtrl">
                  
-                  <form class="form-horizontal" role="form" name="userinfo" ng-controller="userInfoCtrl">
+                  <form class="form-horizontal" role="form" name="userinfo" >
                      <div class="form-group">
                         <label class="control-label col-sm-4 col-md-4" for="fullname">Full name:</label>
                         <div class="col-sm-8 col-md-8">
@@ -67,29 +67,37 @@
 				   </form>
                   	<br>
                    <hr>
-                    <form name="changeP" class="form-horizontal">
+                   <form name="changeP" class="form-horizontal">
                      <h1 class="menu-header-form">Change password</h1>
                      <div class="form-group">
                         <label class="control-label col-sm-4 col-md-4" for="cpassword">Current password:</label>
                         <div class="col-sm-8 col-md-8">
-                           <input type="password" class="form-control input-sm" id="cpassword" placeholder="Current password">
+                           <input type="password" class="form-control input-sm" id="cpassword" placeholder="Current password" ng-model="c_password" required>
                         </div>
                      </div>
                      <div class="form-group">
                         <label class="control-label col-sm-4 col-md-4" for="npassword">New password:</label>
                         <div class="col-sm-8 col-md-8">
-                           <input type="password" class="form-control input-sm" id="npassword" placeholder="New password">
+                           <input type="password" class="form-control input-sm" id="npassword" placeholder="New password" ng-model="n_password" required>
                         </div>
                      </div>
                      <div class="form-group">
                         <label class="control-label col-sm-4 col-md-4" for="cnpassword">Confirm password:</label>
                         <div class="col-sm-8 col-md-8">
-                           <input type="text" class="form-control input-sm" id="cnpassword" placeholder="Confirm password">
+                           <input type="password" class="form-control input-sm" id="cnpassword" placeholder="Confirm password" ng-model="co_password" required>
                         </div>
                      </div>
+                     
+                     <div class="form-group">
+                     	<label class="control-label col-sm-4 col-md-4" for="cnpassword"></label>
+                     	<div class="col-sm-8 col-md-8">
+					  		<p class="text-left error-msg" ng-show="pResponse">{{ pMessage }}</p>
+						 </div>
+				  	</div>
+                     
                      <div class="form-group">
                         <div class="col-sm-offset-4 col-md-offset-4 col-sm-8 col-md-8">
-                           <button type="submit" class="btn btn-primary">Update settings</button>
+                           <button type="submit" class="btn btn-primary" ng-disabled="!changeP.$valid" ng-click="changePassword()">Update settings</button>
                         </div>
                      </div>
                   </form>
