@@ -32,6 +32,27 @@ def put_user(id):
         return jsonify({'Message':'0'})
 
 
+@app.route("/api/v1/user/password/<int:id>", methods=["PUT"])
+def put_password(id):
+    json_data = request.get_json()
+    if not json_data:
+        return jsonify({'message':'No input data provided'})
+
+    current_password = json_data['password']
+    new_password = json_data['n_password']
+
+    try:
+        user = User.query.filter_by(user_id = id).first()
+        passw = bcrypt.check_password_hash(user.password, current_password)
+        if passw:
+            user.password =  bcrypt.generate_password_hash(new_password)
+            db.session.commit()
+            return jsonify({'message':'successfully changed!'})
+        else:
+            return jsonify({'message':'incorect password!'})
+    except:
+        jsonify({'message':'Could not change password!'})
+
 @app.route("/api/put/business/<int:id>/", methods=["PUT"])
 def put_business(id):
     json_data = request.get_json()
