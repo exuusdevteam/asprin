@@ -174,7 +174,7 @@ asprinApp.controller('singinOCtrl',['$scope','$http','$location', function($scop
 			}else{
 				var storeUser = storeUserAsprin(data.user.user_id, data.user.user_type);
 				if(storeUser == 1){
-					postApsinData(data.user.user_id);
+					postApsinData(data.user.user_id, $http, $location);
 				}
 			}
 		})
