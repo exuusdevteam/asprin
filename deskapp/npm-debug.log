@@ -1,44 +1,660 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'mdns2' ]
 2 info using npm@3.10.3
 3 info using node@v6.6.0
-4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info lifecycle Asprin@0.1.0~prestart: Asprin@0.1.0
-6 silly lifecycle Asprin@0.1.0~prestart: no script for prestart, continuing
-7 info lifecycle Asprin@0.1.0~start: Asprin@0.1.0
-8 verbose lifecycle Asprin@0.1.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle Asprin@0.1.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/muhireremy/asprin/deskapp/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-10 verbose lifecycle Asprin@0.1.0~start: CWD: /Users/muhireremy/asprin/deskapp
-11 silly lifecycle Asprin@0.1.0~start: Args: [ '-c', 'electron .' ]
-12 info lifecycle Asprin@0.1.0~start: Failed to exec start script
-13 verbose stack Error: Asprin@0.1.0 start: `electron .`
-13 verbose stack spawn ENOENT
-13 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:33:16)
-13 verbose stack     at emitTwo (events.js:106:13)
-13 verbose stack     at ChildProcess.emit (events.js:191:7)
-13 verbose stack     at maybeClose (internal/child_process.js:877:16)
-13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
-14 verbose pkgid Asprin@0.1.0
-15 verbose cwd /Users/muhireremy/asprin/deskapp
-16 error Darwin 16.0.0
-17 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
-18 error node v6.6.0
-19 error npm  v3.10.3
-20 error file sh
-21 error code ELIFECYCLE
-22 error errno ENOENT
-23 error syscall spawn
-24 error Asprin@0.1.0 start: `electron .`
-24 error spawn ENOENT
-25 error Failed at the Asprin@0.1.0 start script 'electron .'.
-25 error Make sure you have the latest version of node.js and npm installed.
-25 error If you do, this is most likely a problem with the Asprin package,
-25 error not with npm itself.
-25 error Tell the author that this fails on your system:
-25 error     electron .
-25 error You can get information on how to open an issue for this project with:
-25 error     npm bugs Asprin
-25 error Or if that isn't available, you can get their info via:
-25 error     npm owner ls Asprin
-25 error There is likely additional logging output above.
-26 verbose exit [ 1, true ]
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData mdns2
+8 silly fetchNamedPackageData mdns2
+9 silly mapToRegistry name mdns2
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'mdns2',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'mdns2',
+12 silly mapToRegistry   name: 'mdns2',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/mdns2
+14 verbose request uri https://registry.npmjs.org/mdns2
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 3:04:35 PM
+17 verbose request id f0bd10b23124f433
+18 verbose etag "BTAWDNXJH30FAXL5LXRNFU2A1"
+19 http request GET https://registry.npmjs.org/mdns2
+20 http 304 https://registry.npmjs.org/mdns2
+21 verbose headers { date: 'Tue, 27 Sep 2016 13:04:37 GMT',
+21 verbose headers   via: '1.1 varnish',
+21 verbose headers   'cache-control': 'max-age=300',
+21 verbose headers   etag: '"BTAWDNXJH30FAXL5LXRNFU2A1"',
+21 verbose headers   age: '27',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'x-served-by': 'cache-ams4125-AMS',
+21 verbose headers   'x-cache': 'HIT',
+21 verbose headers   'x-cache-hits': '1',
+21 verbose headers   'x-timer': 'S1474981477.821814,VS0,VE0',
+21 verbose headers   vary: 'Accept-Encoding' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Tue, 27 Sep 2016 13:04:37 GMT',
+22 silly get     via: '1.1 varnish',
+22 silly get     'cache-control': 'max-age=300',
+22 silly get     etag: '"BTAWDNXJH30FAXL5LXRNFU2A1"',
+22 silly get     age: '27',
+22 silly get     connection: 'keep-alive',
+22 silly get     'x-served-by': 'cache-ams4125-AMS',
+22 silly get     'x-cache': 'HIT',
+22 silly get     'x-cache-hits': '1',
+22 silly get     'x-timer': 'S1474981477.821814,VS0,VE0',
+22 silly get     vary: 'Accept-Encoding' } ]
+23 verbose etag https://registry.npmjs.org/mdns2 from cache
+24 verbose get saving mdns2 to /Users/muhireremy/.npm/registry.npmjs.org/mdns2/.cache.json
+25 verbose correctMkdir /Users/muhireremy/.npm correctMkdir not in flight; initializing
+26 silly install normalizeTree
+27 silly loadCurrentTree Finishing
+28 silly loadIdealTree Starting
+29 silly install loadIdealTree
+30 silly cloneCurrentTree Starting
+31 silly install cloneCurrentTreeToIdealTree
+32 silly cloneCurrentTree Finishing
+33 silly loadShrinkwrap Starting
+34 silly install loadShrinkwrap
+35 silly loadShrinkwrap Finishing
+36 silly loadAllDepsIntoIdealTree Starting
+37 silly install loadAllDepsIntoIdealTree
+38 silly resolveWithNewModule mdns2@2.1.4 checking installable status
+39 silly cache add args [ 'mdns2', null ]
+40 verbose cache add spec mdns2
+41 silly cache add parsed spec Result {
+41 silly cache add   raw: 'mdns2',
+41 silly cache add   scope: null,
+41 silly cache add   escapedName: 'mdns2',
+41 silly cache add   name: 'mdns2',
+41 silly cache add   rawSpec: '',
+41 silly cache add   spec: 'latest',
+41 silly cache add   type: 'tag' }
+42 silly addNamed mdns2@latest
+43 verbose addNamed "latest" is being treated as a dist-tag for mdns2
+44 info addNameTag [ 'mdns2', 'latest' ]
+45 silly mapToRegistry name mdns2
+46 silly mapToRegistry using default registry
+47 silly mapToRegistry registry https://registry.npmjs.org/
+48 silly mapToRegistry data Result {
+48 silly mapToRegistry   raw: 'mdns2',
+48 silly mapToRegistry   scope: null,
+48 silly mapToRegistry   escapedName: 'mdns2',
+48 silly mapToRegistry   name: 'mdns2',
+48 silly mapToRegistry   rawSpec: '',
+48 silly mapToRegistry   spec: 'latest',
+48 silly mapToRegistry   type: 'tag' }
+49 silly mapToRegistry uri https://registry.npmjs.org/mdns2
+50 verbose addNameTag registry:https://registry.npmjs.org/mdns2 not in flight; fetching
+51 verbose get https://registry.npmjs.org/mdns2 not expired, no request
+52 silly addNameTag next cb for mdns2 with tag latest
+53 silly addNamed mdns2@2.1.4
+54 verbose addNamed "2.1.4" is a plain semver version for mdns2
+55 silly cache afterAdd mdns2@2.1.4
+56 verbose afterAdd /Users/muhireremy/.npm/mdns2/2.1.4/package/package.json not in flight; writing
+57 verbose correctMkdir /Users/muhireremy/.npm correctMkdir not in flight; initializing
+58 verbose afterAdd /Users/muhireremy/.npm/mdns2/2.1.4/package/package.json written
+59 silly loadAllDepsIntoIdealTree Finishing
+60 silly loadIdealTree Finishing
+61 silly currentTree Asprin@0.1.0
+61 silly currentTree ├── angular-route@1.5.8
+61 silly currentTree ├── angular@1.5.8
+61 silly currentTree ├── ansi-regex@2.0.0
+61 silly currentTree ├── ansi-styles@2.2.1
+61 silly currentTree ├── array-find-index@1.0.1
+61 silly currentTree ├── asn1@0.2.3
+61 silly currentTree ├── assert-plus@0.2.0
+61 silly currentTree ├── asynckit@0.4.0
+61 silly currentTree ├── aws-sign2@0.6.0
+61 silly currentTree ├── aws4@1.4.1
+61 silly currentTree ├── balanced-match@0.4.2
+61 silly currentTree ├─┬ bcrypt-pbkdf@1.0.0
+61 silly currentTree │ └── tweetnacl@0.14.3
+61 silly currentTree ├─┬ bl@1.1.2
+61 silly currentTree │ ├── isarray@1.0.0
+61 silly currentTree │ └── readable-stream@2.0.6
+61 silly currentTree ├── boom@2.10.1
+61 silly currentTree ├── brace-expansion@1.1.6
+61 silly currentTree ├── builtin-modules@1.1.1
+61 silly currentTree ├── camelcase-keys@2.1.0
+61 silly currentTree ├── camelcase@2.1.1
+61 silly currentTree ├── caseless@0.11.0
+61 silly currentTree ├── chalk@1.1.3
+61 silly currentTree ├── code-point-at@1.0.0
+61 silly currentTree ├── combined-stream@1.0.5
+61 silly currentTree ├── commander@2.9.0
+61 silly currentTree ├── concat-map@0.0.1
+61 silly currentTree ├─┬ concat-stream@1.5.0
+61 silly currentTree │ ├── isarray@1.0.0
+61 silly currentTree │ └── readable-stream@2.0.6
+61 silly currentTree ├── core-util-is@1.0.2
+61 silly currentTree ├── cryptiles@2.0.5
+61 silly currentTree ├── currently-unhandled@0.4.1
+61 silly currentTree ├─┬ dashdash@1.14.0
+61 silly currentTree │ └── assert-plus@1.0.0
+61 silly currentTree ├── debug@2.2.0
+61 silly currentTree ├── decamelize@1.2.0
+61 silly currentTree ├── deep-extend@0.4.1
+61 silly currentTree ├── delayed-stream@1.0.0
+61 silly currentTree ├── ecc-jsbn@0.1.1
+61 silly currentTree ├── electron-download@3.0.0
+61 silly currentTree ├── electron@1.4.1
+61 silly currentTree ├── error-ex@1.3.0
+61 silly currentTree ├── es6-promise@3.3.1
+61 silly currentTree ├── escape-string-regexp@1.0.5
+61 silly currentTree ├── extend@3.0.0
+61 silly currentTree ├─┬ extract-zip@1.5.0
+61 silly currentTree │ └── debug@0.7.4
+61 silly currentTree ├── extsprintf@1.0.2
+61 silly currentTree ├── fd-slicer@1.0.1
+61 silly currentTree ├── find-up@1.1.2
+61 silly currentTree ├── forever-agent@0.6.1
+61 silly currentTree ├── form-data@2.0.0
+61 silly currentTree ├── fs-extra@0.30.0
+61 silly currentTree ├── fs.realpath@1.0.0
+61 silly currentTree ├── generate-function@2.0.0
+61 silly currentTree ├── generate-object-property@1.2.0
+61 silly currentTree ├── get-stdin@4.0.1
+61 silly currentTree ├─┬ getpass@0.1.6
+61 silly currentTree │ └── assert-plus@1.0.0
+61 silly currentTree ├── glob@7.1.0
+61 silly currentTree ├── graceful-fs@4.1.6
+61 silly currentTree ├── graceful-readlink@1.0.1
+61 silly currentTree ├── har-validator@2.0.6
+61 silly currentTree ├── has-ansi@2.0.0
+61 silly currentTree ├── hawk@3.1.3
+61 silly currentTree ├── hoek@2.16.3
+61 silly currentTree ├── home-path@1.0.3
+61 silly currentTree ├── hosted-git-info@2.1.5
+61 silly currentTree ├── http-signature@1.1.1
+61 silly currentTree ├── indent-string@2.1.0
+61 silly currentTree ├── inflight@1.0.5
+61 silly currentTree ├── inherits@2.0.3
+61 silly currentTree ├── ini@1.3.4
+61 silly currentTree ├── ipp@1.1.0
+61 silly currentTree ├── is-arrayish@0.2.1
+61 silly currentTree ├── is-builtin-module@1.0.0
+61 silly currentTree ├── is-finite@1.0.1
+61 silly currentTree ├── is-fullwidth-code-point@1.0.0
+61 silly currentTree ├─┬ is-my-json-valid@2.14.0
+61 silly currentTree │ └── xtend@4.0.1
+61 silly currentTree ├── is-property@1.0.2
+61 silly currentTree ├── is-typedarray@1.0.0
+61 silly currentTree ├── is-utf8@0.2.1
+61 silly currentTree ├── isarray@0.0.1
+61 silly currentTree ├── isstream@0.1.2
+61 silly currentTree ├── jodid25519@1.0.2
+61 silly currentTree ├── jsbn@0.1.0
+61 silly currentTree ├── json-schema@0.2.3
+61 silly currentTree ├── json-stringify-safe@5.0.1
+61 silly currentTree ├── jsonfile@2.4.0
+61 silly currentTree ├── jsonpointer@2.0.0
+61 silly currentTree ├── jsprim@1.3.1
+61 silly currentTree ├── klaw@1.3.0
+61 silly currentTree ├── load-json-file@1.1.0
+61 silly currentTree ├── loud-rejection@1.6.0
+61 silly currentTree ├── map-obj@1.0.1
+61 silly currentTree ├── meow@3.7.0
+61 silly currentTree ├── mime-db@1.24.0
+61 silly currentTree ├── mime-types@2.1.12
+61 silly currentTree ├── minimatch@3.0.3
+61 silly currentTree ├── minimist@1.2.0
+61 silly currentTree ├─┬ mkdirp@0.5.0
+61 silly currentTree │ └── minimist@0.0.8
+61 silly currentTree ├── ms@0.7.1
+61 silly currentTree ├── node-printer@1.0.2
+61 silly currentTree ├── node-uuid@1.4.7
+61 silly currentTree ├── normalize-package-data@2.3.5
+61 silly currentTree ├── nugget@2.0.1
+61 silly currentTree ├── number-is-nan@1.0.0
+61 silly currentTree ├── oauth-sign@0.8.2
+61 silly currentTree ├── object-assign@4.1.0
+61 silly currentTree ├── object-keys@0.4.0
+61 silly currentTree ├── once@1.4.0
+61 silly currentTree ├── parse-json@2.2.0
+61 silly currentTree ├── path-exists@2.1.0
+61 silly currentTree ├── path-is-absolute@1.0.0
+61 silly currentTree ├── path-type@1.1.0
+61 silly currentTree ├── pend@1.2.0
+61 silly currentTree ├── pify@2.3.0
+61 silly currentTree ├── pinkie-promise@2.0.1
+61 silly currentTree ├── pinkie@2.0.4
+61 silly currentTree ├── pretty-bytes@1.0.4
+61 silly currentTree ├── printer@0.2.2
+61 silly currentTree ├── process-nextick-args@1.0.7
+61 silly currentTree ├── progress-stream@1.2.0
+61 silly currentTree ├── python-shell@0.4.0
+61 silly currentTree ├── qs@6.2.1
+61 silly currentTree ├── rc@1.1.6
+61 silly currentTree ├── read-pkg-up@1.0.1
+61 silly currentTree ├── read-pkg@1.1.0
+61 silly currentTree ├── readable-stream@1.1.14
+61 silly currentTree ├── redent@1.0.0
+61 silly currentTree ├── repeating@2.0.1
+61 silly currentTree ├── request@2.75.0
+61 silly currentTree ├── rimraf@2.5.4
+61 silly currentTree ├── semver@5.3.0
+61 silly currentTree ├── signal-exit@3.0.1
+61 silly currentTree ├── single-line-log@1.1.2
+61 silly currentTree ├── sntp@1.0.9
+61 silly currentTree ├── spdx-correct@1.0.2
+61 silly currentTree ├── spdx-expression-parse@1.0.3
+61 silly currentTree ├── spdx-license-ids@1.2.2
+61 silly currentTree ├── speedometer@0.1.4
+61 silly currentTree ├─┬ sshpk@1.10.0
+61 silly currentTree │ └── assert-plus@1.0.0
+61 silly currentTree ├── string_decoder@0.10.31
+61 silly currentTree ├── string-width@1.0.2
+61 silly currentTree ├── stringstream@0.0.5
+61 silly currentTree ├── strip-ansi@3.0.1
+61 silly currentTree ├── strip-bom@2.0.0
+61 silly currentTree ├── strip-indent@1.0.1
+61 silly currentTree ├── strip-json-comments@1.0.4
+61 silly currentTree ├── sumchecker@1.2.0
+61 silly currentTree ├── supports-color@2.0.0
+61 silly currentTree ├── throttleit@0.0.2
+61 silly currentTree ├── through2@0.2.3
+61 silly currentTree ├── tough-cookie@2.3.1
+61 silly currentTree ├── trim-newlines@1.0.0
+61 silly currentTree ├── tunnel-agent@0.4.3
+61 silly currentTree ├── tweetnacl@0.13.3
+61 silly currentTree ├── typedarray@0.0.6
+61 silly currentTree ├── underscore@1.8.3
+61 silly currentTree ├── util-deprecate@1.0.2
+61 silly currentTree ├─┬ util@0.10.3
+61 silly currentTree │ └── inherits@2.0.1
+61 silly currentTree ├── validate-npm-package-license@3.0.1
+61 silly currentTree ├── verror@1.3.6
+61 silly currentTree ├── wrappy@1.0.2
+61 silly currentTree ├── xtend@2.1.2
+61 silly currentTree └── yauzl@2.4.1
+62 silly idealTree Asprin@0.1.0
+62 silly idealTree ├── angular-route@1.5.8
+62 silly idealTree ├── angular@1.5.8
+62 silly idealTree ├── ansi-regex@2.0.0
+62 silly idealTree ├── ansi-styles@2.2.1
+62 silly idealTree ├── array-find-index@1.0.1
+62 silly idealTree ├── asn1@0.2.3
+62 silly idealTree ├── assert-plus@0.2.0
+62 silly idealTree ├── asynckit@0.4.0
+62 silly idealTree ├── aws-sign2@0.6.0
+62 silly idealTree ├── aws4@1.4.1
+62 silly idealTree ├── balanced-match@0.4.2
+62 silly idealTree ├─┬ bcrypt-pbkdf@1.0.0
+62 silly idealTree │ └── tweetnacl@0.14.3
+62 silly idealTree ├─┬ bl@1.1.2
+62 silly idealTree │ ├── isarray@1.0.0
+62 silly idealTree │ └── readable-stream@2.0.6
+62 silly idealTree ├── boom@2.10.1
+62 silly idealTree ├── brace-expansion@1.1.6
+62 silly idealTree ├── builtin-modules@1.1.1
+62 silly idealTree ├── camelcase-keys@2.1.0
+62 silly idealTree ├── camelcase@2.1.1
+62 silly idealTree ├── caseless@0.11.0
+62 silly idealTree ├── chalk@1.1.3
+62 silly idealTree ├── code-point-at@1.0.0
+62 silly idealTree ├── combined-stream@1.0.5
+62 silly idealTree ├── commander@2.9.0
+62 silly idealTree ├── concat-map@0.0.1
+62 silly idealTree ├─┬ concat-stream@1.5.0
+62 silly idealTree │ ├── isarray@1.0.0
+62 silly idealTree │ └── readable-stream@2.0.6
+62 silly idealTree ├── core-util-is@1.0.2
+62 silly idealTree ├── cryptiles@2.0.5
+62 silly idealTree ├── currently-unhandled@0.4.1
+62 silly idealTree ├─┬ dashdash@1.14.0
+62 silly idealTree │ └── assert-plus@1.0.0
+62 silly idealTree ├── debug@2.2.0
+62 silly idealTree ├── decamelize@1.2.0
+62 silly idealTree ├── deep-extend@0.4.1
+62 silly idealTree ├── delayed-stream@1.0.0
+62 silly idealTree ├── ecc-jsbn@0.1.1
+62 silly idealTree ├── electron-download@3.0.0
+62 silly idealTree ├── electron@1.4.1
+62 silly idealTree ├── error-ex@1.3.0
+62 silly idealTree ├── es6-promise@3.3.1
+62 silly idealTree ├── escape-string-regexp@1.0.5
+62 silly idealTree ├── extend@3.0.0
+62 silly idealTree ├─┬ extract-zip@1.5.0
+62 silly idealTree │ └── debug@0.7.4
+62 silly idealTree ├── extsprintf@1.0.2
+62 silly idealTree ├── fd-slicer@1.0.1
+62 silly idealTree ├── find-up@1.1.2
+62 silly idealTree ├── forever-agent@0.6.1
+62 silly idealTree ├── form-data@2.0.0
+62 silly idealTree ├── fs-extra@0.30.0
+62 silly idealTree ├── fs.realpath@1.0.0
+62 silly idealTree ├── generate-function@2.0.0
+62 silly idealTree ├── generate-object-property@1.2.0
+62 silly idealTree ├── get-stdin@4.0.1
+62 silly idealTree ├─┬ getpass@0.1.6
+62 silly idealTree │ └── assert-plus@1.0.0
+62 silly idealTree ├── glob@7.1.0
+62 silly idealTree ├── graceful-fs@4.1.6
+62 silly idealTree ├── graceful-readlink@1.0.1
+62 silly idealTree ├── har-validator@2.0.6
+62 silly idealTree ├── has-ansi@2.0.0
+62 silly idealTree ├── hawk@3.1.3
+62 silly idealTree ├── hoek@2.16.3
+62 silly idealTree ├── home-path@1.0.3
+62 silly idealTree ├── hosted-git-info@2.1.5
+62 silly idealTree ├── http-signature@1.1.1
+62 silly idealTree ├── indent-string@2.1.0
+62 silly idealTree ├── inflight@1.0.5
+62 silly idealTree ├── inherits@2.0.3
+62 silly idealTree ├── ini@1.3.4
+62 silly idealTree ├── ipp@1.1.0
+62 silly idealTree ├── is-arrayish@0.2.1
+62 silly idealTree ├── is-builtin-module@1.0.0
+62 silly idealTree ├── is-finite@1.0.1
+62 silly idealTree ├── is-fullwidth-code-point@1.0.0
+62 silly idealTree ├─┬ is-my-json-valid@2.14.0
+62 silly idealTree │ └── xtend@4.0.1
+62 silly idealTree ├── is-property@1.0.2
+62 silly idealTree ├── is-typedarray@1.0.0
+62 silly idealTree ├── is-utf8@0.2.1
+62 silly idealTree ├── isarray@0.0.1
+62 silly idealTree ├── isstream@0.1.2
+62 silly idealTree ├── jodid25519@1.0.2
+62 silly idealTree ├── jsbn@0.1.0
+62 silly idealTree ├── json-schema@0.2.3
+62 silly idealTree ├── json-stringify-safe@5.0.1
+62 silly idealTree ├── jsonfile@2.4.0
+62 silly idealTree ├── jsonpointer@2.0.0
+62 silly idealTree ├── jsprim@1.3.1
+62 silly idealTree ├── klaw@1.3.0
+62 silly idealTree ├── load-json-file@1.1.0
+62 silly idealTree ├── loud-rejection@1.6.0
+62 silly idealTree ├── map-obj@1.0.1
+62 silly idealTree ├── mdns2@2.1.4
+62 silly idealTree ├── meow@3.7.0
+62 silly idealTree ├── mime-db@1.24.0
+62 silly idealTree ├── mime-types@2.1.12
+62 silly idealTree ├── minimatch@3.0.3
+62 silly idealTree ├── minimist@1.2.0
+62 silly idealTree ├─┬ mkdirp@0.5.0
+62 silly idealTree │ └── minimist@0.0.8
+62 silly idealTree ├── ms@0.7.1
+62 silly idealTree ├── node-printer@1.0.2
+62 silly idealTree ├── node-uuid@1.4.7
+62 silly idealTree ├── normalize-package-data@2.3.5
+62 silly idealTree ├── nugget@2.0.1
+62 silly idealTree ├── number-is-nan@1.0.0
+62 silly idealTree ├── oauth-sign@0.8.2
+62 silly idealTree ├── object-assign@4.1.0
+62 silly idealTree ├── object-keys@0.4.0
+62 silly idealTree ├── once@1.4.0
+62 silly idealTree ├── parse-json@2.2.0
+62 silly idealTree ├── path-exists@2.1.0
+62 silly idealTree ├── path-is-absolute@1.0.0
+62 silly idealTree ├── path-type@1.1.0
+62 silly idealTree ├── pend@1.2.0
+62 silly idealTree ├── pify@2.3.0
+62 silly idealTree ├── pinkie-promise@2.0.1
+62 silly idealTree ├── pinkie@2.0.4
+62 silly idealTree ├── pretty-bytes@1.0.4
+62 silly idealTree ├── printer@0.2.2
+62 silly idealTree ├── process-nextick-args@1.0.7
+62 silly idealTree ├── progress-stream@1.2.0
+62 silly idealTree ├── python-shell@0.4.0
+62 silly idealTree ├── qs@6.2.1
+62 silly idealTree ├── rc@1.1.6
+62 silly idealTree ├── read-pkg-up@1.0.1
+62 silly idealTree ├── read-pkg@1.1.0
+62 silly idealTree ├── readable-stream@1.1.14
+62 silly idealTree ├── redent@1.0.0
+62 silly idealTree ├── repeating@2.0.1
+62 silly idealTree ├── request@2.75.0
+62 silly idealTree ├── rimraf@2.5.4
+62 silly idealTree ├── semver@5.3.0
+62 silly idealTree ├── signal-exit@3.0.1
+62 silly idealTree ├── single-line-log@1.1.2
+62 silly idealTree ├── sntp@1.0.9
+62 silly idealTree ├── spdx-correct@1.0.2
+62 silly idealTree ├── spdx-expression-parse@1.0.3
+62 silly idealTree ├── spdx-license-ids@1.2.2
+62 silly idealTree ├── speedometer@0.1.4
+62 silly idealTree ├─┬ sshpk@1.10.0
+62 silly idealTree │ └── assert-plus@1.0.0
+62 silly idealTree ├── string_decoder@0.10.31
+62 silly idealTree ├── string-width@1.0.2
+62 silly idealTree ├── stringstream@0.0.5
+62 silly idealTree ├── strip-ansi@3.0.1
+62 silly idealTree ├── strip-bom@2.0.0
+62 silly idealTree ├── strip-indent@1.0.1
+62 silly idealTree ├── strip-json-comments@1.0.4
+62 silly idealTree ├── sumchecker@1.2.0
+62 silly idealTree ├── supports-color@2.0.0
+62 silly idealTree ├── throttleit@0.0.2
+62 silly idealTree ├── through2@0.2.3
+62 silly idealTree ├── tough-cookie@2.3.1
+62 silly idealTree ├── trim-newlines@1.0.0
+62 silly idealTree ├── tunnel-agent@0.4.3
+62 silly idealTree ├── tweetnacl@0.13.3
+62 silly idealTree ├── typedarray@0.0.6
+62 silly idealTree ├── underscore@1.8.3
+62 silly idealTree ├── util-deprecate@1.0.2
+62 silly idealTree ├─┬ util@0.10.3
+62 silly idealTree │ └── inherits@2.0.1
+62 silly idealTree ├── validate-npm-package-license@3.0.1
+62 silly idealTree ├── verror@1.3.6
+62 silly idealTree ├── wrappy@1.0.2
+62 silly idealTree ├── xtend@2.1.2
+62 silly idealTree └── yauzl@2.4.1
+63 silly generateActionsToTake Starting
+64 silly install generateActionsToTake
+65 silly generateActionsToTake Finishing
+66 silly diffTrees action count 1
+67 silly diffTrees add mdns2@2.1.4
+68 silly decomposeActions action count 8
+69 silly decomposeActions fetch mdns2@2.1.4
+70 silly decomposeActions extract mdns2@2.1.4
+71 silly decomposeActions test mdns2@2.1.4
+72 silly decomposeActions preinstall mdns2@2.1.4
+73 silly decomposeActions build mdns2@2.1.4
+74 silly decomposeActions install mdns2@2.1.4
+75 silly decomposeActions postinstall mdns2@2.1.4
+76 silly decomposeActions finalize mdns2@2.1.4
+77 silly executeActions Starting
+78 silly install executeActions
+79 silly doSerial global-install 0
+80 silly doParallel fetch 1
+81 verbose correctMkdir /Users/muhireremy/.npm/_locks correctMkdir not in flight; initializing
+82 verbose lock using /Users/muhireremy/.npm/_locks/staging-c60d821475aae399.lock for /Users/muhireremy/asprin/deskapp/node_modules/.staging
+83 silly doParallel extract 1
+84 silly extract mdns2@2.1.4
+85 verbose unbuild node_modules/.staging/mdns2-d44a2259
+86 silly gentlyRm /Users/muhireremy/asprin/deskapp/node_modules/.staging/mdns2-d44a2259 is being purged from base /Users/muhireremy/asprin/deskapp
+87 verbose gentlyRm don't care about contents; nuking /Users/muhireremy/asprin/deskapp/node_modules/.staging/mdns2-d44a2259
+88 verbose tar unpack /Users/muhireremy/.npm/mdns2/2.1.4/package.tgz
+89 verbose tar unpacking to /Users/muhireremy/asprin/deskapp/node_modules/.staging/mdns2-d44a2259
+90 silly gentlyRm /Users/muhireremy/asprin/deskapp/node_modules/.staging/mdns2-d44a2259 is being purged
+91 verbose gentlyRm don't care about contents; nuking /Users/muhireremy/asprin/deskapp/node_modules/.staging/mdns2-d44a2259
+92 silly gunzTarPerm modes [ '755', '644' ]
+93 silly gunzTarPerm extractEntry package.json
+94 silly gunzTarPerm extractEntry .npmignore
+95 silly gunzTarPerm extractEntry LICENSE
+96 silly gunzTarPerm extractEntry Makefile
+97 silly gunzTarPerm extractEntry wscript
+98 silly gunzTarPerm extractEntry binding.gyp
+99 silly gunzTarPerm extractEntry build/binding.Makefile
+100 silly gunzTarPerm extractEntry build/dns_sd_bindings.target.mk
+101 silly gunzTarPerm extractEntry build/Release/.deps/Release/dns_sd_bindings.node.d
+102 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/txt_record_deallocate.o.d
+103 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/dns_service_ref_deallocate.o.d
+104 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/txt_record_create.o.d
+105 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/network_interface.o.d
+106 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/dns_service_enumerate_domains.o.d
+107 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/txt_record_buffer_to_object.o.d
+108 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/dns_service_browse.o.d
+109 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/dns_service_ref_sock_fd.o.d
+110 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/dns_sd.o.d
+111 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/txt_record_set_value.o.d
+112 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/dns_service_register.o.d
+113 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/dns_service_process_result.o.d
+114 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/dns_service_get_addr_info.o.d
+115 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/dns_service_resolve.o.d
+116 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/txt_record_ref.o.d
+117 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/mdns_utils.o.d
+118 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/socket_watcher.o.d
+119 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/txt_record_get_length.o.d
+120 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings/src/dns_service_ref.o.d
+121 silly gunzTarPerm extractEntry build/Release/.deps/Release/obj.target/dns_sd_bindings.node.d
+122 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/dns_service_ref_deallocate.o
+123 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/txt_record_create.o
+124 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/dns_service_ref.o
+125 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/network_interface.o
+126 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/dns_service_process_result.o
+127 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/dns_service_register.o
+128 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/txt_record_get_length.o
+129 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/dns_service_ref_sock_fd.o
+130 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/dns_service_browse.o
+131 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/dns_sd.o
+132 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/dns_service_resolve.o
+133 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/dns_service_enumerate_domains.o
+134 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/socket_watcher.o
+135 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/txt_record_ref.o
+136 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/txt_record_set_value.o
+137 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/txt_record_deallocate.o
+138 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/txt_record_buffer_to_object.o
+139 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/dns_service_get_addr_info.o
+140 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings/src/mdns_utils.o
+141 silly gunzTarPerm extractEntry build/Release/obj.target/dns_sd_bindings.node
+142 silly gunzTarPerm extractEntry build/Release/dns_sd_bindings.node
+143 silly gunzTarPerm extractEntry build/Release/linker.lock
+144 silly gunzTarPerm extractEntry build/Makefile
+145 silly gunzTarPerm extractEntry build/config.gypi
+146 silly gunzTarPerm extractEntry node-waf.bat
+147 silly gunzTarPerm extractEntry lib/service_type.js
+148 silly gunzTarPerm extractEntry lib/io_watcher.js
+149 silly gunzTarPerm extractEntry lib/advertisement.js
+150 silly gunzTarPerm extractEntry lib/network_interface.js
+151 silly gunzTarPerm extractEntry lib/dns_sd.js
+152 silly gunzTarPerm extractEntry lib/avahi.js
+153 silly gunzTarPerm extractEntry lib/mdns_service.js
+154 silly gunzTarPerm extractEntry lib/resolver_sequence_tasks.js
+155 silly gunzTarPerm extractEntry lib/browser.js
+156 silly gunzTarPerm extractEntry lib/mdns.js
+157 silly gunzTarPerm extractEntry tests/test_browser.js
+158 silly gunzTarPerm extractEntry tests/test_network_interface.js
+159 silly gunzTarPerm extractEntry tests/test_dns_sd.js
+160 silly gunzTarPerm extractEntry tests/test_service_type.js
+161 silly gunzTarPerm extractEntry tests/test_functional.js
+162 silly gunzTarPerm extractEntry tests/test_odd_ends.js
+163 silly gunzTarPerm extractEntry src/txt_record_buffer_to_object.cpp
+164 silly gunzTarPerm extractEntry src/dns_service_ref.cpp
+165 silly gunzTarPerm extractEntry src/socket_watcher.cpp
+166 silly gunzTarPerm extractEntry src/demangle.cpp
+167 silly gunzTarPerm extractEntry src/txt_record_set_value.cpp
+168 silly gunzTarPerm extractEntry src/txt_record_create.cpp
+169 silly gunzTarPerm extractEntry src/dns_service_browse.cpp
+170 silly gunzTarPerm extractEntry src/dns_service_ref_deallocate.cpp
+171 silly gunzTarPerm extractEntry src/txt_record_ref.hpp
+172 silly gunzTarPerm extractEntry src/txt_record_ref.cpp
+173 silly gunzTarPerm extractEntry src/dns_service_ref.hpp
+174 silly gunzTarPerm extractEntry src/dns_service_enumerate_domains.cpp
+175 silly gunzTarPerm extractEntry src/dns_sd.cpp
+176 silly gunzTarPerm extractEntry src/mdns_utils.hpp
+177 silly gunzTarPerm extractEntry src/dns_service_ref_sock_fd.cpp
+178 silly gunzTarPerm extractEntry src/txt_record_deallocate.cpp
+179 silly gunzTarPerm extractEntry src/network_interface.cpp
+180 silly gunzTarPerm extractEntry src/dns_service_resolve.cpp
+181 silly gunzTarPerm extractEntry src/mdns_utils.cpp
+182 silly gunzTarPerm extractEntry src/dns_service_get_addr_info.cpp
+183 silly gunzTarPerm extractEntry src/socket_watcher.hpp
+184 silly gunzTarPerm extractEntry src/txt_record_get_length.cpp
+185 silly gunzTarPerm extractEntry src/mdns.hpp
+186 silly gunzTarPerm extractEntry src/mdns_settings.hpp
+187 silly gunzTarPerm extractEntry src/dns_service_process_result.cpp
+188 silly gunzTarPerm extractEntry src/skeleton.cpp_
+189 silly gunzTarPerm extractEntry src/dns_service_register.cpp
+190 silly gunzTarPerm extractEntry utils/jsf
+191 silly gunzTarPerm extractEntry utils/testrun
+192 silly gunzTarPerm extractEntry utils/lib/bunch.js
+193 silly gunzTarPerm extractEntry utils/lib/view.js
+194 silly gunzTarPerm extractEntry utils/lib/compiler.js
+195 silly gunzTarPerm extractEntry utils/lib/obj.js
+196 silly gunzTarPerm extractEntry utils/lib/ncov.js
+197 silly gunzTarPerm extractEntry utils/lib/mdns_test.js
+198 silly gunzTarPerm extractEntry utils/lib/actors.js
+199 silly gunzTarPerm extractEntry utils/lib/lcov.js
+200 silly gunzTarPerm extractEntry utils/coverage
+201 silly gunzTarPerm extractEntry utils/docpack
+202 silly gunzTarPerm extractEntry utils/render_report
+203 silly gunzTarPerm extractEntry examples/osc_devices.js
+204 silly gunzTarPerm extractEntry examples/express_app.js
+205 silly gunzTarPerm extractEntry README.textile
+206 silly gunzTarPerm extractEntry out/reports/tests.json
+207 silly gunzTarPerm extractEntry CHANGES
+208 silly gentlyRm /Users/muhireremy/asprin/deskapp/node_modules/.staging/mdns2-d44a2259/node_modules is being purged
+209 verbose gentlyRm don't care about contents; nuking /Users/muhireremy/asprin/deskapp/node_modules/.staging/mdns2-d44a2259/node_modules
+210 silly doParallel preinstall 1
+211 silly preinstall mdns2@2.1.4 /Users/muhireremy/asprin/deskapp/node_modules/.staging/mdns2-d44a2259
+212 info lifecycle mdns2@2.1.4~preinstall: mdns2@2.1.4
+213 silly lifecycle mdns2@2.1.4~preinstall: no script for preinstall, continuing
+214 silly doReverseSerial remove 0
+215 silly doSerial move 0
+216 silly doSerial finalize 1
+217 silly finalize /Users/muhireremy/asprin/deskapp/node_modules/mdns2
+218 silly doSerial build 1
+219 silly build mdns2@2.1.4
+220 info linkStuff mdns2@2.1.4
+221 silly linkStuff mdns2@2.1.4 has /Users/muhireremy/asprin/deskapp/node_modules as its parent node_modules
+222 verbose linkBins mdns2@2.1.4
+223 verbose linkMans mdns2@2.1.4
+224 silly doSerial global-link 0
+225 silly doParallel update-linked 0
+226 silly doSerial install 1
+227 silly install mdns2@2.1.4 /Users/muhireremy/asprin/deskapp/node_modules/.staging/mdns2-d44a2259
+228 info lifecycle mdns2@2.1.4~install: mdns2@2.1.4
+229 verbose lifecycle mdns2@2.1.4~install: unsafe-perm in lifecycle false
+230 verbose lifecycle mdns2@2.1.4~install: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/muhireremy/asprin/deskapp/node_modules/mdns2/node_modules/.bin:/Users/muhireremy/asprin/deskapp/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+231 verbose lifecycle mdns2@2.1.4~install: CWD: /Users/muhireremy/asprin/deskapp/node_modules/mdns2
+232 silly lifecycle mdns2@2.1.4~install: Args: [ '-c', 'node-gyp rebuild' ]
+233 silly lifecycle mdns2@2.1.4~install: Returned: code: 1  signal: null
+234 info lifecycle mdns2@2.1.4~install: Failed to exec install script
+235 verbose unlock done using /Users/muhireremy/.npm/_locks/staging-c60d821475aae399.lock for /Users/muhireremy/asprin/deskapp/node_modules/.staging
+236 silly rollbackFailedOptional Starting
+237 silly rollbackFailedOptional Finishing
+238 silly runTopLevelLifecycles Starting
+239 silly runTopLevelLifecycles Finishing
+240 silly install printInstalled
+241 verbose stack Error: mdns2@2.1.4 install: `node-gyp rebuild`
+241 verbose stack Exit status 1
+241 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:242:16)
+241 verbose stack     at emitTwo (events.js:106:13)
+241 verbose stack     at EventEmitter.emit (events.js:191:7)
+241 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+241 verbose stack     at emitTwo (events.js:106:13)
+241 verbose stack     at ChildProcess.emit (events.js:191:7)
+241 verbose stack     at maybeClose (internal/child_process.js:877:16)
+241 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+242 verbose pkgid mdns2@2.1.4
+243 verbose cwd /Users/muhireremy/asprin/deskapp
+244 error Darwin 16.0.0
+245 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "mdns2"
+246 error node v6.6.0
+247 error npm  v3.10.3
+248 error code ELIFECYCLE
+249 error mdns2@2.1.4 install: `node-gyp rebuild`
+249 error Exit status 1
+250 error Failed at the mdns2@2.1.4 install script 'node-gyp rebuild'.
+250 error Make sure you have the latest version of node.js and npm installed.
+250 error If you do, this is most likely a problem with the mdns2 package,
+250 error not with npm itself.
+250 error Tell the author that this fails on your system:
+250 error     node-gyp rebuild
+250 error You can get information on how to open an issue for this project with:
+250 error     npm bugs mdns2
+250 error Or if that isn't available, you can get their info via:
+250 error     npm owner ls mdns2
+250 error There is likely additional logging output above.
+251 verbose exit [ 1, true ]
