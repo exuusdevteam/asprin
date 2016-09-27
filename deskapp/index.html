@@ -16,6 +16,33 @@
          require('./js/bootstrap.min.js');
          require('./js/pyshell.js'); 
          
+		 var Printer = require('node-printer');
+		  //HP_Color_LaserJet_Pro_MFP_M177fw
+		  console.log(Printer.list());
+		  
+		  
+		  
+		  var ipp = require('ipp');
+			var uri = "ipp://localhost/printers/HP_Color_LaserJet_Pro_MFP_M177fw";
+			var data = ipp.serialize({
+				"operation":"Get-Printer-Attributes",
+				"operation-attributes-tag": {
+					"attributes-charset": "utf-8",
+					"attributes-natural-language": "en",
+					"printer-uri": uri
+				}
+			});
+
+			ipp.request(uri, data, function(err, res){
+				if(err){
+					return console.log(err);
+				}
+				console.log(JSON.stringify(res,null,2));
+			})
+			
+			
+		  
+		  
       </script>
    </head>
    <body>
