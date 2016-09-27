@@ -20,10 +20,10 @@
 		  //HP_Color_LaserJet_Pro_MFP_M177fw
 		  console.log(Printer.list());
 		  
-		  
+		  //http://localhost:631/printers
 		  
 		  var ipp = require('ipp');
-			var uri = "ipp://localhost/printers/HP_Color_LaserJet_Pro_MFP_M177fw";
+			/*var uri = "ipp://localhost/printers/HP_LaserJet_P2015_Series";
 			var data = ipp.serialize({
 				"operation":"Get-Printer-Attributes",
 				"operation-attributes-tag": {
@@ -37,11 +37,35 @@
 				if(err){
 					return console.log(err);
 				}
-				console.log(JSON.stringify(res,null,2));
-			})
+				var res = JSON.stringify(res,null,2);
+				//console.log(JSON.parse(res));
+			});*/
 			
 			
-		  
+			// Add missing operation code
+			ipp.operations['CUPS-Get-Printers'] = 0x4002;
+
+			// The rest is identical to your code:
+
+			var uri = "http://localhost:631";
+			var data = ipp.serialize({
+			  "operation": "CUPS-Get-Printers",
+			  "operation-attributes-tag": {
+				"attributes-charset": 'utf-8',
+				"attributes-natural-language": 'en-us'
+			  }
+			});
+
+			ipp.request(uri, data, function(err, res){
+			  if(err){
+				return console.log(err);
+			  }
+			var res = JSON.stringify(res,null,2);
+			  console.log(JSON.parse(res));
+			});
+			
+			
+
 		  
       </script>
    </head>
