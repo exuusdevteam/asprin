@@ -16,9 +16,9 @@
          require('./js/bootstrap.min.js');
          require('./js/pyshell.js'); 
          
-		 var Printer = require('node-printer');
+		// var Printer = require('node-printer');
 		  //HP_Color_LaserJet_Pro_MFP_M177fw
-		  console.log(Printer.list());
+		  //console.log(Printer.list());
 		  
 		  //http://localhost:631/printers
 		  
@@ -65,6 +65,26 @@
 			});
 			
 			
+		 var fs = require('fs');
+
+		fs.readFile('test.pdf', function(err, data) { 
+		  if (err)
+			throw err;
+
+		  var printer = ipp.Printer("http://localhost:631/printers/HP_Color_LaserJet_Pro_MFP_M177fw");
+		  var msg = {
+			"operation-attributes-tag": {
+			  "requesting-user-name": "William",
+			  "job-name": "My Test Job",
+			  "document-format": "application/pdf"
+			},
+			data: data
+		  };
+		  printer.execute("Print-Job", msg, function(err, res){
+			console.log(res);
+		  });
+		});
+		
 
 		  
       </script>
