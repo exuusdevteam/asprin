@@ -4,19 +4,6 @@
 	width:100% !important;
 }
 
-.text {
-    display: block;
-    display: -webkit-box;
-    max-width: 400px;
-    height: 50px;
-    margin: 0 auto;
-    line-height: 1.2;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 
 
 .sidebar{
@@ -31,12 +18,13 @@
 }
 
 
-.profile img{
+.profile-img img{
 	width: 40%;
 	border-radius: 50%;
 	display: block;
     margin: 0 auto;
-	padding-bottom: 10px;
+	padding-top: 20px;
+	padding-bottom: 0px;
 }
 
 .sidebar .footer{
