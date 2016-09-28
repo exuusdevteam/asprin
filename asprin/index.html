@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Asprin</title>
+      <link rel="stylesheet" href="./css/bootstrap-theme.css">
+      <link rel="stylesheet" href="./css/bootstrap.css">
+      <link rel="stylesheet" href="./css/style.css">
+      <script src="./node_modules/angular/angular.min.js"></script>
+      <script src="./node_modules/angular-route/angular-route.min.js"></script>
+      <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
+      <script src="./js/bootstrap.min.js"></script>
+      <script>
+         // You can also require other files to run in this process
+         require('./renderer.js');
+         require('./js/pyshell.js'); 
+         
+         
+         
+         
+      </script> 
+   </head>
+   <body>
+      <div class="row">
+         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+            <section class="sidebar">
+               <div class="container-fluid">
+                  <div class="profile">
+                     <div class="profile-img">
+                        <img src="img/remy.jpg">
+                     </div>
+                     <div class="user-names">
+                        <h4 class="text-center">Remy Muhire</h4>
+                     </div>
+                  </div>
+                  <div class="nav-menu">
+                     <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">New Order <i class="glyphicon glyphicon-paperclip" style="padding-left:85px;"></i></a></li>
+                        <li><a href="#">Asprin Doc <i class="glyphicon glyphicon-file" style="padding-left:85px;"></i></a></li>
+                        <li><a href="#">Printers <i class="glyphicon glyphicon-print" style="padding-left:105px;"></i></a></li>
+                        <li><a href="#">Settings <i class="glyphicon glyphicon-cog" style="padding-left:104px;"></i></a></li>
+                     </ul>
+                  </div>
+                  <div class="asprin-usage">
+					  <p><b>140.84 MB (14.08%) of 1 GB used.</b></p>
+					  <p>Joined Asprin 11 days ago</p>
+				   </div>
+                  <footer class="footer">
+                     <p class="text-center">asprin v1.0.0</p>
+                  </footer>
+               </div>
+            </section>
+         </div>
+         <div class="col-xs-8 col-sm-8 col-md-8">
+         </div>
+      </div>
+   </body>
+</html>
