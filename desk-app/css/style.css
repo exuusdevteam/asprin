@@ -1,0 +1,45 @@
+
+.panel-default{
+	border-radius:0px !important; 
+	width:100% !important;
+}
+
+.text {
+    display: block;
+    display: -webkit-box;
+    max-width: 400px;
+    height: 50px;
+    margin: 0 auto;
+    line-height: 1.2;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+.sidebar{
+	width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000; /* so the menu or its navicon stays above all content */
+    background: #191818;
+    overflow-y: auto;
+}
+
+
+.profile img{
+	width: 40%;
+	border-radius: 50%;
+	display: block;
+    margin: 0 auto;
+	padding-bottom: 10px;
+}
+
+.sidebar .footer{
+	position: absolute;
+	bottom: 0;
+}
