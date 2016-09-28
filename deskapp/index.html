@@ -6,7 +6,6 @@
       <link rel="stylesheet" href="./css/bootstrap-theme.css">
       <link rel="stylesheet" href="./css/bootstrap.min.css">
       <link rel="stylesheet" href="./css/style.css">
-      <link rel="stylesheet" href="./css/sidebar.css">
       <script src="./node_modules/angular/angular.min.js"></script>
       <script src="./node_modules/angular-route/angular-route.min.js"></script>
       <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
@@ -16,146 +15,13 @@
          require('./js/bootstrap.min.js');
          require('./js/pyshell.js'); 
          
-		// var Printer = require('node-printer');
-		  //HP_Color_LaserJet_Pro_MFP_M177fw
-		  //console.log(Printer.list());
-		  
-		  //http://localhost:631/printers
-		  
-		  var ipp = require('ipp');
-			/*var uri = "ipp://localhost/printers/HP_LaserJet_P2015_Series";
-			var data = ipp.serialize({
-				"operation":"Get-Printer-Attributes",
-				"operation-attributes-tag": {
-					"attributes-charset": "utf-8",
-					"attributes-natural-language": "en",
-					"printer-uri": uri
-				}
-			});
-
-			ipp.request(uri, data, function(err, res){
-				if(err){
-					return console.log(err);
-				}
-				var res = JSON.stringify(res,null,2);
-				//console.log(JSON.parse(res));
-			});*/
-			
-			
-			// Add missing operation code
-			ipp.operations['CUPS-Get-Printers'] = 0x4002;
-
-			// The rest is identical to your code:
-
-			var uri = "http://localhost:631";
-			var data = ipp.serialize({
-			  "operation": "CUPS-Get-Printers",
-			  "operation-attributes-tag": {
-				"attributes-charset": 'utf-8',
-				"attributes-natural-language": 'en-us'
-			  }
-			});
-
-			ipp.request(uri, data, function(err, res){
-			  if(err){
-				return console.log(err);
-			  }
-			var res = JSON.stringify(res,null,2);
-			  console.log(JSON.parse(res));
-			});
-			
-			
-		 var fs = require('fs');
-
-		fs.readFile('test.pdf', function(err, data) { 
-		  if (err)
-			throw err;
-
-		  var printer = ipp.Printer("http://localhost:631/printers/HP_Color_LaserJet_Pro_MFP_M177fw");
-		  var msg = {
-			"operation-attributes-tag": {
-			  "requesting-user-name": "William",
-			  "job-name": "My Test Job",
-			  "document-format": "application/pdf"
-			},
-			data: data
-		  };
-		  printer.execute("Print-Job", msg, function(err, res){
-			console.log(res);
-		  });
-		});
+		
 		
 
 		  
       </script>
    </head>
    <body>
-      <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        ASPRIN
-                    </a>
-                </li>
-                <li>
-                    <a href="#">New Doc</a>
-                </li>
-                <li>
-                    <a href="#">AsprinDoc</a>
-                </li>
-                <li>
-                    <a href="#">Printer</a>
-                </li>
-                <li>
-                    <a href="#">Setting</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default" style="position:fixed; z-index:1000;">
-						  <div class="panel-body">
-							<div class="row">
-								<div class="col-sm-8">
-									Asprin Doc
-								</div>
-								<div class="col-sm-4">
-									<div class="">Settings</div>
-								</div>
-							</div>
-						  </div>
-						</div>
-                    </div>
-                </div><br><br><br>
-                <div class="row">
-                	<div class="col-sm-offset-1 col-sm-10">
-					<h1>Lorem Ipsum</h1>
-					<p>
-						
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam convallis id eros eget tristique. Praesent tempus nisi fringilla augue aliquet molestie. Nam varius varius est, nec viverra risus suscipit a. Phasellus suscipit libero maximus ante ornare congue ut vel quam. Proin in mauris ornare nibh rutrum gravida. Etiam nibh augue, aliquet at nisl eget, laoreet convallis nunc. Sed volutpat ante nec dictum pellentesque. Nullam viverra vestibulum imperdiet. Phasellus laoreet molestie auctor.
-
-Aenean elit lectus, ornare a tempor eget, pretium non felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin sit amet elit convallis, semper nunc id, malesuada tellus. Integer metus massa, pretium sed eros a, egestas vehicula mauris. Integer turpis diam, lobortis ac aliquam elementum, egestas ut arcu. Sed nec neque augue. Aenean tincidunt nisl dui, eget rhoncus mi consectetur ut. Vivamus cursus ac libero id euismod. Vestibulum justo leo, aliquam id accumsan id, feugiat molestie orci. Pellentesque sit amet sapien ac urna sollicitudin placerat ut sed ante. Pellentesque lobortis eu nisl eu fringilla. Quisque scelerisque viverra justo, sed consequat odio tempus non. Integer ut augue vestibulum nisl condimentum varius vitae eu enim.
-					</p>
-					<h1>Lorem Ipsum</h1>
-					<p>
-						
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam convallis id eros eget tristique. Praesent tempus nisi fringilla augue aliquet molestie. Nam varius varius est, nec viverra risus suscipit a. Phasellus suscipit libero maximus ante ornare congue ut vel quam. Proin in mauris ornare nibh rutrum gravida. Etiam nibh augue, aliquet at nisl eget, laoreet convallis nunc. Sed volutpat ante nec dictum pellentesque. Nullam viverra vestibulum imperdiet. Phasellus laoreet molestie auctor.
-
-Aenean elit lectus, ornare a tempor eget, pretium non felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin sit amet elit convallis, semper nunc id, malesuada tellus. Integer metus massa, pretium sed eros a, egestas vehicula mauris. Integer turpis diam, lobortis ac aliquam elementum, egestas ut arcu. Sed nec neque augue. Aenean tincidunt nisl dui, eget rhoncus mi consectetur ut. Vivamus cursus ac libero id euismod. Vestibulum justo leo, aliquam id accumsan id, feugiat molestie orci. Pellentesque sit amet sapien ac urna sollicitudin placerat ut sed ante. Pellentesque lobortis eu nisl eu fringilla. Quisque scelerisque viverra justo, sed consequat odio tempus non. Integer ut augue vestibulum nisl condimentum varius vitae eu enim.
-					</p>
-				</div>
-			</div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
+	   <h1>ASPRIN IS FUN</h1>
    </body>
 </html>
