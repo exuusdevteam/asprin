@@ -1,5 +1,5 @@
 {
-  "name": "Asprin",
+  "name": "asprin",
   "version": "0.1.0",
   "description": "Asprin App",
   "main": "main.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rmuhire/asprin.git"
+    "url": "git+https://github.com/rmuhire/asprin.git"
   },
   "keywords": [
     "asprin",
@@ -16,12 +16,20 @@
   ],
   "author": "Remy Muhire",
   "license": "MIT",
-  "bugs": {
-    "url": ""
-  },
-  "homepage": "",
+  "homepage": "https://github.com/rmuhire/asprin#readme",
   "devDependencies": {
     "electron": "^1.4.1",
-    "electron-packager": "^8.0.0"
+    "electron-packager": "^8.0.0",
+    "electron-prebuilt": "^0.35.2"
+  },
+  "dependencies": {
+    "angular-route": "^1.5.8",
+    "angular": "^1.5.8",
+    "electron": "^1.4.1",
+    "electron-packager": "^8.0.0",
+    "ipp": "^1.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/rmuhire/asprin/issues"
   }
 }
