@@ -18,16 +18,19 @@
 }
 
 .profile{
+	margin-left: -8px;
+	padding-top: 20px;
 	padding-bottom: 60px;
+	color: #767676;
+	font-weight: 800;
 }
 
-.profile-img img{
-	width: 50%;
-	border-radius: 50%;
-	display: block;
-    margin: 0 auto;
-	padding-top: 20px;
-	padding-bottom: 0px;
+.profile h4{
+	line-height: 0px;
+}
+
+.profile img{
+	width: 38px;
 }
 
 .sidebar .footer{
@@ -62,6 +65,7 @@
 .nav-menu .nav-pills li a{
 	color: #767676;
 	font-weight: bold;
+	font-size: 12px;
 }
 
 .asprin-usage{
