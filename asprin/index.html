@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="asprinDeskApp">
    <head>
       <meta charset="UTF-8">
       <title>Asprin</title>
@@ -10,6 +10,7 @@
       <script src="./node_modules/angular-route/angular-route.min.js"></script>
       <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
       <script src="./js/bootstrap.min.js"></script>
+      <script src="./js/route.js"></script>
       <script>
          // You can also require other files to run in this process
          require('./renderer.js');
@@ -26,19 +27,20 @@
             <section class="sidebar">
                <div class="container-fluid">
                   <div class="profile">
-                     <div class="profile-img">
-                        <img src="img/remy.jpg">
+                     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                     	<img src="img/remy.jpg">
                      </div>
-                     <div class="user-names">
-                        <h4 class="text-center">Remy Muhire</h4>
-                     </div>
+					  <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                		<h4>Remy Muhire</h4>
+						<p>rmuhire</p>
+                 	</div>
                   </div>
                   <div class="nav-menu">
                      <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#">New Order <i class="glyphicon glyphicon-paperclip" style="padding-left:85px;"></i></a></li>
-                        <li><a href="#">Asprin Doc <i class="glyphicon glyphicon-file" style="padding-left:85px;"></i></a></li>
-                        <li><a href="#">Printers <i class="glyphicon glyphicon-print" style="padding-left:105px;"></i></a></li>
-                        <li><a href="#">Settings <i class="glyphicon glyphicon-cog" style="padding-left:104px;"></i></a></li>
+                        <li><a href="#/order">New order <i class="glyphicon glyphicon-paperclip" style="padding-left:88px;"></i></a></li>
+                        <li><a href="#/asprindoc">Asprin doc <i class="glyphicon glyphicon-file" style="padding-left:88px;"></i></a></li>
+                        <li><a href="#/printers">Printers <i class="glyphicon glyphicon-print" style="padding-left:105px;"></i></a></li>
+                        <li><a href="#/settings">Settings <i class="glyphicon glyphicon-cog" style="padding-left:104px;"></i></a></li>
                      </ul>
                   </div>
                   <div class="asprin-usage">
@@ -52,6 +54,10 @@
             </section>
          </div>
          <div class="col-xs-8 col-sm-8 col-md-8">
+			 <div class="container-fluid main" style="margin-left:-100px;">
+				<main ng-view></main>
+			 </div>
+         	
          </div>
       </div>
    </body>
