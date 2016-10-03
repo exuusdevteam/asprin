@@ -91,3 +91,21 @@
 .main{
 	margin-left: 220px;
 }
+
+
+.main .panel .panel-body{
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+}
+
+.main .panel .panel-body h4{
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.main .panel .panel-body p{
+	margin-top: -10px;
+	font-size: 10px;
+	color: #3e474f;
+}
