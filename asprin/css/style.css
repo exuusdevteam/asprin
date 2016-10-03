@@ -149,3 +149,46 @@
 	color: #fff;
 	border-color: #3A5685; 
 }
+
+.asprin-doc .btn-default{
+	margin-right: 20px;
+	width: 120px;
+	background-color: #3A5685;
+	color: #fff;
+	border-color: #96A9C3;
+}
+
+.asprin-doc .btn-default:focus{
+	margin-right: 20px;
+	width: 120px;
+	background-color: #3A5685;
+	color: #fff;
+	border-color: #96A9C3;
+}
+
+.asprin-doc .new-button{
+	padding-bottom: 30px;
+}
+
+.asprin-doc .doc-table{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.asprin-doc .table{
+	border-top: 1px solid #edeff0;
+	
+}
+
+.asprin-doc .table th{
+	font-weight: 400;
+	color: #3e474f;
+	font-size: 13px;
+	border-bottom:1px solid #edeff0;
+}
+
+.asprin-doc .table td{
+	font-weight: 400;
+	font-size: 12px;
+	border-bottom:1px solid #edeff0;
+}
