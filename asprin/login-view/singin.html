@@ -1,11 +1,14 @@
 <h1>Sign in</h1>
-<div class="form">
+<div class="form" ng-controller="sgininCtrl">
 	<form class="form-horizontal">
 		<div class="form-group">
 			<input type="text" class="form-control input-lg" placeholder="Email or username">
 		</div>
 		<div class="form-group">
 			<input type="password" class="form-control input-lg" placeholder="Password">
+		</div>
+		<div class="form-group">
+			<p class="text-center error-msg" ng-show="loginResponse">Wrong password or username. Try again.</p>
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary col-md-12 col-sm-12">Sign in</button>
