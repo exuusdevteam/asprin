@@ -1,21 +1,39 @@
-<h1>Hello. Sign in.</h1>
-<div class="form" ng-controller="sgininCtrl">
-	<form class="form-horizontal" name="signin">
-		<div class="form-group">
-			<input type="text" class="form-control input-lg" placeholder="Email or username" ng-model="username" required>
+	 <nav class="navbar">
+		  <div class="magenta-line"></div>
+	  </nav>
+  	<div class="container-fluid login-view">
+	  	<div class="row">
+	  		<div class="col-sm-5 col-md-4 col-lg-3 col-centered">
+	  			<div class="logo">
+	  				<img src="assets/img/asprin_logo.png">
+				</div>
+				<div>
+					<h1>Hello. Sign in.</h1>
+					<div class="form" ng-controller="sgininCtrl">
+						<form class="form-horizontal" name="signin">
+							<div class="form-group">
+								<input type="text" class="form-control input-lg" placeholder="Email or username" ng-model="username" required>
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control input-lg" placeholder="Password" ng-model="password" required>
+							</div>
+							<div class="form-group">
+								<p class="text-center error-msg" ng-show="loginResponse">Wrong password or username. Try again.</p>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary col-md-12 col-sm-12" ng-click="login(username, password)" ng-disabled="!signin.$valid">Sign in</button>
+							</div>
+							<div class="text-center">
+								<p><a href="#/forget">Forgot your password?</a></p>
+								<p>Not on Asprin? <a href="#/signup">Get started here.</p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="form-group">
-			<input type="password" class="form-control input-lg" placeholder="Password" ng-model="password" required>
-		</div>
-		<div class="form-group">
-			<p class="text-center error-msg" ng-show="loginResponse">Wrong password or username. Try again.</p>
-		</div>
-		<div class="form-group">
-			<button type="submit" class="btn btn-primary col-md-12 col-sm-12" ng-click="login(username, password)" ng-disabled="!signin.$valid">Sign in</button>
-		</div>
-		<div class="text-center">
-			<p><a href="#/forget">Forgot your password?</a></p>
-			<p>Not on Asprin? <a href="#/signup">Get started here.</p>
-		</div>
-	</form>
-</div>
+	  </div>
+
+
+
+
