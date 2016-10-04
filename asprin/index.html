@@ -16,7 +16,12 @@
 	<script>window.$ = window.jQuery = require('./app/js/jquery.min.js');</script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="app/js/bootstrap.min.js"></script>
-    <script src="app/js/route-login.js"></script>
+    <script src="./login-view/route-login.js"></script>
+    <script>
+         // You can also require other files to run in this process
+         require('./renderer.js');
+         
+      </script> 
    
   </head>
   <body>
