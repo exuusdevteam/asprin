@@ -8,37 +8,23 @@
     <title>Asprin</title>
 
     <!-- Bootstrap -->
-    <link href="app/css/bootstrap.min.css" rel="stylesheet">
-    <link href="app/css/style.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
     
     <script src="./node_modules/angular/angular.min.js"></script>
     <script src="./node_modules/angular-route/angular-route.min.js"></script>
-	<script>window.$ = window.jQuery = require('./app/js/jquery.min.js');</script>
+	<script>window.$ = window.jQuery = require('./assets/js/jquery.min.js');</script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="app/js/bootstrap.min.js"></script>
-    <script src="./login-view/route-login.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="login-view/route-login.js"></script>
     <script>
          // You can also require other files to run in this process
          require('./renderer.js');
          
       </script> 
-   
+    
   </head>
   <body>
-  	  <nav class="navbar">
-		  <div class="magenta-line"></div>
-	  </nav>
-	  <div class="container-fluid login-view">
-	  	<div class="row">
-	  		<div class="col-sm-5 col-md-4 col-lg-3 col-centered">
-	  			<div class="logo">
-	  				<img src="app/img/asprin_logo.png">
-				</div>
-				<div>
-					<main ng-view></main>
-				</div>
-			</div>
-		</div>
-	  </div>
+	  <main ng-view></main>
   </body>
 </html>
