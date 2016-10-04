@@ -62,7 +62,101 @@ asprinDeskApp.controller('sgininCtrl', ['$scope','$http','$location','$window', 
 	}
 }]);
 
+asprinDeskApp.controller('profileCtrl', ['$scope','$http', function($scope, $http){
+	var data = restoreUserAsprin();
+	var user_id = data[0];
+	var user_type = data[1];
+	
+	var url ="http://0.0.0.0:5000/api/v1/user/"+user_id;
+	
+	$http.get(url).success(function(data,status, header, config){
+		console.log(data);
+		$scope.fullname = data.user.names;
+		$scope.username = data.user.username;
+		
+	})
+	.error(function(data, status, header, config){
+		
+	});
+}]);
 
+
+asprinDeskApp.controller('usageCtrl', ['$scope','$http', function($scope,$http){
+	var data = restoreUserAsprin();
+	var user_id = data[0];
+	var user_type = data[1];
+	
+	if(user_type == 1){
+		asprinDocUser();
+	}else{
+		asprinDocBusiness();
+	}
+	
+	var url ="http://0.0.0.0:5000/api/v1/user/"+user_id;
+	
+	$http.get(url).success(function(data,status, header, config){
+		$scope.joined = "Joined Asprin "+data.user.regDate+".";
+	})
+	.error(function(data, status, header, config){
+		
+	});
+	
+	
+	function asprinDocUser(){
+		$scope.thCustomer = false;
+		$scope.trCustomer = false;
+		var url ="http://0.0.0.0:5000/api/v1/printjobs/user/"+user_id;
+		$http.get(url).success(function(data, status, header, config){
+			$scope.storage = data.storage + " ("+data.percentage+"%) of 1 GB used.";
+		})
+		.error(function(data, status, header, config){
+			console.log(data);
+		});
+	}
+	
+	function asprinDocBusiness(){
+		$scope.thCustomer = true;
+		$scope.trCustomer = true;
+		
+		var url ="http://0.0.0.0:5000/api/v1/printjobs/business/1";
+		$http.get(url).success(function(data, status, header, config){
+			$scope.storage = data.storage + " ("+data.percentage+"%) of 1 GB used.";
+			
+		})
+		.error(function(data, status, header, config){
+			console.log(data);
+		});
+	}
+}]);
+
+
+
+function storeAsprin(Asprin){
+	localStorage.setItem('asprin', JSON.stringify(Asprin));
+	return 1;
+}
+
+function restoreAsprin(){
+	var storeData = Array();
+	storeData = localStorage.getItem('asprin');
+	if(storeData){
+		return JSON.parse(storeData);
+	}else{
+		return 0;
+	}
+}
+
+function destroyAsprin(){
+	localStorage.removeItem('asprin');
+	return 1;
+}
+
+function restoreUserAsprin(){
+	var user_id = localStorage.getItem('asprin_u__');
+	var user_type = localStorage.getItem('asprin_t__');
+	var data = new Array(user_id,user_type); 
+	return data;
+}
 
 function storeUserAsprin(User,UserType){
 	localStorage.setItem('asprin_u__', User);
