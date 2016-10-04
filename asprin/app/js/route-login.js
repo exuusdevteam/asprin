@@ -6,7 +6,7 @@ asprinDeskApp.config(['$routeProvider', function($routeProvider){
 			templateUrl:'./login-view/singin.html'
 		})
 		.when('/singin',{
-			templateUrl:'./login-view/singnin.html'
+			templateUrl:'./login-view/singin.html'
 		})
 		.when('/signup',{
 			templateUrl:'./login-view/singup.html'
