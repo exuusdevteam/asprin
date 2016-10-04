@@ -15,7 +15,19 @@ asprinDeskApp.config(['$routeProvider', function($routeProvider){
 			templateUrl:'login-view/forget.html'
 		})
 		.when('/app/asprindoc',{
-			templateUrl:'app/views/asprindoc.html'
+			templateUrl:'app-views/asprindoc.html'
+		})
+		.when('app/',{
+			templateUrl:'app-views/asprindoc.html'
+		})
+		.when('/app/order',{
+			templateUrl:'app-views/order.html'
+		})
+		.when('/app/printers', {
+			templateUrl:'app-views/printers.html'
+		})
+		.when('/app/settings', {
+			templateUrl:'app-views/settings.html'
 		});
 }]);
  
@@ -29,7 +41,7 @@ asprinDeskApp.controller('sgininCtrl', ['$scope','$http','$location','$window', 
 			headers:{
 				'Content-Type':'application/json'
 			}
-		}
+		} 
 		
 		$http.post('http://0.0.0.0:5000/api/v1/login/', data, config)
 		.success(function(data, status, header, config){
@@ -39,7 +51,7 @@ asprinDeskApp.controller('sgininCtrl', ['$scope','$http','$location','$window', 
 			}else{
 				var storeUser = storeUserAsprin(data.user.user_id, data.user.user_type);
 				if (storeUser == 1){
-					//$window.location.href = '/app/index.html';
+					$location.path('/app/asprindoc');
 				}
 				
 			}
