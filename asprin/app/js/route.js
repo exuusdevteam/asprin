@@ -2,19 +2,19 @@ var asprinDeskApp = angular.module("asprinDeskApp",['ngRoute']);
 
 asprinDeskApp.config(['$routeProvider', function($routeProvider){
 	$routeProvider
-		.when('/',{
+		.when('app/',{
 			templateUrl:'views/asprindoc.html'
 		})
-		.when('/asprindoc',{
+		.when('app/asprindoc',{
 			templateUrl:'views/asprindoc.html'
 		})
-		.when('/order',{
+		.when('app/order',{
 			templateUrl:'views/order.html'
 		})
-		.when('/printers', {
+		.when('app/printers', {
 			templateUrl:'views/printers.html'
 		})
-		.when('/settings', {
+		.when('app/settings', {
 			templateUrl:'views/settings.html'
 		});
 }]);
