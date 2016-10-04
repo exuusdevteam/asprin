@@ -39,7 +39,7 @@ asprinDeskApp.controller('sgininCtrl', ['$scope','$http','$location','$window', 
 			}else{
 				var storeUser = storeUserAsprin(data.user.user_id, data.user.user_type);
 				if (storeUser == 1){
-					$window.location.href = '/app/index.html';
+					//$window.location.href = '/app/index.html';
 				}
 				
 			}
