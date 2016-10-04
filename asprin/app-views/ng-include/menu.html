@@ -1,12 +1,12 @@
 	<section class="sidebar">
          <div class="container-fluid">
-            <div class="profile">
+            <div class="profile" ng-controller="profileCtrl">
                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                   <img src="assets/img/remy.jpg">
                </div>
                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                  <h4>Remy Muhire</h4>
-                  <p>rmuhire</p>
+                  <h4 ng-bind="fullname"></h4>
+                  <p ng-bind="username"></p>
                </div>
             </div>
             <div class="nav-menu">
@@ -17,9 +17,9 @@
                   <li><a href="#/app/settings">Settings <i class="glyphicon glyphicon-cog" style="padding-left:104px;"></i></a></li>
                </ul>
             </div>
-            <div class="asprin-usage">
-               <p><b>140.84 MB (14.08%) of 1 GB used.</b></p>
-               <p>Joined Asprin 11 days ago</p>
+            <div class="asprin-usage" ng-controller="usageCtrl">
+               <p><b ng-bind="storage"></b></p>
+               <p ng-bind="joined"></p>
             </div>
             <footer class="footer">
                <p class="text-center">asprin v1.0.0</p>
