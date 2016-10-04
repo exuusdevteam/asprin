@@ -1,63 +1,39 @@
 <!DOCTYPE html>
-<html ng-app="asprinDeskApp">
-   <head>
-      <meta charset="UTF-8">
-      <title>Asprin</title>
-      <link rel="stylesheet" href="./css/bootstrap-theme.css">
-      <link rel="stylesheet" href="./css/bootstrap.css">
-      <link rel="stylesheet" href="./css/style.css">
-      <script src="./node_modules/angular/angular.min.js"></script>
-      <script src="./node_modules/angular-route/angular-route.min.js"></script>
-      <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
-      
-      
-      <script>
-         // You can also require other files to run in this process
-         require('./renderer.js');
-        
-         
-         
-         
-         
-      </script> 
-      
-      <script src="./js/bootstrap.min.js"></script>
-      <script src="./js/route.js"></script>
-      
-   </head>
-   <body>
-      <section class="sidebar">
-         <div class="container-fluid">
-            <div class="profile">
-               <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                  <img src="img/remy.jpg">
-               </div>
-               <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                  <h4>Remy Muhire</h4>
-                  <p>rmuhire</p>
-               </div>
-            </div>
-            <div class="nav-menu">
-               <ul class="nav nav-pills nav-stacked">
-                  <li><a href="#/order">New order <i class="glyphicon glyphicon-paperclip" style="padding-left:89px;"></i></a></li>
-                  <li><a href="#/asprindoc">Asprin doc <i class="glyphicon glyphicon-file" style="padding-left:88px;"></i></a></li>
-                  <li><a href="#/printers">Printers <i class="glyphicon glyphicon-print" style="padding-left:105px;"></i></a></li>
-                  <li><a href="#/settings">Settings <i class="glyphicon glyphicon-cog" style="padding-left:104px;"></i></a></li>
-               </ul>
-            </div>
-            <div class="asprin-usage">
-               <p><b>140.84 MB (14.08%) of 1 GB used.</b></p>
-               <p>Joined Asprin 11 days ago</p>
-            </div>
-            <footer class="footer">
-               <p class="text-center">asprin v1.0.0</p>
-            </footer>
-         </div>
-      </section>
-      <section class="main">
-         <main ng-view></main>
-      </section>
-      </div>
-      </div>
-   </body>
+<html lang="en" ng-app="asprinLoginApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Asprin</title>
+
+    <!-- Bootstrap -->
+    <link href="app/css/bootstrap.min.css" rel="stylesheet">
+    <link href="app/css/style.css" rel="stylesheet">
+    
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/angular-route/angular-route.min.js"></script>
+	<script>window.$ = window.jQuery = require('./app/js/jquery.min.js');</script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="app/js/bootstrap.min.js"></script>
+    <script src="app/js/route-login.js"></script>
+   
+  </head>
+  <body>
+  	  <nav class="navbar">
+		  <div class="magenta-line"></div>
+	  </nav>
+	  <div class="container-fluid login-view">
+	  	<div class="row">
+	  		<div class="col-sm-4 col-md-4 col-centered">
+	  			<div class="logo">
+	  				<img src="app/img/asprin_logo.png">
+				</div>
+				<div>
+					<main ng-view></main>
+				</div>
+			</div>
+		</div>
+	  </div>
+  </body>
 </html>
