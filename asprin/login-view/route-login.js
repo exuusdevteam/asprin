@@ -130,6 +130,9 @@ asprinDeskApp.controller('usageCtrl', ['$scope','$http', function($scope,$http){
 }]);
 
 
+
+
+
 asprinDeskApp.controller('appMenuCtrl', ['$scope', function($scope){
 	var data = restoreUserAsprin();
 	var user_id = data[0];
@@ -175,6 +178,48 @@ function storeUserAsprin(User,UserType){
 	localStorage.setItem('asprin_t__', UserType);
 	return 1;
 }
+
+
+
+
+	function printerslist($scope){
+		var ipp = require('./node_modules/ipp');
+		ipp.operations['CUPS-Get-Printers'] = 0x4002;
+		var uri = "http://127.0.0.1:631/printers";
+		var data = ipp.serialize({
+			"operation": "CUPS-Get-Printers",
+			"operation-attributes-tag": {
+			"attributes-charset": 'utf-8',
+			"attributes-natural-language": 'en-us',
+			"limit": 10
+			}
+		});
+		ipp.request(uri, data, function(err, res){
+			if(err){
+				return console.log(err);
+			}
+			res = JSON.stringify(res,null,2);
+			var parsePrinter = JSON.parse(res);
+			console.log(parsePrinter['printer-attributes-tag']);
+			$scope.test = false;
+		});
+	}
+
+	
+
+	
+
+
+	asprinDeskApp.controller('printersCtrl',['$scope','$http', function($scope, $http){
+			
+			var url = "http://0.0.0.0:5000/api/v1/printer/business/1";
+			$http.get(url).success(function(data,status, header,config){
+				printerslist($scope);
+			})
+			.error(function(data, status, header, config){
+
+			});
+		}]);
 
 
 
