@@ -40,7 +40,7 @@ def get_business(id):
     result = business_schema.dump(business)
     return jsonify({"Business":result.data})
 
-@app.route("/api/get/printers/<int:business_id>")
+@app.route("/api/v1/printer/business/<int:business_id>")
 def get_printers(business_id):
     printers = Printer.query.filter_by(business_id = business_id)
     result = printers_schema.dump(printers)
@@ -52,6 +52,8 @@ def get_printer(id):
     printer = Printer.query.get(id)
     result = printer_schema.dump(printer)
     return jsonify({"printer":result.data})
+
+
 
 @app.route("/api/v1/printer/options")
 def get_printer_option():
