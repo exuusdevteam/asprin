@@ -34,7 +34,7 @@ def get_businesses():
     result = businesses_schema.dump(businesses)
     return jsonify({"Businesses":result.data})
 
-@app.route("/api/get/business/<int:id>")
+@app.route("/api/v1/business/<int:id>")
 def get_business(id):
     business = Business.query.get(id)
     result = business_schema.dump(business)
