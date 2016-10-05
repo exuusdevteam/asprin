@@ -130,6 +130,18 @@ asprinDeskApp.controller('usageCtrl', ['$scope','$http', function($scope,$http){
 }]);
 
 
+asprinDeskApp.controller('appMenuCtrl', ['$scope', function($scope){
+	var data = restoreUserAsprin();
+	var user_id = data[0];
+	var user_type = data[1];
+	$scope.menuBookkeeping = false;
+	if(user_type == 1){
+		$scope.menuPrinters = false;
+	}else{
+		$scope.menuPrinters = true;
+	}
+}]);
+
 
 function storeAsprin(Asprin){
 	localStorage.setItem('asprin', JSON.stringify(Asprin));
