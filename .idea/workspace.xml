@@ -19,7 +19,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiasprin/app/model/models.py" afterPath="$PROJECT_DIR$/apiasprin/app/model/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiasprin/app/model/schema.py" afterPath="$PROJECT_DIR$/apiasprin/app/model/schema.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiasprin/run.py" afterPath="$PROJECT_DIR$/apiasprin/run.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/asprin/app-views/ng-include/action.htm" afterPath="$PROJECT_DIR$/asprin/app-views/ng-include/action.htm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/asprin/app-views/printers.html" afterPath="$PROJECT_DIR$/asprin/app-views/printers.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/asprin/login-view/route-login.js" afterPath="$PROJECT_DIR$/asprin/login-view/route-login.js" />
     </list>
     <ignored path="asprin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,8 +45,8 @@
           <file leaf-file-name="get.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/apiasprin/app/api/get.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="465">
-                  <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+                <state relative-caret-position="285">
+                  <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#17#0" expanded="true" />
                   </folding>
@@ -962,8 +963,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apiasprin/app/api/get.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="285">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
