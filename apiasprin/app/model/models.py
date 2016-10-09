@@ -111,13 +111,16 @@ class Printer(db.Model):
     printjob = db.relationship('PrinterJob', backref='printer', lazy='dynamic')
 
 
-    def __init__(self, printer_id, name, business_id, uri, regDate=None):
+    def __init__(self, printer_id, name, uri, uuid, icon, location, business_id, regDate=None):
         self.printer_id = printer_id
         self.name = name
+        self.uri = uri
+        self.uuid = uuid
+        self.icon = icon
+        self.location = location
         self.business_id = business_id
         if regDate is None:
             self.regDate = datetime.utcnow()
-        self.uri = uri
 
 
 class Tonner(db.Model):
