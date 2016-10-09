@@ -216,6 +216,7 @@ function storeUserAsprin(User,UserType){
 					$scope.printerIcon = value['printer-icons'];
 					$scope.printerName = value['printer-info'];
 					$scope.uuid = value['printer-uuid'];
+					$scope.business_id = 1;
 				}
 			}
 		});
@@ -233,8 +234,8 @@ function storeUserAsprin(User,UserType){
 
 			});
 		
-			$scope.addPrinter =  function(printerName, uuid){
-				alert(printerName + " "+ uuid);
+			$scope.addPrinter =  function(printerName, uuid, business_id){
+				
 			}
 	}]);
 
