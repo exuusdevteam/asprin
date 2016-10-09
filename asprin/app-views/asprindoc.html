@@ -1,10 +1,10 @@
 <div ng-include="'app-views/ng-include/menu.html'"></div>
-<section class="main">
+<section class="main" ng-controller="asprinDocCtrl">
 	<div class="panel panel-default">
   <div class="panel-body">
   	  <div class="pull-left">
   	  	<h4>Asprin Doc</h4>
-	  	<p>127 Documents</p>
+	  	<p>{{ numDoc }}</p>
 	  </div>
 	  <div class="pull-right">
 		  <div ng-include="'app-views/ng-include/action.htm'"></div>
@@ -19,39 +19,42 @@
 	</div>
 	<div class="row">
 		<div class="table-responsive doc-table"> 
-			<table class="table">
-				<thead>
-				<tr>
-					<th>Customer</th>
-					<th>file</th>
-					<th>page</th>
-					<th>size</th>
-					<th>price</th>
-					<th>created</th>
-					<th>status</th>
-					</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>Remy Muhire</td>
-					<td>luchex_web.pdf</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					</tr>
-					<tr>
-					<td>Remy Muhire</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					</tr>
-				</tbody>
-			</table>
+			 <table class="table app-table">
+                     <tr>
+                        <th ng-show="thCustomer">Customer</th>
+                        <th>File</th>
+                        <th>Page</th>
+                        <th>Size</th>
+						<th>Price</th>
+                        <th>Created</th>
+                        <th>Status</th>
+                        <th>Details</th>
+                     </tr>
+                     <tr ng-repeat="asprin in asprins">
+                        <td ng-show="trCustomer">{{ asprin.names }}</td>
+						 <td><a href="" ng-click="loadPdf(asprin.printer_job_id)">{{ asprin.filename}}</a></td>
+                       	<td>{{ asprin.page}}</td>
+                        <td>{{ asprin.size}}</td>
+                        <td>{{ asprin.tot_price}}</td>
+                        <td>{{ asprin.regDate }}</td>
+                        <td>
+                        	<span ng-if="asprin.status == 1" class="label label-success">printed</span>
+                        	<span ng-if="asprin.status == 3" class="label label-warning">pending</span>
+                        	<span ng-if="asprin.status == 0" class="label label-danger">Failed</span>
+                        </td>
+						 <td><a class="moreAsprin" ng-click="moreAsprin(asprin.printer_job_id)">More</a></td>
+                     </tr>
+                    
+                  </table>
+                  <div class="text-center">
+                     <ul class="pagination">
+                        <li><a href="#">1</a></li>
+                        <li class="active"><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                     </ul>
+                  </div>
 		</div>
 	</div>
 </div>
