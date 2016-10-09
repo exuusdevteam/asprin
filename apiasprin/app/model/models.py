@@ -103,6 +103,8 @@ class Printer(db.Model):
     name = db.Column(db.String(80))
     uri = db.Column(db.String(220))
     uuid = db.Column(db.String(150), unique = True)
+    icon = db.Column(db.String(200))
+    location = db.Column(db.String(200))
     regDate = db.Column(db.DateTime)
     business_id = db.Column(db.Integer, db.ForeignKey('business.business_id'))
 
