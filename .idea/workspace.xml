@@ -19,8 +19,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiasprin/app/model/models.py" afterPath="$PROJECT_DIR$/apiasprin/app/model/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiasprin/app/model/schema.py" afterPath="$PROJECT_DIR$/apiasprin/app/model/schema.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiasprin/run.py" afterPath="$PROJECT_DIR$/apiasprin/run.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/asprin/app-views/printers.html" afterPath="$PROJECT_DIR$/asprin/app-views/printers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/asprin/login-view/route-login.js" afterPath="$PROJECT_DIR$/asprin/login-view/route-login.js" />
     </list>
     <ignored path="asprin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,7 +43,7 @@
           <file leaf-file-name="get.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/apiasprin/app/api/get.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
+                <state relative-caret-position="720">
                   <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#17#0" expanded="true" />
@@ -99,7 +97,7 @@
           <file leaf-file-name="post.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/apiasprin/app/api/post.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
+                <state relative-caret-position="525">
                   <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
                   <folding>
                     <element signature="e#0#34#0" expanded="true" />
@@ -307,7 +305,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -494,6 +491,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -681,9 +679,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1726568" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1726568" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.21987315" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -859,7 +857,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apiasprin/app/api/post.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="525">
           <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
@@ -963,7 +961,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apiasprin/app/api/get.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="720">
           <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
