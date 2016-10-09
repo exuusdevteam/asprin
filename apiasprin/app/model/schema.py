@@ -39,6 +39,8 @@ class PrinterSchema(Schema):
     name = fields.Str()
     uri = fields.Str()
     uuid = fields.Str()
+    icon = fields.Str()
+    location = fields.Str()
     regDate = fields.Date()
     business_id = fields.Int()
 
