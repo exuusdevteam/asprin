@@ -13,7 +13,7 @@
 </div>
 <div class="container-fluid asprin-doc" ng-controller="printersCtrl">
    <div class="row new-button">
-	   <div class="pull-left notif" >
+	   <div class="pull-left notif" ng-show="printerNotif">
    			<img ng-src="{{printerIcon}}" style="width:30px;">
 	   		<strong>New printer found!</strong>
 	   		{{ printerName }} <span><a href="" ng-click="addPrinter(printerName, uuid, business_id, printerIcon, printerLocation, uri)">Add</a></span> 
