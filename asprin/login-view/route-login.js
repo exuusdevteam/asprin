@@ -210,11 +210,12 @@ function storeUserAsprin(User,UserType){
 	
 	function renderPrinters($scope, $http, printerObj, serverData){
 		angular.forEach(printerObj, function(value, key){
-			
+			console.log(printerObj);
 			if(!serverData.printers.length){
 				if(!key){
 					$scope.printerIcon = value['printer-icons'];
 					$scope.printerName = value['printer-info'];
+					$scope.uuid = value['printer-uuid'];
 				}
 			}
 		});
@@ -231,7 +232,11 @@ function storeUserAsprin(User,UserType){
 			.error(function(data, status, header, config){
 
 			});
-		}]);
+		
+			$scope.addPrinter =  function(printerName, uuid){
+				alert(printerName + " "+ uuid);
+			}
+	}]);
 
 
 
