@@ -23,10 +23,11 @@ def delete_business(id):
         return jsonify({'Message':'0'})
 
 
-@app.route("/api/delete/printer/<int:id>/", methods=['DELETE'])
+@app.route("/api/v1/printer/<int:id>/", methods=['DELETE'])
 def delete_printer(id):
     try:
-        Printer.query.filter_by(printer_id = id).delete()
+        printer = Printer.query.filter_by(printer_id = id)
+        db.session.delete(printer)
         db.commit()
         return jsonify({'Message':'1'})
     except:
