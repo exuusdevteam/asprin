@@ -38,6 +38,7 @@ class PrinterSchema(Schema):
     printer_id = fields.Int(dump_only = True)
     name = fields.Str()
     uri = fields.Str()
+    uuid = fields.Str()
     regDate = fields.Date()
     business_id = fields.Int()
 
