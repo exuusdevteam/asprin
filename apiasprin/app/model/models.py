@@ -101,7 +101,8 @@ class Printer(db.Model):
 
     printer_id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(80))
-    uri = db.Column(db.String(220), unique = True)
+    uri = db.Column(db.String(220))
+    uuid = db.Column(db.String(150), unique = True)
     regDate = db.Column(db.DateTime)
     business_id = db.Column(db.Integer, db.ForeignKey('business.business_id'))
 
