@@ -210,6 +210,7 @@ function storeUserAsprin(User,UserType){
 	
 	function renderPrinters($scope, $http, printerObj, serverData){
 		printers = Array();
+		$scope.numPrinters = printerObj.length == 1 ? printerObj.length+" Printer":  printerObj.length+ " Printers";
 		angular.forEach(printerObj, function(value, key){
 			//console.log(value['printer-uuid']);
 			if(!serverData.printers.length ){
@@ -287,6 +288,56 @@ function storeUserAsprin(User,UserType){
 			}
 	}]);
 
+
+asprinDeskApp.controller('asprinDocCtrl', ['$scope','$http', function($scope, $http){
+	var data = restoreUserAsprin();
+	var user_id = data[0];
+	var user_type = data[1];
+	
+	user_type == 1 ? asprinDocUser() : asprinDocBusiness();
+	
+	function asprinDocUser(){
+		$scope.thCustomer = false;
+		$scope.trCustomer = false;
+		var url ="http://0.0.0.0:5000/api/v1/printjobs/user/"+user_id;
+		$http.get(url).success(function(data, status, header, config){
+			console.log(data);
+			$scope.asprins = data.PrintJob;
+			$scope.numDoc = data.PrintJob.length == 1 ? data.PrintJob.length+" Document": data.PrintJob.length+" Documents"; 
+		})
+		.error(function(data, status, header, config){
+			console.log(data);
+		});
+	}
+	
+	function asprinDocBusiness(){
+		$scope.thCustomer = true;
+		$scope.trCustomer = true;
+		
+		var url ="http://0.0.0.0:5000/api/v1/printjobs/business/1";
+		$http.get(url).success(function(data, status, header, config){
+			$scope.asprins = data.PrintJob;
+			$scope.numDoc = data.PrintJob.length == 1 ? data.PrintJob.length+" Document": data.PrintJob.length+" Documents"; 
+			console.log(data);
+		})
+		.error(function(data, status, header, config){
+			console.log(data);
+		});
+	}
+	
+	
+	
+	
+	$scope.moreAsprin = function(printer_job_id){
+		alert(printer_job_id);
+	}
+	
+	
+	$scope.loadPdf = function(file){
+		alert(file);
+	}
+	
+}]);
 
 
 
