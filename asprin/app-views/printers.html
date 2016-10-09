@@ -13,10 +13,10 @@
 </div>
 <div class="container-fluid asprin-doc" ng-controller="printersCtrl">
    <div class="row new-button">
-	   <div class="pull-left notif" ng-show="test">
-   			<img src="http://127.0.0.1:631/icons/HP_Color_LaserJet_Pro_MFP_M177fw.png" style="width:30px;">
+	   <div class="pull-left notif" >
+   			<img ng-src="{{printerIcon}}" style="width:30px;">
 	   		<strong>New printer found!</strong>
-	   		HP Color LaserJet Pro MFP M177fw. <span><a>Add</a></span> 
+	   		{{ printerName }} <span><a>Add</a></span> 
 	   </div>
       <div class="pull-right">
          <a href="#/order" class="btn btn-default">New printers</a>
