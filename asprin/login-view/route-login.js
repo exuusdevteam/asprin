@@ -211,7 +211,7 @@ function storeUserAsprin(User,UserType){
 	function renderPrinters($scope, $http, printerObj, serverData){
 		angular.forEach(printerObj, function(value, key){
 			//console.log(value['printer-uuid']);
-			if(!serverData.printers.length){
+			if(!serverData.printers.length ){
 				if(!key){
 					$scope.printerIcon = value['printer-icons'];
 					$scope.printerName = value['printer-info'];
@@ -219,8 +219,9 @@ function storeUserAsprin(User,UserType){
 					$scope.business_id = 1;
 					$scope.printerLocation = value['printer-more-info'];
 					$scope.uri = value['printer-uri-supported'];
+					$scope.printerNotif = true;
 				}
-			}else{
+			}else if(serverData.printers.length < printerObj.length){
 				angular.forEach(serverData.printers, function(v, k){
 					//console.log(v['uuid'] +" : "+ value['printer-uuid']);
 					if(v['uuid'] != value['printer-uuid']){
@@ -230,8 +231,11 @@ function storeUserAsprin(User,UserType){
 						$scope.business_id = 1;
 						$scope.printerLocation = value['printer-more-info'];
 						$scope.uri = value['printer-uri-supported'];
+						$scope.printerNotif = true;
 					}
 				});
+			}else{
+				$scope.printerNotif = false;
 			}
 		});
 	}
@@ -239,14 +243,18 @@ function storeUserAsprin(User,UserType){
 
 
 	asprinDeskApp.controller('printersCtrl',['$scope','$http', function($scope, $http){
-			
-			var url = "http://0.0.0.0:5000/api/v1/printer/business/1";
-			$http.get(url).success(function(data,status, header,config){
-				printerslist($scope, $http, data);
-			})
-			.error(function(data, status, header, config){
+			getPrinters();	
+		
+			function getPrinters(){
+				var url = "http://0.0.0.0:5000/api/v1/printer/business/1";
+				$http.get(url).success(function(data,status, header,config){
+					printerslist($scope, $http, data);
+					console.log(data);
+				})
+				.error(function(data, status, header, config){
 
-			});
+				});
+			}
 		
 			$scope.addPrinter =  function(printerName, uuid, business_id, printerIcon, printerLocation, uri){
 				var data = '{"name":"'+printerName+'","uri":"'+uri+'","uuid":"'+uuid+'", "icon":"'+printerIcon+'","location":"'+printerLocation+'","business_id":"'+business_id+'"}';
@@ -258,7 +266,7 @@ function storeUserAsprin(User,UserType){
 				
 				$http.post("http://0.0.0.0:5000/api/v1/printer/", data, config)
 					.success(function(data, status, header, config){
-					console.log(data);
+					getPrinters();
 				})
 				.error(function(data, status, header, config){
 					console.log(data + status);
