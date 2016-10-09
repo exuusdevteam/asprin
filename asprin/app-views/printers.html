@@ -28,14 +28,14 @@
             <thead>
                <tr>
                   <th>Printer</th>
-                  <th>Number Printed</th>
+                  <th>Color Mode</th>
                   <th>Network Status</th>
                </tr>
             </thead>
             <tbody>
                <tr ng-repeat="printer in printers">
                   <td><img ng-src={{printer.printerIcon}}>{{ printer.printerName}}</td>
-                  <td>12</td>
+                  <td>{{ printer.colorMode}}</td>
                   <td>{{ printer.printerStatus}}</td>
                </tr>
             </tbody>
