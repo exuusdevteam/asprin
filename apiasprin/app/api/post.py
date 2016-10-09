@@ -26,6 +26,7 @@ def post_printer():
     if errors:
         return jsonify(errors), 422
 
+    business_id = data['business_id']
 
     try:
         printer = Printer(
@@ -42,9 +43,9 @@ def post_printer():
         db.session.add(printer)
         db.session.commit()
 
-        last_printer = printer_schema.dump(Printer.query.get(printer.printer_id)).data
+        printers = printer_schema.dump(Printer.query.filter_by(business_id = business_id)).data
 
-        return jsonify({"printer":last_printer})
+        return jsonify({"printers":printers})
 
     except IntegrityError:
         return jsonify({'Message':'Already Added'})
