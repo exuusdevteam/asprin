@@ -209,12 +209,14 @@ function storeUserAsprin(User,UserType){
 
 	
 	function renderPrinters($scope, $http, printerObj, serverData){
-		$scope.test = false;
-		console.log(serverData);
-		console.log(printerObj);
 		angular.forEach(printerObj, function(value, key){
-			console.log(key + " : "+ value['printer-info']);
 			
+			if(!serverData.printers.length){
+				if(!key){
+					$scope.printerIcon = value['printer-icons'];
+					$scope.printerName = value['printer-info'];
+				}
+			}
 		});
 	}
 	
