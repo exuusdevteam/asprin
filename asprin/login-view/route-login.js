@@ -341,7 +341,7 @@ asprinDeskApp.controller('asprinDocCtrl', ['$scope','$http', function($scope, $h
 
 
 
-asprinDeskApp.controller('userInfoCtrl', ['$scope', '$http', function($scope, $http){
+asprinDeskApp.controller('userInfoCtrl', ['$scope','$http', function($scope, $http){
 		var data = restoreUserAsprin();
 	var user_id = data[0];
 	var user_type = data[1];
@@ -393,8 +393,38 @@ asprinDeskApp.controller('userInfoCtrl', ['$scope', '$http', function($scope, $h
 		
 		$http.put(url, data, config).success(function(data,status,header,config){
 			console.log(data);
+			
 		});
 		
+	}
+	
+	
+	
+	$scope.changePassword = function(){
+		var c_password = $scope.c_password;
+		var n_password = $scope.n_password;
+		var co_password = $scope.co_password;
+		
+		alert(n_password +" "+ co_password);
+		
+		if(n_password != co_password){
+			$scope.pMessage = 'New password and confirm password not matching!';
+			$scope.pResponse = true;
+		}else{
+			var data = '{"password":"'+c_password+'","n_password":"'+n_password+'"}';
+			var config = {
+				headers:{
+					'Content-Type':'application/json'
+				}
+			}
+			
+			var url = 'http://0.0.0.0:5000/api/v1/user/password/'+user_id;
+			$http.put(url,data,config).success(function(data, status, header, config){
+				console.log(data);
+			}).error(function(data, status, header, config){
+				console.log(data);
+			});
+		}
 	}
 	
 	
