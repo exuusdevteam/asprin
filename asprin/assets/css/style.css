@@ -266,3 +266,8 @@
 .error-msg{
 	color: #D4186F;
 }
+
+
+.printer-table td{
+	line-height: 52px;
+}
