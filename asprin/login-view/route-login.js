@@ -209,6 +209,7 @@ function storeUserAsprin(User,UserType){
 
 	
 	function renderPrinters($scope, $http, printerObj, serverData){
+		printers = Array();
 		angular.forEach(printerObj, function(value, key){
 			//console.log(value['printer-uuid']);
 			if(!serverData.printers.length ){
@@ -237,7 +238,19 @@ function storeUserAsprin(User,UserType){
 			}else{
 				$scope.printerNotif = false;
 			}
+			
+			
+			printers[key] = printerObject(value['printer-info'], value['printer-icons'], value['printer-state-reasons'], value['print-color-mode-default']);
+			
 		});
+		
+		console.log(printers);
+		$scope.printers = printers;
+	}
+
+
+	function printerObject(name, icon, status, colorMode){
+		return JSON.parse('{"printerName":"'+name+'","printerIcon":"'+icon+'","printerStatus":"'+status+'","colorMode":"'+colorMode+'"}');
 	}
 	
 
