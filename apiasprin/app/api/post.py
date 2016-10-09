@@ -15,7 +15,7 @@ app.config['ALLOWED_EXTENSIONS'] = set(['pdf'])
 
 
 #################### POST PRINTER ##########################################
-@app.route("/api/post/printer/", methods=["POST"])
+@app.route("/api/v1/printer/", methods=["POST"])
 def post_printer():
     json_data = request.get_json()
     if not json_data:
@@ -31,9 +31,12 @@ def post_printer():
         printer = Printer(
             printer_id = None,
             name = data['name'],
+            uri = data['uri'],
+            uuid = data['uuid'],
+            icon = data['icon'],
+            location = data['location'],
             regDate = None,
-            business_id = data['business_id'],
-            uri = data['uri']
+            business_id = data['business_id']
         )
 
         db.session.add(printer)
