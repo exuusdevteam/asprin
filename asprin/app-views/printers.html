@@ -24,7 +24,7 @@
    </div>
    <div class="row">
       <div class="table-responsive doc-table">
-         <table class="table">
+         <table class="table printer-table">
             <thead>
                <tr>
                   <th>Printer</th>
@@ -33,15 +33,10 @@
                </tr>
             </thead>
             <tbody>
-               <tr>
-                  <td><img src="http://127.0.0.1:631/icons/HP_Color_LaserJet_Pro_MFP_M177fw.png" >HP Color LaserJet Pro MFP M177fw</td>
+               <tr ng-repeat="printer in printers">
+                  <td><img ng-src={{printer.printerIcon}}>{{ printer.printerName}}</td>
                   <td>12</td>
-                  <td></td>
-               </tr>
-               <tr>
-                  <td><img src="http://127.0.0.1:631/icons/HP_LaserJet_P2015_Series.png" >HP Color LaserJet Pro MFP M177fw</td>
-                  <td></td>
-                  <td></td>
+                  <td>{{ printer.printerStatus}}</td>
                </tr>
             </tbody>
          </table>
