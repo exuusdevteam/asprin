@@ -210,7 +210,7 @@ function storeUserAsprin(User,UserType){
 	
 	function renderPrinters($scope, $http, printerObj, serverData){
 		angular.forEach(printerObj, function(value, key){
-			console.log(printerObj);
+			//console.log(value['printer-uuid']);
 			if(!serverData.printers.length){
 				if(!key){
 					$scope.printerIcon = value['printer-icons'];
@@ -220,6 +220,18 @@ function storeUserAsprin(User,UserType){
 					$scope.printerLocation = value['printer-more-info'];
 					$scope.uri = value['printer-uri-supported'];
 				}
+			}else{
+				angular.forEach(serverData.printers, function(v, k){
+					//console.log(v['uuid'] +" : "+ value['printer-uuid']);
+					if(v['uuid'] != value['printer-uuid']){
+						$scope.printerIcon = value['printer-icons'];
+						$scope.printerName = value['printer-info'];
+						$scope.uuid = value['printer-uuid'];
+						$scope.business_id = 1;
+						$scope.printerLocation = value['printer-more-info'];
+						$scope.uri = value['printer-uri-supported'];
+					}
+				});
 			}
 		});
 	}
