@@ -240,7 +240,7 @@ function storeUserAsprin(User,UserType){
 			}
 			
 			
-			printers[key] = printerObject(value['printer-info'], value['printer-icons'], value['printer-state-reasons'], value['print-color-mode-default']);
+			printers[key] = printerObject(value['printer-info'], value['printer-icons'], value['printer-state-reasons'], value['color-supported']);
 			
 		});
 		
@@ -249,8 +249,8 @@ function storeUserAsprin(User,UserType){
 	}
 
 
-	function printerObject(name, icon, status, colorMode){
-		return JSON.parse('{"printerName":"'+name+'","printerIcon":"'+icon+'","printerStatus":"'+status+'","colorMode":"'+colorMode+'"}');
+	function printerObject(name, icon, status, color){
+		return JSON.parse('{"printerName":"'+name+'","printerIcon":"'+icon+'","printerStatus":"'+status+'","colorMode":"'+color+'"}');
 	}
 	
 
