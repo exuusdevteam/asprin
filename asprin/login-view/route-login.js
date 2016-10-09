@@ -341,6 +341,66 @@ asprinDeskApp.controller('asprinDocCtrl', ['$scope','$http', function($scope, $h
 
 
 
+asprinDeskApp.controller('userInfoCtrl', ['$scope', '$http', function($scope, $http){
+		var data = restoreUserAsprin();
+	var user_id = data[0];
+	var user_type = data[1];
+	
+	var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+	$scope.months = months;
+	$scope.genders = ['Gender','M','F'];
+	$scope.gender = 'Gender';
+	$scope.year = 1900; 
+	$scope.day = 1;
+	$scope.month = 'Jan'
+	
+	
+	var url = "http://0.0.0.0:5000/api/v1/user/"+user_id;
+	
+	$http.get(url).success(function(data, status, header, config){
+		console.log(data);
+		$scope.names = data.user.names;
+		$scope.username = data.user.username;
+		if(data.user.gender != 'null' || data.user.gender != null){
+			$scope.gender = data.user.gender;
+		}
+		if(data.user.dob != null){
+			$scope.day = parseInt(data.user.dob[0].day);
+			$scope.month = data.user.dob[0].month;
+			$scope.year = parseInt(data.user.dob[0].year);
+		}
+		if(data.user.job_title !=null || data.user.job_title != 'undefined'){
+			$scope.job_title = data.user.job_title;
+		}
+	});
+	
+	
+	$scope.updateInfo = function(){
+		var gender = $scope.gender == 'Gender'? null:$scope.gender;
+		var dob = $scope.year+'-'+$scope.month+'-'+$scope.day;
+		
+		console.log($scope.job_title);
+		
+		var data = '{"names":"'+$scope.names+'","username":"'+$scope.username+'","gender":"'+gender+'","dob":"'+dob+'","job_title":"'+$scope.job_title+'"}';
+		
+		var config = {
+			headers:{
+				'Content-Type':'application/json'
+			}
+		}
+		
+		var url = "http://0.0.0.0:5000/api/v1/user/"+user_id+"/";
+		
+		$http.put(url, data, config).success(function(data,status,header,config){
+			console.log(data);
+		});
+		
+	}
+	
+	
+}]);
+
+
 
 
  
