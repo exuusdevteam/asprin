@@ -182,7 +182,7 @@ function storeUserAsprin(User,UserType){
 
 
 
-	function printerslist($scope){
+	function printerslist($scope,$http){
 		var ipp = require('./node_modules/ipp');
 		ipp.operations['CUPS-Get-Printers'] = 0x4002;
 		var uri = "http://127.0.0.1:631/printers";
@@ -200,13 +200,19 @@ function storeUserAsprin(User,UserType){
 			}
 			res = JSON.stringify(res,null,2);
 			var parsePrinter = JSON.parse(res);
-			console.log(parsePrinter['printer-attributes-tag']);
-			$scope.test = false;
+			//console.log(parsePrinter['printer-attributes-tag']);
+			//alert(parsePrinter['printer-attributes-tag']);
+			
+			renderPrinters($scope,$http,parsePrinter['printer-attributes-tag']);
 		});
 	}
 
 	
-
+	function renderPrinters($scope, $http, printerObj){
+		$scope.test = false;
+		alert(printerObj);
+		console.log(printerObj);
+	}
 	
 
 
@@ -214,7 +220,7 @@ function storeUserAsprin(User,UserType){
 			
 			var url = "http://0.0.0.0:5000/api/v1/printer/business/1";
 			$http.get(url).success(function(data,status, header,config){
-				printerslist($scope);
+				printerslist($scope, $http);
 			})
 			.error(function(data, status, header, config){
 
