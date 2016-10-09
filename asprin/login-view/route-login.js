@@ -217,6 +217,8 @@ function storeUserAsprin(User,UserType){
 					$scope.printerName = value['printer-info'];
 					$scope.uuid = value['printer-uuid'];
 					$scope.business_id = 1;
+					$scope.printerLocation = value['printer-more-info'];
+					$scope.uri = value['printer-uri-supported'];
 				}
 			}
 		});
@@ -234,8 +236,21 @@ function storeUserAsprin(User,UserType){
 
 			});
 		
-			$scope.addPrinter =  function(printerName, uuid, business_id){
+			$scope.addPrinter =  function(printerName, uuid, business_id, printerIcon, printerLocation, uri){
+				var data = '{"name":"'+printerName+'","uri":"'+uri+'","uuid":"'+uuid+'", "icon":"'+printerIcon+'","location":"'+printerLocation+'","business_id":"'+business_id+'"}';
+				var config = {
+					headers:{
+						'Content-Type':'application/json'
+					}
+				}
 				
+				$http.post("http://0.0.0.0:5000/api/v1/printer/", data, config)
+					.success(function(data, status, header, config){
+					console.log(data);
+				})
+				.error(function(data, status, header, config){
+					console.log(data + status);
+				});
 			}
 	}]);
 
