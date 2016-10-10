@@ -2,7 +2,7 @@
 		  <div class="magenta-line"></div>
 	  </nav>
 
-  	<div class="container-fluid login-view">
+  	<div class="container-fluid login-view" ng-controller="singnup">
 	  	<div class="row">
 	  		<div class="col-sm-5 col-md-4 col-lg-3 col-centered">
 	  			<div class="logo">
@@ -11,18 +11,23 @@
 				<div>
 					<h1>Sign up</h1>
 					<div class="form">
-						<form class="form-horizontal">
+						<form class="form-horizontal" role="form" name="singnup_">
 							<div class="form-group">
-								<input type="text" class="form-control input-lg" placeholder="Your name">
+								<input type="text" class="form-control input-lg" id="name" placeholder="Your name" ng-model="names" required>
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control input-lg" placeholder="Email">
+								<input type="email" class="form-control input-lg" id="email" placeholder="Enter email" ng-model="email" required>
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control input-lg" placeholder="Password">
+								<input type="password" class="form-control input-lg" id="pwd" placeholder="Enter password" ng-model="password" required>
 							</div>
+							
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary col-md-12 col-sm-12">Sign up</button>
+					  <p class="text-center error-msg"> {{ singupResponse }}</p>
+				  </div>
+							
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary col-md-12 col-sm-12" ng-click="signupFunc(names,email, password)" ng-disabled="!singnup_.$valid">Sign up</button>
 							</div>
 							<div class="text-center">
 								<p>Already have an Asprin account? <a href="#/singin">Sign in.</a></p>
