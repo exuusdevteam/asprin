@@ -431,6 +431,30 @@ asprinDeskApp.controller('userInfoCtrl', ['$scope','$http', function($scope, $ht
 }]);
 
 
+asprinDeskApp.controller('singnup', ['$scope','$http','$location', function($scope, $http, $location){
+	$scope.signupFunc = function(fullname,email,password){
+		var data = '{"names":"'+fullname+'", "email":"'+email+'", "password":"'+password+'"}';
+		
+		var config = {
+			headers:{
+				'Content-Type':'application/json'
+			}
+		}
+		
+		alert(data);
+		
+		$http.post('http://0.0.0.0:5000/api/v1/user/', data, config)
+		.success(function(data, status, header, config){
+			if(data.auth){
+				$location.path('/');
+			}else{
+				$scope.singupResponse = data.message;
+			}
+		});
+	}
+}]);
+
+
 
 
  
