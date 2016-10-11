@@ -559,6 +559,7 @@ asprinDeskApp.controller('organisationCtrl', ['$scope','$http','$location', func
 			$scope.organisation = data.Business.name;
 			$scope.business_id = business_id;
 			$scope.showOrg = true;
+			$scope.newOrg = true;
 		});
 	}
 	
