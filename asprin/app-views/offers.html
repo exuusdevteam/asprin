@@ -1,0 +1,51 @@
+<div ng-include="'app-views/ng-include/menu.html'"></div>
+<section class="main">
+	<div class="panel panel-default">
+  <div class="panel-body">
+  	  <div class="pull-left">
+  	  	<h4>Offers</h4>
+	  	<p>Order now!</p>
+	  </div>
+	  <div class="pull-right">
+		  <div ng-include="'app-views/ng-include/action.htm'"></div>
+	  </div>
+  </div>
+</div>
+
+
+<div class="container-fluid" ng-controller="appPriceCtrl">
+	<div class="row">
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-6 col-centered order">
+			<h1 class="text-center">{{filename}}</h1>
+			<div class="row">
+				<table class="table app-table">
+                  <tr>
+                     <td>Number Of Pages</td>
+                     <td ng-bind="page">370</td>
+                  </tr>
+                  <tr>
+                     <td>Number of copies</td>
+                     <td>1</td>
+                  </tr>
+                  <tr>
+                     <td>Paper size</td>
+                     <td>A4</td>
+                  </tr>
+                  <tr>
+                     <td>Print Price</td>
+                     <td ng-bind="price"></td>
+                  </tr>
+                  <!--<tr>
+                     <td>Paper type</td>
+                     <td>Hard</td>
+                     </tr>-->
+               </table>
+ 			    <div class="form-group">
+					<button class="btn btn-default" ng-click="appOrder()">Order</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+ 
