@@ -28,6 +28,9 @@ asprinDeskApp.config(['$routeProvider', function($routeProvider){
 		})
 		.when('/app/settings', {
 			templateUrl:'app-views/settings.html'
+		})
+		.when('/app/offers', {
+			templateUrl:'app-views/offers.html'
 		});
 }]);
  
@@ -471,7 +474,7 @@ asprinDeskApp.controller('pdfUploadAppCtrl',['$scope', 'Upload','$timeout', '$lo
 
 				if(saveAsrpin){
 					$scope.load_spin = false;
-					$location.path('/app/asprindoc');
+					$location.path('/app/offers');
 				}
 
 
@@ -491,4 +494,46 @@ asprinDeskApp.controller('pdfUploadAppCtrl',['$scope', 'Upload','$timeout', '$lo
 }]);
 
 
+
+asprinDeskApp.controller('appPriceCtrl', ['$scope','$http','$location', function($scope,$http,$location){
+	var asprinPrice = restoreAsprin();
+	var data = restoreUserAsprin();
+	var user_id = data[0];
+	var user_type = data[1];
+	$scope.filename = asprinPrice.filename;
+	$scope.page = asprinPrice.page;
+	$scope.price = asprinPrice.sumPDF;
+	$scope.size = asprinPrice.size;
+	$scope.time = asprinPrice.time;
+	
+	$scope.appOrder = function(){
+		postApsinData(user_id, $http, $location);
+	}
+	
+	
+	
+}]);
+
+
+function postApsinData(user_id, $http, $location){
+		var data = restoreAsprin();
+		var json = '{"file":"'+data.path+'", "filename":"'+data.filename+'","size":"'+data.size+'","exec_time":"'+data.time+'","cyan":"'+data.cyan+'", "magenta":"'+data.magenta+'","yellow":"'+data.yellow+'","black":"'+data.black+'","price":"'+data.sumPDF+'","tonner_cost":"'+data.sumtonner+'","page":"'+data.page+'","user_id":"'+user_id+'","business_id":"1"}';
+		
+		var config = {
+			headers:{
+				'Content-Type':'application/json'
+			}
+		}
+		//console.log(json);
+		$http.post('http://0.0.0.0:5000/api/v1/printjob/', json, config)
+		.success(function(data, status, header, config){
+			if(status == 200){
+				var removeAsprin = destroyAsprin();
+				$location.path('/app/asprindoc');
+			}
+		})
+		.error(function(data, status, header, config){
+			console.log(status);
+		});
+	}
  
