@@ -1,4 +1,4 @@
-var asprinDeskApp = angular.module("asprinLoginApp",['ngRoute']);
+var asprinDeskApp = angular.module("asprinLoginApp",['ngRoute','ngFileUpload']);
 
 asprinDeskApp.config(['$routeProvider', function($routeProvider){
 	$routeProvider
@@ -455,6 +455,40 @@ asprinDeskApp.controller('singnup', ['$scope','$http','$location', function($sco
 }]);
 
 
+asprinDeskApp.controller('pdfUploadAppCtrl',['$scope', 'Upload','$timeout', '$location', function($scope, Upload, $timeout, $location){
+	$scope.load_spin = false;
+	$scope.uploadPic = function(file) {
+		file.upload = Upload.upload({
+			url: 'http://0.0.0.0:5000/api/upload/pdf/',
+			data: {file: file},
+		});
+
+		file.upload.then(function (response) {
+			$timeout(function () {
+				var Asprin = response.data;
+				file.result = Asprin;
+				var saveAsrpin = storeAsprin(Asprin.asprin);
+
+				if(saveAsrpin){
+					$scope.load_spin = false;
+					$location.path('/app/asprindoc');
+				}
+
+
+
+			});
+		}, function (response) {
+			if (response.status > 0)
+				$scope.errorMsg = response.status + ': ' + response.data;
+		}, function (evt) {
+				// Math.min is to fix IE which reports 200% sometimes
+				file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+				if(file.progress == 100){
+					$scope.load_spin = true;
+				}
+			});
+		}
+}]);
 
 
  
