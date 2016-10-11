@@ -287,3 +287,14 @@
 .organisation a{
 	font-size: 16px !important;
 }
+
+
+.dropdown-org{
+	width: 219px;
+}
+
+.dropdown-org .newOrgForm{
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
