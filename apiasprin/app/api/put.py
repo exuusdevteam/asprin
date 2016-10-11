@@ -32,6 +32,25 @@ def put_user(id):
         return jsonify({'Message':'0'})
 
 
+@app.route("/api/v1/user/type/<int:id>", methods=["PUT"])
+def put_userType(id):
+    json_data = request.get_json()
+    if not json_data:
+        return jsonify({'message':'No input data provided'})
+    user_type = json_data['user_type']
+
+    try:
+        user = User.query.filter_by(user_id = id).first()
+        user.user_type = user_type
+
+        db.session.commit()
+
+        return jsonify({'Message' : '1'})
+    except:
+        return jsonify({'Message' : 'user not found'}),404
+
+
+
 @app.route("/api/v1/user/password/<int:id>", methods=["PUT"])
 def put_password(id):
     json_data = request.get_json()
