@@ -283,3 +283,7 @@
 	padding-left: 15px;
 	padding-right: 15px;
 }
+
+.organisation a{
+	font-size: 16px !important;
+}
