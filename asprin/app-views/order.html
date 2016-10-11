@@ -18,14 +18,25 @@
 		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-6 col-centered text-center order">
 			<h1>SCAN PDF WITH ASPRIN</h1>
 			<div class="row">
-				<form>
+				<form name="uploadApp" ng-controller="pdfUploadAppCtrl">
 					<div class="form-group input-file">
-						<input type="file">
+						<input type="file" name="filename-asprin"  type="file" ngf-select ng-model="picFile" name="file"    
+                        accept="" ng-drop ngf-max-size="30MB" required
+                        ngf-model-invalid="errorFile" 
+                        accept="application/pdf">
 					</div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-default">
+						<button type="submit" class="btn btn-default" ng-disabled="!uploadApp.$valid" 
+                        ng-click="uploadPic(picFile)">
 							SCAN
 						</button>
+						<span class="progress" ng-show="picFile.progress >= 0">
+                        <div style="width:{{picFile.progress}}%" 
+                           ng-bind="picFile.progress + '%'"></div>
+                     </span>
+                     <span ng-show="load_spin">ASPRIN SCANNING FILE PIXELS WAIT A MOMENT...</span>
+                     <span ng-show="picFile.result">Upload Successful</span>
+                     <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
 					</div>
 				</form>
 			</div>
