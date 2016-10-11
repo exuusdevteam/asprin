@@ -557,12 +557,18 @@ asprinDeskApp.controller('organisationCtrl', ['$scope','$http','$location', func
 		var url = "http://0.0.0.0:5000/api/v1/business/"+business_id;
 		$http.get(url).success(function(data, status, header, config){
 			$scope.organisation = data.Business.name;
+			$scope.business_id = business_id;
 			$scope.showOrg = true;
 		});
 	}
 	
+	$scope.orgFunc = function(business_id){
+		alert(business_id);
+	}
 	
-	
+	$scope.newOrgFunc = function(orgName){
+		alert(orgName);
+	}
 	
 }]);
  
