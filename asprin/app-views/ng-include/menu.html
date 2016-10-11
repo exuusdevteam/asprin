@@ -22,10 +22,15 @@
                <p ng-bind="joined"></p>
             </div>
             
-            <div class="row bussiness nav-menu" ng-controller="addOrganisationCtrl">
+            <div class="row bussiness nav-menu" ng-controller="organisationCtrl">
             	<hr>
 				<ul class="nav nav-pills nav-stacked">
-					<li><a href="">Organization <i class="glyphicon glyphicon-plus-sign" style="padding-left:80px;"></i></a></li>
+					<li ng-show="showOrg" class="organisation">
+						<a href="">{{ organisation }}</a>
+					</li>
+					<li ng-show="newOrg">
+						<a href="">Organization <i class="glyphicon glyphicon-plus-sign" style="padding-left:80px;"></i></a>
+					</li>
 				</ul>
 			 </div>
             <footer class="footer">
