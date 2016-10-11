@@ -298,3 +298,7 @@
 	margin-top: 10px;
 	margin-right: 10px;
 }
+
+.dropdown-org .btn-pending{
+	margin-bottom: 5px !important;
+}
