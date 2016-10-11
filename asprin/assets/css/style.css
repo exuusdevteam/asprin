@@ -271,3 +271,9 @@
 .printer-table td{
 	line-height: 52px;
 }
+
+.app-table>tbody>tr>td {
+    color: #3e474f !important;
+    font-size: 13px;
+    border-top: 1px solid #edeff0;
+}
