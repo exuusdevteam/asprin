@@ -345,7 +345,7 @@ asprinDeskApp.controller('asprinDocCtrl', ['$scope','$http', function($scope, $h
 
 
 asprinDeskApp.controller('userInfoCtrl', ['$scope','$http', function($scope, $http){
-		var data = restoreUserAsprin();
+	var data = restoreUserAsprin();
 	var user_id = data[0];
 	var user_type = data[1];
 	
@@ -546,12 +546,17 @@ asprinDeskApp.controller('organisationCtrl', ['$scope','$http','$location', func
 	
 	$scope.showOrg = false;
 	$scope.newOrg = false;
-
-	var url ="http://0.0.0.0:5000/api/v1/user/"+user_id;
-	$http.get(url).success(function(data, status, header, config){
-		var business_id = data.user.business_id;
-		data.user.user_type == 0 ? ShowUserOrganisation(business_id) : $scope.newOrg = true;
-	});
+	
+	checkUserType();
+	
+	function checkUserType(){
+		var url ="http://0.0.0.0:5000/api/v1/user/"+user_id;
+		$http.get(url).success(function(data, status, header, config){
+			var business_id = data.user.business_id;
+			data.user.user_type == 0 ? ShowUserOrganisation(business_id) : $scope.newOrg = true;
+		});
+	}
+	
 	
 	function ShowUserOrganisation(business_id){
 		var url = "http://0.0.0.0:5000/api/v1/business/"+business_id;
@@ -559,7 +564,7 @@ asprinDeskApp.controller('organisationCtrl', ['$scope','$http','$location', func
 			$scope.organisation = data.Business.name;
 			$scope.business_id = business_id;
 			$scope.showOrg = true;
-			$scope.newOrg = true;
+			$scope.newOrg = false;
 		});
 	}
 	
@@ -569,6 +574,22 @@ asprinDeskApp.controller('organisationCtrl', ['$scope','$http','$location', func
 	
 	$scope.newOrgFunc = function(orgName){
 		alert(orgName);
+		var data = '{"name":"'+orgName+'"}';
+		var config = {
+			headers:{
+				'Content-Type':'application/json'
+			}
+		}
+		
+		var url ="http://0.0.0.0:5000/api/v1/business/"+user_id;
+		$http.post(url, data, config)
+		.success(function(data, status, header, config){
+			console.log(data);	
+		})
+		.error(function(data, status, header, config){
+			console.log(data);
+		});
+		
 	}
 	
 }]);
