@@ -13,7 +13,7 @@ def delete_user(id):
     except:
         return jsonify({'Message':'0'})
 
-@app.route("/api/delete/business/<int:id>/", methods=["DELETE"])
+@app.route("/api/v1/business/<int:id>/", methods=["DELETE"])
 def delete_business(id):
     try:
         Business.query.filter_by(business_id = id).delete()
