@@ -94,8 +94,8 @@ def post_user():
 
 
  ############################# POST BUSINESS ###################################
-@app.route("/api/v1/business/", methods=["POST"])
-def post_business():
+@app.route("/api/v1/business/<int:id>", methods=["POST"])
+def post_business(id):
     json_data = request.get_json()
     if not json_data:
         return jsonify({'message':'No input data provided'}), 400
@@ -121,6 +121,14 @@ def post_business():
 
         db.session.add(business)
         db.session.commit()
+
+        user = User.query.filter_by(user_id = id).first()
+        user.business_id = business.business_id
+        user.user_type = 0
+
+        db.session.commit()
+
+
 
         last_business = business_schema.dump(Business.query.get(business.business_id)).data
         return jsonify({'business':last_business})
