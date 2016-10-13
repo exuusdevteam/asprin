@@ -25,7 +25,11 @@
          <hr>
          <ul class="nav nav-pills nav-stacked">
             <li ng-show="showOrg" class="organisation">
-               <a href="" ng-click="orgFunc(business_id)">{{ organisation }}</a>
+               <a href="" ng-click="orgFunc(business_id)">{{ organisation }}
+               </a>
+               	<ul class="nav nav-pills nav-statcked nav-nested">
+					<li><a href="">Create team  <i class="glyphicon glyphicon-plus-sign" style="padding-left:50px;"></i></a></li>
+				</ul>
             </li>
             <li ng-show="newOrg" class="dropdown">
                <a data-toggle="dropdown" >Organization <i class="glyphicon glyphicon-plus-sign" style="padding-left:80px;"></i></a>
