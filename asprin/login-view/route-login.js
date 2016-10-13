@@ -592,8 +592,8 @@ asprinDeskApp.controller('organisationCtrl', ['$scope','$http','$location', func
 		
 	}
 	
-	$scope.createTeam = function(){
-		alert("create team");
+	$scope.createTeam = function(names, email){
+		alert(names +" "+ email);
 	}
 	
 }]);
