@@ -28,7 +28,23 @@
                <a href="" ng-click="orgFunc(business_id)">{{ organisation }}
                </a>
                	<ul class="nav nav-pills nav-statcked nav-nested">
-					<li><a href="" ng-click="createTeam()">Create team  <i class="glyphicon glyphicon-plus-sign" style="padding-left:50px;"></i></a></li>
+					<li><a data-toggle="dropdown" href="" >Create team  <i class="glyphicon glyphicon-plus-sign" style="padding-left:50px;"></i></a>
+					<ul class="dropdown-menu dropdown-org" role="menu" aria-labelledby="dLabel">
+				   <form name="newOrgForm" class="newTeam">
+				   		<div class="form-group">
+				   			<input type="text" class="form-control input-sm" placeholder="Names" ng-model="names" required>
+					   </div>
+					   <div class="form-group">
+				   			<input type="text" class="form-control input-sm" placeholder="Email" ng-model="email" required>
+					   </div>
+					   
+					   <div class="form-group btn-pending">
+						   <button class="btn btn-primary btn-sm" ng-disabled="!newTeam.$valid" ng-click="createTeam(names, email)">Send Invitation</button>
+					   </div>
+					   
+				   </form>
+               </ul>
+					</li>
 				</ul>
             </li>
             <li ng-show="newOrg" class="dropdown">
