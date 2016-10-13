@@ -93,6 +93,19 @@ def post_user():
  ##########################################################################
 
 
+@app.route("/api/v1/user/business/<int:id>")
+def post_businessUser(id):
+    json_data = get_json()
+    if not  json_data:
+        return jsonify({'message':'No input data provided'}), 400
+
+    data, errors = user_schema.load(json_data)
+
+    if errors:
+        return jsonify(errors),422
+    '''username = ge'''
+
+
  ############################# POST BUSINESS ###################################
 @app.route("/api/v1/business/<int:id>", methods=["POST"])
 def post_business(id):
